@@ -9,7 +9,10 @@ namespace seozillabackend.Models
 {
     public class user
     {
+      
+        [Display(Name = "First Name")]
         public string firstname { get; set; }
+       
         public string lastname { get; set; }         
         public int ID { get; set; }
         public string email { get; set; }

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<seozillabackend.Models.blog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.order.orderno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.daordered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wordcount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anchortext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.targeturl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posttitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postplacement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.da)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.order.orderno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.daordered)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wordcount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.anchortext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.targeturl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.posttitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postplacement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.da)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<seozillabackend.Models.order>
+
+@{
+    ViewBag.Title = " Current Orders";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml"; 
+}
+
+
+
+
+<div class="content-page">
+
+    <div class="content">
+        <div class="container">
+
+
+            <div class="row">
+
+
+                <div class="col-lg-12">
+
+
+                    <div class="card-box">
+
+                        <h4>Current Orders:</h4>
+
+
+
+                    </div>
+                    <div class="card-box">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead >
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.user.firstname)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.orderno)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.service)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.orderdate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.duedate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.status)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.comment)
+                                        </th>
+                                        @*
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.tags)
+                                            </th>*@
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="invoices-result">
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.user.firstname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.orderno)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.service)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.orderdate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.duedate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.status)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.comment)
+                                            </td>
+
+
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+   
+
+

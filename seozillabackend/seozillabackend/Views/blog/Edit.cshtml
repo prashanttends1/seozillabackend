@@ -1,0 +1,138 @@
+﻿@model seozillabackend.Models.blog
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>blog</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.orderdate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.orderdate)
+                @Html.ValidationMessageFor(model => model.orderdate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.duedate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.duedate)
+                @Html.ValidationMessageFor(model => model.duedate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.status)
+                @Html.ValidationMessageFor(model => model.status)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comment)
+                @Html.ValidationMessageFor(model => model.comment)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tags, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tags)
+                @Html.ValidationMessageFor(model => model.tags)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.userID, "userID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("userID", String.Empty)
+                @Html.ValidationMessageFor(model => model.userID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.daordered, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.daordered)
+                @Html.ValidationMessageFor(model => model.daordered)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wordcount, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wordcount)
+                @Html.ValidationMessageFor(model => model.wordcount)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.anchortext, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.anchortext)
+                @Html.ValidationMessageFor(model => model.anchortext)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.targeturl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.targeturl)
+                @Html.ValidationMessageFor(model => model.targeturl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.posttitle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.posttitle)
+                @Html.ValidationMessageFor(model => model.posttitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.postplacement, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.postplacement)
+                @Html.ValidationMessageFor(model => model.postplacement)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.da, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.da)
+                @Html.ValidationMessageFor(model => model.da)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

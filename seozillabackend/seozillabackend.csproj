@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\blogsController.cs" />
+    <Compile Include="Controllers\citationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ordersController.cs" />
     <Compile Include="Controllers\userController.cs" />
@@ -242,6 +243,11 @@
     <Content Include="Views\blogs\Index.cshtml" />
     <Content Include="Views\Shared\_blogdetailstable.cshtml" />
     <Content Include="Views\Shared\_citationdetailstable.cshtml" />
+    <Content Include="Views\citations\Create.cshtml" />
+    <Content Include="Views\citations\Delete.cshtml" />
+    <Content Include="Views\citations\Details.cshtml" />
+    <Content Include="Views\citations\Edit.cshtml" />
+    <Content Include="Views\citations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,98 @@
+﻿@model seozillabackend.Models.citation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>citation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order.orderno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.orderno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.businessname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.businessname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.websiteurl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.websiteurl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.businessdescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.businessdescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.keywords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keywords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.founder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.founder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

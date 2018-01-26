@@ -25,7 +25,7 @@ namespace seozillabackend.Models
         public wordcount wordcount { get; set; }
          [Display(Name = "Anchor Text")]
         public string anchortext { get; set; }
-         [Display(Name = "Target Url")]
+        
         public string targeturl { get; set; }
          [Display(Name = "Post Title")]
         public string posttitle { get; set; }

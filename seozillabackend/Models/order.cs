@@ -24,7 +24,7 @@ namespace seozillabackend.Models
           [DataType(DataType.Date)]
         public DateTime orderdate { get; set; }
           [Display(Name = "Due Date")]
-          
+          [DataType(DataType.Date)]
         public DateTime? duedate { get; set; }
           [Display(Name = "Status")]
         public status status { get; set; }

@@ -168,6 +168,7 @@
     <Compile Include="Controllers\userController.cs" />
     <Compile Include="DAL\usercontext.cs" />
     <Compile Include="DAL\userinitializer.cs" />
+    <Compile Include="Extensions\enumextrension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

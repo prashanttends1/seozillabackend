@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<seozillabackend.Models.order>
+@using seozillabackend.Extensions;
 
 @{
     ViewBag.Title = " Current Orders";
@@ -48,7 +49,7 @@
                                             @Html.DisplayNameFor(model => model.duedate)
                                         </th>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.status)
+                                            @Html.DisplayNameFor(model => model.status)                                            
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.comment)
@@ -80,8 +81,8 @@
                                                 @Html.DisplayFor(modelItem => item.duedate)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.status)
-                                            </td>
+                                                @*@Html.DisplayFor(modelItem => item.status.DisplayName())*@   
+                                            @item.status.DisplayName()                                                                                         </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.comment)
                                             </td>

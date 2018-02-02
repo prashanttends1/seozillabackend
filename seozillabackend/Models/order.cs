@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,18 @@ namespace seozillabackend.Models
    
     public enum status
     {
-        awaiting_payment, payment_done, task_in_progress, task_completed
+        [Description("Awaiting Payment")]
+        awaiting_payment,
+        [Description("Payment Done")]
+        payment_done,
+        [Description("Task In Progress")]
+        task_in_progress,
+        [Description("Task Completed")]
+        task_completed,
+        [Description("Cancelled")]
+        cancelled,
+        [Description("Archived")]
+        archived
     }
 
     public class order

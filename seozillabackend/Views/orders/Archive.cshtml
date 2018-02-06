@@ -1,0 +1,121 @@
+﻿@model seozillabackend.Models.order
+
+@{
+    ViewBag.Title = "Archive Order";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+
+
+
+<div class="content-page">
+
+    <div class="content">
+        <div class="container">
+
+
+            <div class="row">
+
+
+                <div class="col-lg-12">
+
+
+                    <div class="card-box">
+
+                        <h4>Are you sure you want to archive this order?</h4>
+
+
+
+                    </div>
+                    <div class="card-box">
+                        <div class="table-responsive">
+                            <table class="table">
+
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.user.firstname)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.user.firstname)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.orderno)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.orderno)
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.service)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.service)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.orderdate)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.orderdate)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.duedate)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.duedate)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.status)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.status)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.comment)
+                                    </th>
+
+                                    <td>
+                                        @Html.DisplayFor(model => model.comment)
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Archive" class="btn btn-default" /> |
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+

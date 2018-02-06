@@ -30,7 +30,7 @@ namespace seozillabackend.Models
         public int ID { get; set; }
         [Display(Name = "Order No")]
         public string orderno { get; set; }
-        [Display(Name = "Services")]
+        [Display(Name = "Service")]
         public string service { get; set; }
           [Display(Name = "Order Date")]
           [DataType(DataType.Date)]

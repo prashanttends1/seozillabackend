@@ -16,7 +16,8 @@
                     <th>Post Placement</th>
                     <th>DA</th>
                     <th>Status</th>
-                    <th></th>
+                    @*<th></th>*@
+                    @Html.Action("get_edit_button_col", "orders", new { id= Model.ID})
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +37,8 @@
                     <td>@*@Html.DisplayFor(item => Model.status)*@
                         @Model.status.DisplayName()
                     </td>
-                    <td>@Html.ActionLink("Edit", "Edit", "blogs", new { id = itemblog.ID }, null)</td>
+                    @*<td>@Html.ActionLink("Edit", "Edit", "blogs", new { id = itemblog.order.service }, null)</td>*@
+                    @Html.Action("get_edit_button", "orders", new { id=itemblog.orderID})                   
                    
                     @*<td><a class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically.">@Html.DisplayFor(item=>Model.status)</a></td>*@
 </tr>

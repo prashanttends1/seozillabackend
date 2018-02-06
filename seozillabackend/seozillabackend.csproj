@@ -249,6 +249,12 @@
     <Content Include="Views\citations\Details.cshtml" />
     <Content Include="Views\citations\Edit.cshtml" />
     <Content Include="Views\citations\Index.cshtml" />
+    <Content Include="Views\orders\Cancel.cshtml" />
+    <Content Include="Views\orders\Cancelled.cshtml" />
+    <Content Include="Views\orders\Archive.cshtml" />
+    <Content Include="Views\orders\Archived.cshtml" />
+    <Content Include="Views\Shared\_get_edit_button_col.cshtml" />
+    <Content Include="Views\Shared\_get_edit_button.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

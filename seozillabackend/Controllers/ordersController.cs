@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,10 +16,23 @@ namespace seozillabackend.Controllers
     {
         private usercontext db = new usercontext();
 
-        // GET: orders
+        // GET: current orders
         public ActionResult Index()
         {
-            var orders = db.orders.Include(o => o.user);
+            var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+            return View(orders.ToList());
+        }
+
+        // GET: cancelled orders
+        public ActionResult Cancelled()
+        {
+            var orders = db.orders.Include(o => o.user).Where(o=>o.status==status.cancelled);
+            return View(orders.ToList());
+        }
+        // GET: archived orders
+        public ActionResult Archived()
+        {
+            var orders = db.orders.Include(o => o.user).Where(o => o.status == status.archived);
             return View(orders.ToList());
         }
 
@@ -123,7 +137,61 @@ namespace seozillabackend.Controllers
             return RedirectToAction("Index");
         }
 
-        [ChildActionOnly]
+        // GET: orders/Cancel/5
+        public ActionResult Cancel(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            order order = db.orders.Find(id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+            return View(order);
+        }
+
+        // POST: orders/Cancel/5
+        [HttpPost, ActionName("Cancel")]
+        [ValidateAntiForgeryToken]
+        public ActionResult CancelConfirmed(int id)
+        {
+            order order = db.orders.Find(id);
+            order.status = status.cancelled;
+            db.orders.AddOrUpdate(o=>o.ID, order);
+            db.SaveChanges();
+            return RedirectToAction("Cancelled");
+        }
+
+        // GET: orders/Cancel/5
+        public ActionResult Archive(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            order order = db.orders.Find(id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+            return View(order);
+        }
+
+        // POST: orders/Cancel/5
+        [HttpPost, ActionName("Archived")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ArchiveConfirmed(int id)
+        {
+            order order = db.orders.Find(id);
+            order.status = status.cancelled;
+            db.orders.AddOrUpdate(o => o.ID, order);
+            db.SaveChanges();
+            return RedirectToAction("Cancelled");
+        }
+
+        //[ChildActionOnly]
         public ActionResult servicedetailstable(int id)
         {
 
@@ -131,23 +199,75 @@ namespace seozillabackend.Controllers
             //string service = Session["service"].ToString();
             //ViewBag.id = id;
             string service = order.service;
+            //status status = order.status;
 
-            switch (service)
+            //if (status != status.cancelled)
+            //    if (status != status.archived)
+            //    {
+
+                    switch (service)
+                    {
+                        case "blog":
+                            return PartialView("_blogdetailstable", order);
+                        //return PartialView("_blogdetailstable");
+                        case "citation":
+                            return PartialView("_citationdetailstable", order);
+                        //return PartialView("_citationdetailstable");
+                        default:
+                            return Content("Incorrect ID");
+
+                    }
+                //}
+               //if(status == status.cancelled || status==status.archived)
+               // {
+
+               //     switch (service)
+               //     {
+               //         case "blog":
+               //             return PartialView("_blogdetailstable", order);
+               //         //return PartialView("_blogdetailstable");
+               //         case "citation":
+               //             return PartialView("_citationdetailstable", order);
+               //         //return PartialView("_citationdetailstable");
+               //         default:
+               //             return Content("Incorrect ID");
+
+               //     }
+
+               // }
+            
+
+
+            
+        }
+
+        public ActionResult get_edit_button_col( int id)
+        {
+            order order = db.orders.Find(id);
+            if(order.status == status.cancelled || order.status == status.archived)
             {
-                case "blog":
-                    return PartialView("_blogdetailstable", order);
-                    //return PartialView("_blogdetailstable");
-                case "citation":
-                    return PartialView("_citationdetailstable", order);
-                    //return PartialView("_citationdetailstable");
-                default:
-                    return Content("Incorrect ID");
-
+                return new EmptyResult();
             }
-            
+            else
+            {
+                return PartialView("_get_edit_button_col");
+            }
 
+        }
 
+        public ActionResult get_edit_button(int id)
+        {
+            order order = db.orders.Find(id);
             
+            if (order.status == status.cancelled || order.status == status.archived)
+            {
+                return new EmptyResult();
+            }
+            else
+            {
+                return PartialView("_get_edit_button", order);
+            }
+
         }
 
         protected override void Dispose(bool disposing)

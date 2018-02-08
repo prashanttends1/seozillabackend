@@ -201,24 +201,7 @@
     <script src="~/assets/js/jquery.core.js"></script>
     <script src="~/assets/js/jquery.app.js"></script>
 
-    <script>
-        $(document).ready(function () {
-
-            var originalContent = $('.label-danger').html();
-
-            $(".label-danger").hover(function () {
-
-                $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
-
-            }, function () {
-                $(this).html(originalContent).css({ "background": "#ff5b5b" });
-
-            });
-
-        });
-
-    </script>
-
+   
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -262,14 +245,20 @@
 
             var originalContent = $('.label-danger').html();
 
-            $(".label-danger").hover(function () {
+            if (originalContent != ' Archived') {
 
-                $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
+                $(".label-danger").hover(function () {
 
-            }, function () {
-                $(this).html(originalContent).css({ "background": "#ff5b5b" });
+                    $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
 
-            });
+                }, function () {
+                    $(this).html(originalContent).css({ "background": "#ff5b5b" });
+
+                });
+            }
+            else {
+                $(".label-danger").css({ "cursor": "initial" });
+            }
 
             $(".zmdi-menu").click(function () {
                 

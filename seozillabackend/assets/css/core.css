@@ -22,6 +22,7 @@ File: Core
 /* =============
    Common
 ============= */
+.fixwidth{min-width:123px}
 .pullleft{
     font-size:15px;
 }

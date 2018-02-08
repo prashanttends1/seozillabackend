@@ -241,34 +241,7 @@ namespace seozillabackend.Controllers
             
         }
 
-        public ActionResult get_edit_button_col( int id)
-        {
-            order order = db.orders.Find(id);
-            if(order.status == status.cancelled || order.status == status.archived)
-            {
-                return new EmptyResult();
-            }
-            else
-            {
-                return PartialView("_get_edit_button_col");
-            }
-
-        }
-
-        public ActionResult get_edit_button(int id)
-        {
-            order order = db.orders.Find(id);
-            
-            if (order.status == status.cancelled || order.status == status.archived)
-            {
-                return new EmptyResult();
-            }
-            else
-            {
-                return PartialView("_get_edit_button", order);
-            }
-
-        }
+       
 
         protected override void Dispose(bool disposing)
         {

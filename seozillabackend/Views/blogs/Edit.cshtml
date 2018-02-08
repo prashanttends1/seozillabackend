@@ -34,14 +34,14 @@
                                         @Html.HiddenFor(model => model.ID)
 
 
-                                        <div class="form-group ">
-                                            @Html.LabelFor(model => model.daordered, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="form-group">
+
+                                            @Html.LabelFor(model => model.daordered, htmlAttributes: new { @class = "control-label col-md-2 " })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                     @Html.EditorFor(model => model.daordered)
-                                                    @Html.ValidationMessageFor(model => model.daordered)
-                                                </div>
-                                          
+                                                @Html.EditorFor(model => model.daordered)
+                                                @Html.ValidationMessageFor(model => model.daordered)
+                                            </div>
                                         </div>
 
 

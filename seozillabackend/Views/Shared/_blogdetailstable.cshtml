@@ -34,7 +34,7 @@
                     <td>@Html.DisplayFor(modelitem=>itemblog.postplacement)</td>
                     <td>@Html.DisplayFor(modelitem=>itemblog.da)</td>
                     
-                    <td>@*@Html.DisplayFor(item => Model.status)*@
+                    <td class="fixwidth">@*@Html.DisplayFor(item => Model.status)*@
                         @*@Model.status.DisplayName()*@
                         <a class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
                     </td>

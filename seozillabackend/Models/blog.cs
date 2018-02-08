@@ -19,7 +19,7 @@ namespace seozillabackend.Models
     public class blog //: order
     {
         public int ID { get; set; }
-        [Display(Name = "Da Ordered")]
+        [Display(Name = "DA Ordered")]
         public daordered daordered { get; set; }
          [Display(Name = "Word Count")]
         public wordcount wordcount { get; set; }

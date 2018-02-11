@@ -12,11 +12,11 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="modal-body">
+                    
 
                         <div class="card-box">
 
-                            <div class="title"><h3>Update Blog Details</h3></div><br />
+                            <div class="title"><h4>Update Blog Details</h4></div>
                         </div>
 
 
@@ -39,7 +39,7 @@
                                             @Html.LabelFor(model => model.daordered, htmlAttributes: new { @class = "control-label col-md-2 " })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.daordered)
+                                                @Html.TextBoxFor(model => model.daordered, new { @class="form-control" })
                                                 @Html.ValidationMessageFor(model => model.daordered)
                                             </div>
                                         </div>
@@ -50,7 +50,7 @@
                                             @Html.LabelFor(model => model.wordcount, htmlAttributes: new { @class = "control-label col-md-2 " })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.wordcount)
+                                                @Html.TextBoxFor(model => model.wordcount, new { @class="form-control"})
                                                 @Html.ValidationMessageFor(model => model.wordcount)
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                             @Html.LabelFor(model => model.anchortext, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.anchortext)
+                                                @Html.TextBoxFor(model => model.anchortext, new { @class="form-control"})
                                                 @Html.ValidationMessageFor(model => model.anchortext)
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                             @Html.LabelFor(model => model.targeturl, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.targeturl)
+                                                @Html.TextBoxFor(model => model.targeturl, new { @class="form-control"})
                                                 @Html.ValidationMessageFor(model => model.targeturl)
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                             @Html.LabelFor(model => model.posttitle, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.posttitle)
+                                                @Html.TextBoxFor(model => model.posttitle, new { @class="form-control"})
                                                 @Html.ValidationMessageFor(model => model.posttitle)
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@
                                             @Html.LabelFor(model => model.postplacement, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.postplacement)
+                                                @Html.TextBoxFor(model => model.postplacement, new { @class="form-control"})
                                                 @Html.ValidationMessageFor(model => model.postplacement)
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                                             @Html.LabelFor(model => model.da, htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.EditorFor(model => model.da)
+                                                @Html.TextBoxFor(model => model.da, new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(model => model.da)
                                             </div>
                                         </div>
@@ -108,7 +108,7 @@
                                             @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.DropDownList("orderID", String.Empty)
+                                                @Html.DropDownList("orderID", null, htmlAttributes: new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(model => model.orderID)
                                             </div>
                                         </div>
@@ -123,7 +123,7 @@
                             @Html.ActionLink("Back to List", "Index")
                         </div>
 
-                    </div>
+                    
 
                 </div> 
 

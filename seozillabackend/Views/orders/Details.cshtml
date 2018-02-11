@@ -9,33 +9,36 @@
     <!-- Start content -->
     <div class="content">
         <div class="container">
-            <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
 
-                <div class="card-box">
+                    <div class="card-box">
 
-                    <h4>
-                        Order <span class="orderid"> @Html.DisplayFor(model => model.orderno)</span> / @Html.DisplayFor(model => model.service)
-                    </h4>
+                        <h4>
+                            Order <span class="orderid"> @Html.DisplayFor(model => model.orderno)</span> / @Html.DisplayFor(model => model.service)
+                        </h4>
 
-                </div>
-                <div class="card-box">
-                    <div class="row">
+                    </div>
+                    <div class="card-box">
+                        <div class="row">
 
-                        <div class="col-lg-3 col-md-4 col-sm-5">
-                            <p><strong>Date ordered:</strong>  @Html.DisplayFor(model => model.orderdate)</p>
-                            <p><strong>Date due:</strong> @Html.DisplayFor(model => model.duedate)</p>
+                            <div class="col-lg-3 col-md-4 col-sm-5">
+                                <p><strong>Date ordered:</strong>  @Html.DisplayFor(model => model.orderdate)</p>
+                                <p><strong>Date due:</strong> @Html.DisplayFor(model => model.duedate)</p>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-sm-7">
+                                <p><strong>Order Comments:</strong> (Special requests are not guaranteed)</p>
+                                @Html.DisplayFor(model => model.comment)
+
+                            </div>
                         </div>
-                        <div class="col-lg-9 col-md-8 col-sm-7">
-                            <p><strong>Order Comments:</strong> (Special requests are not guaranteed)</p>
-                            @Html.DisplayFor(model => model.comment)
-                            
-                        </div>
+
+                        @Html.Action("servicedetailstable", new { id = Model.ID })
+
                     </div>
 
-                            @Html.Action("servicedetailstable", new {id = Model.ID})
-                      
                 </div>
-
             </div> 
-        </div> 
+            
+        </div>
 

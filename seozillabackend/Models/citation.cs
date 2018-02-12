@@ -20,7 +20,7 @@ namespace seozillabackend.Models
         public string businessdescription { get; set; }
          [Display(Name = "Keywords")]
         public string keywords { get; set; }
-         [Display(Name = "Founder")]
+         [Display(Name = "Founder/CEO")]
         public string founder { get; set; }
          [Display(Name = "Address")]
         public string address { get; set; }

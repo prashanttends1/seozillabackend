@@ -255,6 +255,8 @@
     <Content Include="Views\orders\Archived.cshtml" />
     <Content Include="Views\Shared\_get_edit_button_col.cshtml" />
     <Content Include="Views\Shared\_get_edit_button.cshtml" />
+    <Content Include="Views\Shared\_layout_without_sidebar.cshtml" />
+    <Content Include="Views\orders\Add-new.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,12 +10,29 @@ namespace seozillabackend.Models
 {
     public enum daordered
     {
-        ten_plus, twenty_plus, thirty_plus, forty_plus
-    }
+       
+         [Description("DA 10+")]
+        ten_plus,
+         [Description("DA 20+")]
+         twenty_plus,
+         [Description("DA 30+")]
+         thirty_plus,
+        [Description("DA 40+")]
+         forty_plus
+     }
 
     public enum wordcount
     {
-        fivehundredplus, sevenfiftyplus, thousandplus, twelevefiftyplus, fifteenhundrednplus
+        [Description("500 Words")]
+        fivehundredplus,
+          [Description("750 Words")]
+        sevenfiftyplus,
+          [Description("1000 Words")]
+        thousandplus,
+          [Description("1250 Words")]
+        twelevefiftyplus,
+          [Description("1500 Words")]
+        fifteenhundrednplus
     }
     public class blog //: order
     {
@@ -31,7 +49,7 @@ namespace seozillabackend.Models
         public string posttitle { get; set; }
          [Display(Name = "Post Placement")]
         public string postplacement { get; set; }
-         [Display(Name = "Da")]
+         [Display(Name = "DA")]
         public string da { get; set; }
 
         //public int userID { get; set; }

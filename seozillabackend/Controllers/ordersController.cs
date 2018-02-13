@@ -23,6 +23,7 @@ namespace seozillabackend.Controllers
             return View(orders.ToList());
         }
 
+        
         // GET: cancelled orders
         public ActionResult Cancelled()
         {
@@ -53,7 +54,7 @@ namespace seozillabackend.Controllers
             return View(order);
         }
 
-        // GET: orders/Create
+         //GET: orders/Create
         public ActionResult Create()
         {
             ViewBag.userID = new SelectList(db.users, "ID", "firstname");
@@ -235,13 +236,14 @@ namespace seozillabackend.Controllers
                //     }
 
                // }
-            
-
-
-            
+         
+        }
+         
+          public ActionResult Add_new()
+        {
+            return View();
         }
 
-       
 
         protected override void Dispose(bool disposing)
         {

@@ -4,6 +4,19 @@ Author: CoderThemes
 Email: coderthemes@gmail.com
 File: Menu
 */
+
+
+.topbar .dash {
+    background-color: #ffffff;
+}
+
+.navbar-right {
+    margin-top:8px;
+}
+.footer-new {
+    left:0px;
+}
+
 .topbar {
   left: 0px;
   position: fixed;

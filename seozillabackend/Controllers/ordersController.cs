@@ -244,8 +244,7 @@ namespace seozillabackend.Controllers
             return View();
         }
 
-
-        protected override void Dispose(bool disposing)
+           protected override void Dispose(bool disposing)
         {
             if (disposing)
             {

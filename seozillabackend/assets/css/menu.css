@@ -20,6 +20,10 @@ File: Menu
     margin-bottom:50px;
 }
 
+.content-page-new {
+    margin-left: 20px !important;
+}
+
 .topbar {
   left: 0px;
   position: fixed;

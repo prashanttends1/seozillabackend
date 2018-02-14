@@ -244,7 +244,12 @@ namespace seozillabackend.Controllers
             return View();
         }
 
-           protected override void Dispose(bool disposing)
+        public ActionResult Add()
+          {
+              return View();
+          }
+
+        protected override void Dispose(bool disposing)
         {
             if (disposing)
             {

@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-
+       
         <div class="clearfix">
 
 
@@ -111,12 +111,11 @@
 
     $(document).ready(function () {
 
-      
-        var pack = '<div class="form-group-row"><div class="col-md-4"><label class="label-field">Word Count Required</label><div class="input-group"><select class="form-control" data-field="0" data-row="0"><option value="500 Words" data-cost="0">500 Words</option><option value="750 Words" data-cost="7.50">750 Words +(£7.50)</option><option value="1000 Words" data-cost="10.00">1000 Words +(£10.00)</option><option value="1250 Words" data-cost="12.50">1250 Words +(£12.50)</option><option value="1500 Words" data-cost="15.00">1500 Words +(£15.00)</option></select><div class="input-group-addon"><a class="label label-primary" title="We recommend you vary word counts to avoid leaving link building footprints." ">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Anchor Text*</label><div class="input-group"><input type="text" class="form-control" data-field="1" data-row="0"   value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="We may tweak anchor phrases slightly (even remove regional identifiers) if they will not naturally fit into the flow of content." >Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Target URL*</label><div class="input-group"><input type="url" data-field-type="url" class="form-control" data-field="2" data-row="0"  value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please tell us the URL you would like the link to point to." ">Tip</a></div></div></div></div>';
+       
 
         $(".package-qty").on("change", function () {
 
-         
+      
             //$("#package-data-" + id).nextAll(".form-group-row").remove();
 
             //$("package-container").find(".form-group-row").remove();
@@ -131,7 +130,7 @@
 
             quantity = parseInt($quantity.val());
 
-            alert(id);
+          
 
             if (isNaN(quantity) || quantity < 0 || quantity == 0) {
 
@@ -144,16 +143,45 @@
                 $("#package-data-" + id).nextAll(".form-group-row").remove();
 
             }
-
+         
             if (quantity > 0) {
+
                 $("#package-data-" + id).removeClass("hidden");
 
                 for (var i = 0; i < quantity; i++) {
 
+                   
                     $("#package-data-" + id).after(pack);
+
+                   
+                    var n = 0;
+
+                    if (jQuery("#text1").attr("name") == undefined)
+                        jQuery("#text1").attr("name", "text" + n++);
+                    if (jQuery("#text2").attr("name") == undefined)
+                        jQuery("#text2").attr("name", "text" + n++);
+
+                    //if (jQuery("#text3").attr("name") == undefined)
+                    //    jQuery("#text3").attr("name", "text" + n++);
+                    //if (jQuery("#text4").attr("name") == undefined)
+                    //    jQuery("#text4").attr("name", "text" + n++);
+
+                    //if (jQuery("#text5").attr("name") == undefined)
+                    //    jQuery("#text5").attr("name", "text" + n++);
+                    //if (jQuery("#text6").attr("name") == undefined)
+                    //    jQuery("#text6").attr("name", "text" + n++);
+
+                    //if (jQuery("#text7").attr("name") == undefined)
+                    //    jQuery("#text7").attr("name", "text" + n++);
+                    //if (jQuery("#text8").attr("name") == undefined)
+                    //    jQuery("#text8").attr("name", "text" + n++);
+
+
                 }
 
             }
+        
+           
 
         });
     });

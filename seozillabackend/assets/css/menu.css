@@ -22,7 +22,9 @@ File: Menu
 .content-page-new {
     margin-left: 20px !important;
   }
-
+.next_btn {
+    float: right;
+}
 .topbar {
   left: 0px;
   position: fixed;

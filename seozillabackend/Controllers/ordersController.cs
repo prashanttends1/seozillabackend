@@ -244,10 +244,14 @@ namespace seozillabackend.Controllers
             return View();
         }
 
-        public ActionResult Add()
+        public ActionResult Blog_service()
           {
               return View();
           }
+        public ActionResult Citation_service()
+        {
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {

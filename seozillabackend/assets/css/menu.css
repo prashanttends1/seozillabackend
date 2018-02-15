@@ -25,6 +25,9 @@ File: Menu
 .next_btn {
     float: right;
 }
+.navbar-right a{
+    color:#ffffff;
+}
 .topbar {
   left: 0px;
   position: fixed;

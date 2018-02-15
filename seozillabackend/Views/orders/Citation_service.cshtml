@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Local Business Citations";
+    Layout = "~/Views/Shared/_layout_without_sidebar.cshtml";
+}
+
+
+<div class="content-page content-page-new">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="card-box">
+                    <ol class="breadcrumb">
+                        <li><a href="~/orders/Add_new">Services</a></li>
+                        <li class="active">Local Business Citations</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card-box">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="place-order" style="margin-bottom:50px;">
+
+                                <span class="badge step-indicator">2</span>Local Business Citations Project Details
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            Sub Total: <span>GBP <i class="fa fa-gbp"></i>0 </span>/<span> Approx USD $ 0</span><br>
+                            <span style="margin-left:22%;">Estimated Completion</span>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <label>Choose your quantity (Press Enter)</label><br /><br />
+
+                            <div class="form-group">
+
+                                <div id="package-quantity-1" class="form-group">
+
+                                    <span>25 Citations</span>
+                                </div>
+
+                                <div class="input-group m-t-10">
+                                    <input type="number" data-package-id="1" name="packages[1]" class="form-control package-qty" value="0">
+                                    <span class="input-group-addon">
+                                        <span id="oldCost"><i class="fa fa-gbp"></i>40</span>
+
+                                        each
+                                        <i class="fa fa-question-circle" title="25 Citations costs 1+ £40.00 each"></i>
+                                    </span>
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <div id="package-quantity-2" class="form-group">
+
+                                    <span>50 Citations</span>
+                                </div>
+
+                                <div class="input-group m-t-10">
+                                    <input type="number" data-package-id="2" name="packages[2]" class="form-control package-qty" value="0">
+                                    <span class="input-group-addon">
+                                        <span id="oldCost"><i class="fa fa-gbp"></i>70</span>
+
+                                        each
+                                        <i class="fa fa-question-circle" title="50 Citations costs 1+ £50.00 each"></i>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <div id="package-quantity-3" class="form-group">
+
+                                    <span>100 Citations</span>
+                                </div>
+
+                                <div class="input-group m-t-10">
+                                    <input type="number" data-package-id="3" name="packages[3]" class="form-control package-qty" value="0">
+                                    <span class="input-group-addon">
+                                        <span id="oldCost"><i class="fa fa-gbp"></i>100</span>
+
+                                        each
+                                        <i class="fa fa-question-circle" title="100 Citations costs 1+ £100.00 each"></i>
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <!--<div class="btn">
+                                <span><button class="btn btn-link">Larger order? Try the spreadsheet view:</button> </span><button class="btn btn-icon waves-effect btn-default m-b-5"> <i class="fa fa-table"></i> </button>
+                            </div>-->
+                            <br /><br /><br />
+                            <div class="box">
+                                <ul>
+                                    <li class="style"><i class="fa fa-check" aria-hidden="true"></i>This is a submission only service with full submission report</li>
+                                    <li class="style"><i class="fa fa-check" aria-hidden="true"></i>We create an email address used for submissions only</li>
+                                    <li class="style"><i class="fa fa-check" aria-hidden="true"></i>Service is limited to 100 citation submissions per business address</li>
+                                    <li class="style"><i class="fa fa-check" aria-hidden="true"></i> You'll have full control with all login information provided</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-----Hidden---->
+                    <div id="package-data">
+                        <div id="package-data-1" class="hidden package-container">
+                            <div class="panel-sub-heading">
+                                <h4 class="panel-title" style="color:#188ae2;">25 Citations project details</h4>
+                            </div>
+
+                        </div>
+                        <div id="package-data-2" class="hidden package-container">
+                            <div class="panel-sub-heading">
+                                <h4 class="panel-title" style="color:#188ae2;">50 Citations project details</h4>
+                            </div>
+
+                        </div>
+                        <div id="package-data-3" class="hidden package-container">
+                            <div class="panel-sub-heading">
+                                <h4 class="panel-title" style="color:#188ae2;">100 Citations project details</h4>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-------->
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <label>Optional Order Comments (Please note: special order requests are not guaranteed)</label><br />
+                            <textarea maxlength="500" name="notes[20]" rows="3" id="notes" class="form-control"></textarea>
+                        </div>
+                    </div><br /><br />
+
+                    <div class="row">
+
+
+                        <div class="col-xs-6">
+                            <a href="~/orders/Add_new"><button type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Back</button></a>
+
+                        </div>
+                        <div class="col-xs-6">
+                            <a href=""><button type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="float:right;">Next</button></a>
+
+                        </div>
+
+
+                    </div>
+
+                </div> <!-- container -->
+            </div> <!-- content -->
+        </div>
+    </div>
+  
+</div>

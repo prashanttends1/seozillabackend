@@ -255,6 +255,8 @@
     <Content Include="Views\orders\Archived.cshtml" />
     <Content Include="Views\Shared\_layout_without_sidebar.cshtml" />
     <Content Include="Views\orders\Add_new.cshtml" />
+    <Content Include="Views\orders\Blog_service.cshtml" />
+    <Content Include="Views\orders\Citation_service.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,6 +22,10 @@ File: Core
 /* =============
    Common
 ============= */
+
+.breadcrumb2{
+    margin-bottom:auto !important;
+}
 .fixwidth{min-width:123px}
 .pullleft{
     font-size:15px;

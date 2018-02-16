@@ -10,7 +10,11 @@ File: Menu
 }
 
 .navbar-right {
-    margin-top:8px;
+    margin-top:6px;
+}
+.navbar-right>li>a{
+    padding-top:8px;
+    padding-bottom:8px;
 }
 .footer-new {
     left:0px;
@@ -20,7 +24,7 @@ File: Menu
 }
 
 .content-page-new {
-    margin-left: 20px !important;
+    margin-left: 0px !important;
   }
 .next_btn {
     float: right;

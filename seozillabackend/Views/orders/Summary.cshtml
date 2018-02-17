@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Summary";
+    Layout = "~/Views/Shared/_layout_without_sidebar.cshtml";
+}
+
+<div class="content-page content-page-new">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="card-box">
+                    <ol class="breadcrumb breadcrumb2">
+                        <li><a href="~/orders//Add_new">Services</a></li>
+                        <li class="active">Summery</li>
+                    </ol>
+                </div>
+                <div class="card-box">
+                    <div class="row">
+
+                        <h3>Order Summary</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Quantity</th>
+                                    <th>Details</th>
+                                    <th>Unit Price (<i class="fa fa-gbp"></i>)</th>
+                                    <th>Net Subtotal (<i class="fa fa-gbp"></i>)</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Infographic Outreach - DA 10+ Websites</td>
+                                    <td><i class="fa fa-gbp"></i>45.00</td>
+                                    <td><i class="fa fa-gbp"></i>45.00</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" style="text-align:right;">Net Total</td>
+                                    <td><i class="fa fa-gbp"></i>45.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="text-align:right;">0% VAT	</td>
+                                    <td><i class="fa fa-gbp"></i>0.00</td>
+                                </tr>
+
+                                <tr style="border-top:2px solid;">
+                                    <td colspan="3" style="text-align:right">GBP Total</td>
+                                    <td>£45.00</td>
+
+                                <tr>
+                                    <td colspan="3" style="text-align:right">Approx USD	</td>
+                                    <td>$58.05</td>
+                                </tr>
+
+                            </tfoot>
+                        </table>
+
+                        <div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        <div class="col-xs-6">
+                            <a href="~/orders/Add_new"><button type="button" class="btn btn-default btn-trans waves-effect w-md m-b-5">Back</button></a>
+
+                        </div>
+                        <div class="col-xs-6">
+                            <a href=""><button type="button" class="btn btn-default btn-trans waves-effect w-md m-b-5" style="float:right;">MAKE PAYMENT</button></a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- content -->
+
+       
+    </div>
+
+</div>
+

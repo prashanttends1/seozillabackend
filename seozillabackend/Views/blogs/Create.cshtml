@@ -1,4 +1,5 @@
-﻿@model seozillabackend.Models.blog
+﻿@model List<seozillabackend.Models.blog>
+
 
 @{
     ViewBag.Title = "Create";
@@ -15,69 +16,95 @@
         <h4>blog</h4>
         <hr />
         @Html.ValidationSummary(true)
+
+        @for (int i = 0; i < 2; i++) { 
+
         <div class="form-group">
-            @Html.LabelFor(model => model.daordered, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].daordered, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.daordered)
-                @Html.ValidationMessageFor(model => model.daordered)
+                @Html.EditorFor(model => model[i].daordered)                               
+                @Html.ValidationMessageFor(model => model[i].daordered)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.wordcount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].wordcount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.wordcount)
-                @Html.ValidationMessageFor(model => model.wordcount)
+                @Html.EditorFor(model => model[i].wordcount)
+                @Html.ValidationMessageFor(model => model[i].wordcount)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.anchortext, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].anchortext, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.anchortext)
-                @Html.ValidationMessageFor(model => model.anchortext)
+                @Html.EditorFor(model => model[i].anchortext)
+                @Html.ValidationMessageFor(model => model[i].anchortext)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.targeturl, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].targeturl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.targeturl)
-                @Html.ValidationMessageFor(model => model.targeturl)
+                @Html.EditorFor(model => model[i].targeturl)
+                @Html.ValidationMessageFor(model => model[i].targeturl)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.posttitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].posttitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.posttitle)
-                @Html.ValidationMessageFor(model => model.posttitle)
+                @Html.EditorFor(model => model[i].posttitle)
+                @Html.ValidationMessageFor(model => model[i].posttitle)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.postplacement, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].postplacement, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.postplacement)
-                @Html.ValidationMessageFor(model => model.postplacement)
+                @Html.EditorFor(model => model[i].postplacement)
+                @Html.ValidationMessageFor(model => model[i].postplacement)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.da, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model[i].da, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.da)
-                @Html.ValidationMessageFor(model => model.da)
+                @Html.EditorFor(model => model[i].da)
+                @Html.ValidationMessageFor(model => model[i].da)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("orderID", String.Empty)
-                @Html.ValidationMessageFor(model => model.orderID)
+
+        
+        }
+
+
+        @*<div class="form-group">
+          
+            <div class="col-md-10">*@
+                @*@Html.DropDownList("orderID", String.Empty)*@
+                @*<select id="[0].orderID" name="[0].orderID">
+                    <option value=""></option>
+                    <option value="1">SZ111</option>
+                    <option value="2">SZ112</option>
+                    <option value="3">SZ113</option>
+                </select>
             </div>
-        </div>
+        </div>*@
+
+        @*<div class="form-group">
+
+            <div class="col-md-10">*@
+                @*@Html.DropDownList("orderID", String.Empty)*@
+                @*<select id="[1].orderID" name="[1].orderID">
+                    <option value=""></option>
+                    <option value="1">SZ111</option>
+                    <option value="2">SZ112</option>
+                    <option value="3">SZ113</option>
+                </select>
+            </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -85,6 +112,7 @@
             </div>
         </div>
     </div>
+
 }
 
 <div>

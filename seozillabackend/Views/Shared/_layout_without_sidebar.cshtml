@@ -161,18 +161,18 @@
 
 
                         $("#package-data-" + id + " .panel-sub-heading").after(pack);
-
+                        alert(i);
                         if ($("#blog_order").attr("name") == undefined)
                             $("#blog_order").attr("name", "[" + i + "].daordered");
 
-                        if ($(".select1").attr("name") == undefined)
-                            $(".select1").attr("name", "[" + i + "].wordcount");
+                        if ($("#select1").attr("name") == undefined)
+                            $("#select1").attr("name", "[" + i + "].wordcount");
 
-                        if ($(".text1").attr("name") == undefined)
-                            $(".text1").attr("name", "[" + i + "].anchortext");
+                        if ($("#text1").attr("name") == undefined)
+                            $("#text1").attr("name", "[" + i + "].anchortext");
 
-                        if ($(".text2").attr("name") == undefined)
-                            $(".text2").attr("name", "[" + i + "].targeturl");
+                        if ($("#text2").attr("name") == undefined)
+                            $("#text2").attr("name", "[" + i + "].targeturl");
 
 
                         if ($("#select2").attr("name") == undefined)

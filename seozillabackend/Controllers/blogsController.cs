@@ -96,7 +96,7 @@ namespace seozillabackend.Controllers
                     db.blogs.Add(blog);
                 }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "orders");
             }
            
             //foreach (blog blog in blogs_f)
@@ -135,11 +135,13 @@ namespace seozillabackend.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,daordered,wordcount,anchortext,targeturl,posttitle,postplacement,da,orderID")] blog blog)
         {
+            int orderid = blog.orderID;
+
             if (ModelState.IsValid)
             {
                 db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "orders", new {@id=orderid});
             }
             ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
             return View(blog);

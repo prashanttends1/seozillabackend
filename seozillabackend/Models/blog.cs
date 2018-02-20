@@ -18,7 +18,9 @@ namespace seozillabackend.Models
          [Description("DA 30+")]
          thirty_plus,
         [Description("DA 40+")]
-         forty_plus
+         forty_plus,
+        [Description("DA 10+ special ")]
+        ten_plus_special
      }
 
     public enum wordcount

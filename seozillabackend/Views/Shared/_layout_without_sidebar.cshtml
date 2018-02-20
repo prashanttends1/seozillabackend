@@ -109,104 +109,165 @@
     <script>
         @*Scripts*@
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
        
-
-        $(".package-qty").on("change", function () {
-
-
-            //$("#package-data-" + id).nextAll(".form-group-row").remove();
-
-            //$("package-container").find(".form-group-row").remove();
-
-            //$("#package-data-" + id).find(".form-group-row").remove();
-
-            //$(".form-group-row").remove();
-
-            var $quantity = $(this);
+          
+            $(".package-qty").on("change", function () {
 
 
-            id = $quantity.data("package-id");
+                //$("#package-data-" + id).nextAll(".form-group-row").remove();
+
+                //$("package-container").find(".form-group-row").remove();
+
+                //$("#package-data-" + id).find(".form-group-row").remove();
+
+                //$(".form-group-row").remove();
+
+                var $quantity = $(this);
 
 
-
-            quantity = parseInt($quantity.val());
+                id = $quantity.data("package-id");
 
 
 
-            if (isNaN(quantity) || quantity < 0 || quantity == 0) {
+                quantity = parseInt($quantity.val());
 
-                $quantity.val(0);
+                id1 =  $("#package-data-" + id).index();
 
-                quantity = 0;
+            
 
-                $("#package-data-" + id).addClass("hidden");
+                if (isNaN(quantity) || quantity < 0 || quantity == 0) {
 
-                $("#package-data-" + id).nextAll(".form-group-row").remove();
+                    $quantity.val(0);
 
-            }
+                    quantity = 0;
 
-            if (quantity > 0) {
+                    $("#package-data-" + id).addClass("hidden");
 
-                $("#package-data-" + id).removeClass("hidden");
-
-                $("#package-data-" + id).find(".form-group-row").remove();
-
-                var n = 0;
-
-                for (var i = 0; i < quantity; i++) {
-
-
-                    $("#package-data-" + id + " .panel-sub-heading").after(pack);
-
-
-                    $("#package-data-" + id).find(".form-group-row")
-
-                    if (jQuery("#select1").attr("name") == undefined)
-                        jQuery("#select1").attr("name", "wordcount" + n++);
-
-                    if (jQuery("#text1").attr("name") == undefined)
-                        jQuery("#text1").attr("name", "anchortext" + n++);
-
-                    if (jQuery("#text2").attr("name") == undefined)
-                        jQuery("#text2").attr("name", "targeturl" + n++);
-
-
-                    if (jQuery("#select2").attr("name") == undefined)
-                        jQuery("#select2").attr("name", "country" + n++);
-
-                    if (jQuery("#text3").attr("name") == undefined)
-                        jQuery("#text3").attr("name", "businessname" + n++);
-
-                    if (jQuery("#text4").attr("name") == undefined)
-                        jQuery("#text4").attr("name", "websiteurl" + n++);
-
-                    if (jQuery("#text5").attr("name") == undefined)
-                        jQuery("#text5").attr("name", "businessdescription" + n++);
-
-                    if (jQuery("#text6").attr("name") == undefined)
-                        jQuery("#text6").attr("name", "keywords" + n++);
-
-                    if (jQuery("#text7").attr("name") == undefined)
-                        jQuery("#text7").attr("name", "founder" + n++);
-
-                    if (jQuery("#text8").attr("name") == undefined)
-                        jQuery("#text8").attr("name", "address" + n++);
-
-                    if (jQuery("#text9").attr("name") == undefined)
-                        jQuery("#text9").attr("name", "phone" + n++);
-
-                    if (jQuery("#text10").attr("name") == undefined)
-                        jQuery("#text10").attr("name", "email" + n++);
-
-
+                    $("#package-data-" + id).nextAll(".form-group-row").remove();
 
                 }
 
-            }
-        
-         
+                if (quantity > 0) {
+
+                    $("#package-data-" + id).removeClass("hidden");
+
+                    $("#package-data-" + id).find(".form-group-row").remove();
+
+
+
+                    for (var i = 0; i < quantity; i++) {
+
+
+                        $("#package-data-" + id + " .panel-sub-heading").after(pack);
+
+                        if ($("#blog_order").attr("name") == undefined)
+                            $("#blog_order").attr("name", "[" + i + "].daordered");
+
+                        if ($("#select1").attr("name") == undefined)
+                            $("#select1").attr("name", "[" + i + "].wordcount");
+
+                        if ($("#text1").attr("name") == undefined)
+                            $("#text1").attr("name", "[" + i + "].anchortext");
+
+
+                        if ($("#text2").attr("name") == undefined)
+                            $("#text2").attr("name", "[" + i + "].targeturl");
+
+
+                        if ($("#select2").attr("name") == undefined)
+                            $("#select2").attr("name", "[" + i + "].country");
+
+                        if ($("#text3").attr("name") == undefined)
+                            $("#text3").attr("name", "[" + i + "].businessname");
+
+                        if ($("#text4").attr("name") == undefined)
+                            $("#text4").attr("name", "[" + i + "].websiteurl");
+
+                        if ($("#text5").attr("name") == undefined)
+                            $("#text5").attr("name", "[" + i + "].businessdescription");
+
+                        if ($("#text6").attr("name") == undefined)
+                            $("#text6").attr("name", "[" + i + "].keywords");
+
+                        if ($("#text7").attr("name") == undefined)
+                            $("#text7").attr("name", "[" + i + "].founder");
+
+                        if ($("#text8").attr("name") == undefined)
+                            $("#text8").attr("name", "[" + i + "].address");
+
+                        if ($("#text9").attr("name") == undefined)
+                            $("#text9").attr("name", "[" + i + "].phone");
+
+                        if ($("#text10").attr("name") == undefined)
+                            $("#text10").attr("name", "[" + i + "].email");
+
+                        if ($("#blog_order").attr("value") == undefined)
+
+                            if (id1 == 0) {
+
+                                $("#blog_order").attr("value", "ten_plus");
+                            }
+                       else if (id1 == 1) {
+
+                            $("#blog_order").attr("value", "twenty_plus");
+                        }
+                       else if (id1 == 2) {
+
+                            $("#blog_order").attr("value", "thirty_plus");
+                        }
+                       else if (id1 == 3) {
+
+                            $("#blog_order").attr("value", "forty_plus");
+                        }
+                       else if (id1 == 4) {
+
+                           $("#blog_order").attr("value", " ten_plus_special");
+                        }
+
+                      
+
+                    }
+                }
+                
+                    var Cost = $("#oldCost-"+id).text();
+                    var newcost = (Cost * quantity);
+                    
+
+
+                    $("#newCost-" + id).text(newcost); 
+
+                    var new1 = parseInt($("#newCost-1").text());
+                    var new2 =  parseInt($("#newCost-2").text());
+                    var new3 = parseInt ($("#newCost-3").text());
+                    var new4 =  parseInt($("#newCost-4").text());
+                    var new5 = parseInt($("#newCost-5").text());
+
+                                    
+                    $(".totalcost").text(new1 + new2 + new3 + new4 + new5);
+
+                    $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4 + new5) * (1.40)));
+
+                    if(quantity<5 && quantity!=0)
+                    {
+                        $(".approx_days").html('Approx 14 Days');
+                    }
+                   if (quantity >5 )
+                    {
+                        $(".approx_days").html('Approx 21 Days');
+                   }
+                if (quantity > 25 )
+                    {
+                    $(".approx_days").html('  Approx 28 Days');
+                   }
+                 
+                    if (quantity == 0) {
+                        $(".approx_days").html(NaN);
+                    }
+
+                  
+                   
 
         });
     });

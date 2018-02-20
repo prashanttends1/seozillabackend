@@ -1,96 +1,231 @@
-﻿@model seozillabackend.Models.blog
-
+﻿@model List<seozillabackend.Models.blog>
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Blogger Outreach";
+    Layout = "~/Views/Shared/_layout_without_sidebar.cshtml";
+
 }
 
-<h2>Create</h2>
+
+<div class="content-page content-page-new">
+    <div class="content">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <ol class="breadcrumb breadcrumb2">
+                        <li><a href="~/orders/Add_new">Services</a></li>
+                        <li class="active">Blogger Outreach</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="pannel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="place-order" style="margin-bottom:50px;">
+
+                                    <span class="badge step-indicator">2</span> Blogger Outreach Project Details
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Sub Total:</strong>  <span>GBP <i class="fa fa-gbp"></i><span class="totalcost">0.00</span> </span>/<span> Approx USD <strong>$</strong><span class="totalcost_usd">0</span></span><br>
+                                <span style="margin-left:22%;">Estimated Completion:</span><span class="approx_days"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Choose your quantity (Press Enter)</label><br /><br />
+                                <div class="form-group">
+
+                                    <div id="package-quantity-1" class="form-group">
+
+                                        <span>DA 10+ Websites *LowTier*</span>
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <input type="number" data-package-id="1" name="packages[1]" class=" form-control package-qty" value="0">
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-1"><i class="fa fa-gbp"></i>45</span>
+                                            <span class="hide" id="newCost-1">0</span>
+                                            each
+                                            <i class="fa fa-question-circle" title="DA 10+ Websites *LowTier* costs  1 - 24 £45.00 each  25 - 49 £40.00 each 50+ £35.00 each"></i>
+                                        </span>
+                                    </div>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>blog</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        <div class="form-group">
-            @Html.LabelFor(model => model.daordered, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.daordered)
-                @Html.ValidationMessageFor(model => model.daordered)
+
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-2" class="form-group">
+
+                                        <span>DA 20+ Websites *MidTier*</span>
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <input type="number" data-package-id="2" name="packages[2]" class=" form-control package-qty" value="0">
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-2"><i class="fa fa-gbp"></i>60</span>
+                                            <span class="hide" id="newCost-2">0</span>
+                                            each
+                                            <i class="fa fa-question-circle" title="DA 20+ Websites *MidTier* costs 1 - 24 £60.00 each 25 - 49 £55.00 each 50+ £50.00 each"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-3" class="form-group">
+
+                                        <span>DA 30+ Websites *HighTier*</span>
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <input type="number" data-package-id="3" name="packages[3]" class=" form-control package-qty" value="0">
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-3"><i class="fa fa-gbp"></i>80</span>
+                                            <span class="hide" id="newCost-3">0</span>
+                                            each
+                                            <i class="fa fa-question-circle" title="DA 30+ Websites *HighTier* costs 1 - 24 £80.00 each 25 - 49 £75.00 each 50+ £70.00 each"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-4" class="form-group">
+
+                                        <span>DA 40+ Websites *Premium*</span>
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <input type="number" data-package-id="4" name="packages[4]" class=" form-control package-qty" value="0">
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-4"><i class="fa fa-gbp"></i>250</span>
+                                            <span class="hide" id="newCost-4">0</span>
+                                            each
+                                            <i class="fa fa-question-circle" title="DA 40+ Websites *Premium* costs  1+ £250.00 each"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-5" class="form-group">
+
+                                        <span>DA 10+ Websites (Payday Loans / Gambling / Pharma)</span>
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <input type="number" data-package-id="5" name="packages[5]" class=" form-control package-qty" value="0">
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-5"><i class="fa fa-gbp"></i>80</span>
+                                            <span class="hide" id="newCost-5">0</span>
+                                            each
+                                            <i class="fa fa-question-circle" title="DA 10+ Websites (Payday Loans / Gambling / Pharma)costs 1+ £80.00 each"></i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <!--<div class="btn">
+                                    <span><button class="btn btn-link">Larger order? Try the spreadsheet view:</button> </span><button class="btn btn-icon waves-effect btn-default m-b-5"> <i class="fa fa-table"></i> </button>
+                                </div>-->
+                                <br /><br /><br />
+                                <div class="box">
+                                    <ul>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>For best / natural results mix up DA range placements</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>Use word count upgrades to vary content length and reduce footprints</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>No regional identifiers. These look unnatural and can be risky to your link profile</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i> We recommend no more than 20 placements per domain per month</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-------package data ---->
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div id="package-data">
+                                <div id="package-data-1" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title" style="color:#188ae2;">DA 10+ Websites *LowTier* project details</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-2" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title" style="color:#188ae2;">DA 20+ Websites *MidTier* project details</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-3" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title" style="color:#188ae2;">DA 30+ Websites *HighTier* project details</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-4" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title" style="color:#188ae2;">DA 40+ Websites *Premium* project details</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-5" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title" style="color:#188ae2;">DA 10+ Websites (Payday Loans / Gambling / Pharma) project details</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        <!------------------------>
+                            <div class="row">
+                                <div class="pannel-body">
+                                    <div class="col-md-12">
+                                        <label>Optional Order Comments (Please note: special order requests are not guaranteed)</label><br />
+                                        <textarea maxlength="500" name="notes[20]" rows="3" id="notes" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div><br /><br />
+
+                            <div class="row">
+
+                                <div class="col-xs-6">
+                                    <a href="~/orders/Add_new" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Back</a>
+
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="submit" value="Create" class="btn btn-primary waves-effect w-md waves-light m-b-5 next_btn">Next</button>
+
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.wordcount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.wordcount)
-                @Html.ValidationMessageFor(model => model.wordcount)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.anchortext, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.anchortext)
-                @Html.ValidationMessageFor(model => model.anchortext)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.targeturl, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.targeturl)
-                @Html.ValidationMessageFor(model => model.targeturl)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.posttitle, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.posttitle)
-                @Html.ValidationMessageFor(model => model.posttitle)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.postplacement, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.postplacement)
-                @Html.ValidationMessageFor(model => model.postplacement)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.da, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.da)
-                @Html.ValidationMessageFor(model => model.da)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("orderID", String.Empty)
-                @Html.ValidationMessageFor(model => model.orderID)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </div> <!-- container -->
 </div>
+<script>
+    var pack = '<div class="form-group-row"><input class="hidden" id="blog_order" type="text" /><div class="col-md-4"><label class="label-field">Word Count Required</label><div class="input-group"><select id="select1" class="form-control" data-field="0" data-row="0"><option value="fivehundredplus" data-cost="0">500 Words</option><option value="sevenfiftyplus" data-cost="7.50">750 Words +(£7.50)</option><option value="thousandplus" data-cost="10.00">1000 Words +(£10.00)</option><option value="twelevefiftyplus" data-cost="12.50">1250 Words +(£12.50)</option><option value="fifteenhundrednplus" data-cost="15.00">1500 Words +(£15.00)</option></select><div class="input-group-addon"><a class="label label-primary" title="We recommend you vary word counts to avoid leaving link building footprints." ">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Anchor Text*</label><div class="input-group"><input  id="text1" type="text" class="form-control" data-field="1" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="We may tweak anchor phrases slightly (even remove regional identifiers) if they will not naturally fit into the flow of content.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Target URL*</label><div class="input-group"><input  id="text2" type="url" data-field-type="url" class="form-control" data-field="2" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please tell us the URL you would like the link to point to." ">Tip</a></div></div></div></div>';
+</script>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+

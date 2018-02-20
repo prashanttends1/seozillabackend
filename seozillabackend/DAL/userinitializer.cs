@@ -13,8 +13,9 @@ namespace seozillabackend.DAL
         {
             var userss = new List<user>
             {
-                new user{firstname="Ajit", lastname="Prakash", email="ajit@gmail.com", country="India", password="123"},
-                new user {firstname="Nikhil", lastname="Verma", email="nikhil@gmail.com", country="India", password="123"}
+                new user{firstname="Ajit", lastname="Prakash", email="ajit@gmail.com", country="India", password="123", role="Admin"},
+                new user{firstname="Ajit", lastname="Prakash", email="ajit@gmail.com", country="India", password="123", role="User"},
+                new user {firstname="Nikhil", lastname="Verma", email="nikhil@gmail.com", country="India", password="123", role="User"}
             };
             userss.ForEach(u => context.users.Add(u));
             context.SaveChanges();

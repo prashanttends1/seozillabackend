@@ -79,7 +79,7 @@ namespace seozillabackend.Controllers
             int last = findlast()+111;
             order.orderno = "SZ" + last;
             order.orderdate = DateTime.Now;
-            order.service = "citation";
+            order.service = "Citation";
             order.status = status.awaiting_payment;
             order.userID = 1;
             
@@ -91,7 +91,7 @@ namespace seozillabackend.Controllers
                 foreach (citation citation in citations_f)
                 {
 
-                    citation.orderID = findlast(); //assign last(i.e. above) order ID to citation OrderID
+                    citation.orderID = findlast(); //assign last(i.e. above) order ID to citation  OrderID
                     db.citations.Add(citation);
                 }
                 db.SaveChanges();

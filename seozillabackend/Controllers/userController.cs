@@ -38,6 +38,7 @@ namespace seozillabackend.Controllers
         }
 
         // GET: /user/Create
+       
         public ActionResult Create()
         {
             return View();
@@ -115,6 +116,11 @@ namespace seozillabackend.Controllers
             db.users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Register()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

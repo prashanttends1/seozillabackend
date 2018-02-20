@@ -81,7 +81,7 @@ namespace seozillabackend.Controllers
             int last = findlast()+111;
             order.orderno = "SZ" + last;
             order.orderdate = DateTime.Now;
-            order.service = "blog";
+            order.service = "Blog";
             order.status = status.awaiting_payment;
             order.userID = 1;
             

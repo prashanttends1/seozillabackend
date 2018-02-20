@@ -76,6 +76,8 @@ namespace seozillabackend.Controllers
             }
 
             ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
+
+           
             return View(order);
         }
 
@@ -91,7 +93,10 @@ namespace seozillabackend.Controllers
             {
                 return HttpNotFound();
             }
+            List<status> st = new List<status>();
+            
             ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
+            //ViewBag.userStatus = new SelectList(st, order.status);
             return View(order);
         }
 
@@ -108,7 +113,9 @@ namespace seozillabackend.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            List<status> st = new List<status>();
             ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
+            //ViewBag.userStatus = new SelectList(st,  order.status);
             return View(order);
         }
 
@@ -208,10 +215,10 @@ namespace seozillabackend.Controllers
 
                     switch (service)
                     {
-                        case "blog":
+                        case "Blog":
                             return PartialView("_blogdetailstable", order);
                         //return PartialView("_blogdetailstable");
-                        case "citation":
+                        case "Citation":
                             return PartialView("_citationdetailstable", order);
                         //return PartialView("_citationdetailstable");
                         default:

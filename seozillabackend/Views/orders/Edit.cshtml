@@ -1,98 +1,117 @@
 ﻿@model seozillabackend.Models.order
 
 @{
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
     ViewBag.Title = "Edit";
 }
+<div class="content-page">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-box">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
 
-<h2>Edit</h2>
+                            <div class="form-horizontal">
+                                <h3>Order Details</h3>
+                                <hr />
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.ID)
 
+                                <div class="form-group hidden">
+                                    @Html.LabelFor(model => model.orderno, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.orderno, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.orderno)
+                                    </div>
+                                </div>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>order</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.ID)
+                                <div class="form-group hidden">
+                                    @Html.LabelFor(model => model.service, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.service, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.service)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.orderno, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.orderno)
-                @Html.ValidationMessageFor(model => model.orderno)
-            </div>
-        </div>
+                                <div class="form-group hidden">
+                                    @Html.LabelFor(model => model.orderdate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.orderdate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.orderdate)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.service, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.service)
-                @Html.ValidationMessageFor(model => model.service)
-            </div>
-        </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.duedate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.duedate)
+                                        @Html.ValidationMessageFor(model => model.duedate)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.orderdate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.orderdate)
-                @Html.ValidationMessageFor(model => model.orderdate)
-            </div>
-        </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        <select name="status" id="input_status">
+                                           
+                                            <option value="payment_done">Payment Done</option>
+                                            <option value="awaiting_payment">Awaiting Payment</option>
+                                            <option value="task_in_progress">Task In Progress</option>
+                                            <option value="task_completed">Task Completed</option>
+                                            <option value="cancelled">Cancelled</option>
+                                            <option value="archived">Archived</option>
+                                        </select>
+                                        @*@Html.TextBoxFor(model => model.status, new { @class = "form-control" })*@
+                                        @Html.ValidationMessageFor(model => model.status)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.duedate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.duedate)
-                @Html.ValidationMessageFor(model => model.duedate)
-            </div>
-        </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.comment, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.comment)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.status)
-                @Html.ValidationMessageFor(model => model.status)
-            </div>
-        </div>
+                                <div class="form-group hidden">
+                                    @Html.LabelFor(model => model.tags, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.tags, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.tags)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comment)
-                @Html.ValidationMessageFor(model => model.comment)
-            </div>
-        </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.userID, "userID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        @Html.DropDownList("userID", String.Empty)
+                                        @Html.ValidationMessageFor(model => model.userID)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.tags, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.tags)
-                @Html.ValidationMessageFor(model => model.tags)
-            </div>
-        </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.userID, "userID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("userID", String.Empty)
-                @Html.ValidationMessageFor(model => model.userID)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-}
+                        @section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                                                        }
+                        

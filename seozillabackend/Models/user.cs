@@ -18,7 +18,7 @@ namespace seozillabackend.Models
         public string email { get; set; }
         public string country { get; set; }
         public string password { get; set; }
-        public string role { get; set; }
+        public string Roles { get; set; }
         public virtual ICollection<order> orders { get; set; }
 
         //public virtual ICollection<blog> blogs { get; set; }

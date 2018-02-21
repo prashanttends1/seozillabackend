@@ -9,34 +9,39 @@ using System.Web;
 using System.Web.Mvc;
 using seozillabackend.DAL;
 using seozillabackend.Models;
+using seozillabackend.Extensions;
 
 namespace seozillabackend.Controllers
 {
+    
     public class ordersController : Controller
     {
         private usercontext db = new usercontext();
 
+        [Authorize]
         // GET: current orders
         public ActionResult Index()
         {
             var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+           
             return View(orders.ToList());
         }
 
-        
+        [Authorize]
         // GET: cancelled orders
         public ActionResult Cancelled()
         {
             var orders = db.orders.Include(o => o.user).Where(o=>o.status==status.cancelled);
             return View(orders.ToList());
         }
+        [Authorize]
         // GET: archived orders
         public ActionResult Archived()
         {
             var orders = db.orders.Include(o => o.user).Where(o => o.status == status.archived);
             return View(orders.ToList());
         }
-
+        [Authorize]
         // GET: orders/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,7 +58,7 @@ namespace seozillabackend.Controllers
             }
             return View(order);
         }
-
+        [Authorize]
          //GET: orders/Create
         public ActionResult Create()
         {
@@ -64,6 +69,7 @@ namespace seozillabackend.Controllers
         // POST: orders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,orderno,service,orderdate,duedate,status,comment,tags,userID")] order order)
@@ -78,7 +84,9 @@ namespace seozillabackend.Controllers
             ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
             return View(order);
         }
-
+        
+        [AccessDeniedAuthorize(Roles="Admin")]
+        
         // GET: orders/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -98,6 +106,7 @@ namespace seozillabackend.Controllers
         // POST: orders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,orderno,service,orderdate,duedate,status,comment,tags,userID")] order order)

@@ -116,17 +116,27 @@ namespace seozillabackend.Controllers
         // GET: blogs/Edit/5
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             blog blog = db.blogs.Find(id);
-            if (blog == null)
+            if (blog.order.user.email == User.Identity.Name)
             {
-                return HttpNotFound();
+                if (blog == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+                return View(blog);
             }
-            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
-            return View(blog);
+            else
+            {
+                return RedirectToAction("AccessDenied", "Authentication");
+                //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
 
         // POST: blogs/Edit/5

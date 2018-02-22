@@ -22,7 +22,8 @@ namespace seozillabackend.Controllers
         // GET: current orders
         public ActionResult Index()
         {
-            var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+            
+            var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived).Where(o=>o.user.email==User.Identity.Name);
            
             return View(orders.ToList());
         }
@@ -90,6 +91,7 @@ namespace seozillabackend.Controllers
         // GET: orders/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

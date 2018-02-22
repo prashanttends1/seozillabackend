@@ -208,7 +208,7 @@
             if (originalContent != ' Archived') {
 
                 $(".label-danger").hover(function () {
-
+                    originalContent = $(this).html();
                     $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
 
                 }, function () {

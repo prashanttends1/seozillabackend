@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net;
 using System.Web.Mvc;
 using seozillabackend.Models;
 using System.Web.Security;
@@ -52,7 +53,8 @@ namespace seozillabackend.Controllers
 
         public ActionResult AccessDenied()
         {
-            return View();
+            //return View();
+            return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
         }
     }
 }

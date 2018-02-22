@@ -22,25 +22,51 @@ namespace seozillabackend.Controllers
         // GET: current orders
         public ActionResult Index()
         {
-            
-            var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived).Where(o=>o.user.email==User.Identity.Name);
-           
-            return View(orders.ToList());
+
+            if (User.IsInRole("User"))
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled && o.status != status.archived).Where(o => o.user.email == User.Identity.Name);
+
+                return View(orders.ToList());
+            }
+            else
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+
+                return View(orders.ToList());
+            }
         }
 
         [Authorize]
         // GET: cancelled orders
         public ActionResult Cancelled()
         {
-            var orders = db.orders.Include(o => o.user).Where(o=>o.status==status.cancelled);
-            return View(orders.ToList());
+            if (User.IsInRole("User"))
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled).Where(o => o.user.email == User.Identity.Name); 
+
+                return View(orders.ToList());
+            }
+            else
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled) ;
+                return View(orders.ToList());
+            }
         }
         [Authorize]
         // GET: archived orders
         public ActionResult Archived()
         {
-            var orders = db.orders.Include(o => o.user).Where(o => o.status == status.archived);
-            return View(orders.ToList());
+            if (User.IsInRole("User"))
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.archived).Where(o => o.user.email == User.Identity.Name);
+                return View(orders.ToList());
+            }
+            else
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.archived);
+                return View(orders.ToList());
+            }
         }
         [Authorize]
         // GET: orders/Details/5
@@ -51,13 +77,26 @@ namespace seozillabackend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            order order = db.orders.Find(id);
-            Session["service"] = order.service;
-            if (order == null)
+            if (User.IsInRole("User"))
             {
-                return HttpNotFound();
+                var order = db.orders.Where(o => o.ID == id && o.user.email == User.Identity.Name).FirstOrDefault();
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
             }
-            return View(order);
+            else
+            {
+                var order = db.orders.Find(id);
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
+            }
+           // Session["service"] = order.service;
+           
         }
         [Authorize]
          //GET: orders/Create
@@ -96,19 +135,32 @@ namespace seozillabackend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            order order = db.orders.Find(id);
-            if (order == null)
+            if (User.IsInRole("User"))
             {
-                return HttpNotFound();
+                var order = db.orders.Where(o => o.ID == id && o.user.email == User.Identity.Name).FirstOrDefault();
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
+                return View(order);
             }
-            ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
-            return View(order);
+           else
+            {
+                var order = db.orders.Find(id);
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
+                return View(order);
+            }
         }
 
         // POST: orders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles="Admin")]
+        [AccessDeniedAuthorize(Roles="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,orderno,service,orderdate,duedate,status,comment,tags,userID")] order order)
@@ -122,7 +174,7 @@ namespace seozillabackend.Controllers
             ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
             return View(order);
         }
-
+        [AccessDeniedAuthorize(Roles="Admin")]
         // GET: orders/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -137,7 +189,7 @@ namespace seozillabackend.Controllers
             }
             return View(order);
         }
-
+        [AccessDeniedAuthorize(Roles = "Admin")]
         // POST: orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -148,7 +200,7 @@ namespace seozillabackend.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         // GET: orders/Cancel/5
         public ActionResult Cancel(int? id)
         {
@@ -156,14 +208,28 @@ namespace seozillabackend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            order order = db.orders.Find(id);
-            if (order == null)
+            if (User.IsInRole("User"))
             {
-                return HttpNotFound();
+                order order = db.orders.Where(o => o.ID == id && o.user.email == User.Identity.Name).FirstOrDefault();
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
+                
             }
-            return View(order);
+            else
+            {
+                order order = db.orders.Find(id);
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
+                
+            }
         }
-
+        [Authorize]
         // POST: orders/Cancel/5
         [HttpPost, ActionName("Cancel")]
         [ValidateAntiForgeryToken]
@@ -183,14 +249,26 @@ namespace seozillabackend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            order order = db.orders.Find(id);
-            if (order == null)
+            if (User.IsInRole("User"))
             {
-                return HttpNotFound();
+                order order = db.orders.Where(o => o.ID == id && o.user.email == User.Identity.Name).FirstOrDefault();
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
             }
-            return View(order);
+            else
+            {
+                order order = db.orders.Find(id);
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
+            }
         }
-
+        [AccessDeniedAuthorize(Roles="Admin")]
         // POST: orders/Cancel/5
         [HttpPost, ActionName("Archived")]
         [ValidateAntiForgeryToken]
@@ -203,7 +281,7 @@ namespace seozillabackend.Controllers
             return RedirectToAction("Cancelled");
         }
 
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult servicedetailstable(int id)
         {
 

@@ -81,8 +81,7 @@ namespace seozillabackend.Controllers
             order.orderdate = DateTime.Now;
             order.service = "citation";
             order.status = status.awaiting_payment;
-            order.userID = 1;
-            
+            order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;            
             db.orders.Add(order);
             db.SaveChanges();
             if (ModelState.IsValid)

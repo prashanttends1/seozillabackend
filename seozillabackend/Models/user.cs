@@ -14,7 +14,8 @@ namespace seozillabackend.Models
         [Display(Name = "First Name")]
         public string firstname { get; set; }       
         public string lastname { get; set; }         
-        public int ID { get; set; }        
+        public int ID { get; set; }
+        [Display(Name="Email")]
         public string email { get; set; }
         public string country { get; set; }
         public string password { get; set; }

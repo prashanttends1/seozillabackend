@@ -38,7 +38,7 @@ namespace seozillabackend.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Invalid login attempt.");
+                ModelState.AddModelError("incorrectcrentials", "Invalid login attempt.");
                 return View(u);
             }
             

@@ -13,6 +13,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+    [Authorize]
     public class blogsController : Controller
     {
         private usercontext db = new usercontext();
@@ -38,7 +39,7 @@ namespace seozillabackend.Controllers
             }
             return View(blog);
         }
-        [Authorize]
+        
         // GET: blogs/Create
         public ActionResult Create()
         {
@@ -70,8 +71,7 @@ namespace seozillabackend.Controllers
 
             return Convert.ToInt32( db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
         }
-        [Authorize
-        ]
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(List<blog> blogs_f)
@@ -112,7 +112,7 @@ namespace seozillabackend.Controllers
             //}
             return View(blogs_f);
         }
-
+        
         // GET: blogs/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -123,7 +123,7 @@ namespace seozillabackend.Controllers
             }
             
             blog blog = db.blogs.Find(id);
-            if (blog.order.user.email == User.Identity.Name)
+            if (User.IsInRole("Admin"))
             {
                 if (blog == null)
                 {
@@ -134,14 +134,28 @@ namespace seozillabackend.Controllers
             }
             else
             {
-                return RedirectToAction("AccessDenied", "Authentication");
-                //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+
+                if (blog.order.user.email == User.Identity.Name)
+                {
+                    if (blog == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+                    return View(blog);
+                }
+                else
+                {
+                    return RedirectToAction("AccessDenied", "Authentication");
+                    //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                }
             }
         }
 
         // POST: blogs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,daordered,wordcount,anchortext,targeturl,posttitle,postplacement,da,orderID")] blog blog)

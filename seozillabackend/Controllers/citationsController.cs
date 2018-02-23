@@ -11,6 +11,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+    [Authorize]
     public class citationsController : Controller
     {
         private usercontext db = new usercontext();
@@ -108,12 +109,34 @@ namespace seozillabackend.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             citation citation = db.citations.Find(id);
-            if (citation == null)
+            if (User.IsInRole("Admin"))
             {
-                return HttpNotFound();
+                if (citation == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", citation.orderID);
+                return View(citation);
             }
-            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", citation.orderID);
-            return View(citation);
+            else
+            {
+                if(User.Identity.Name== citation.order.user.email)
+                {
+                    if (citation == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", citation.orderID);
+                    return View(citation);
+                }
+                else
+                {
+                   
+                    return RedirectToAction("AccessDenied", "Authentication");
+                    //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                
+                }
+            }
         }
 
         // POST: citations/Edit/5

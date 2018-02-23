@@ -11,6 +11,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+    
     public class usersController : Controller
     {
         private usercontext db = new usercontext();

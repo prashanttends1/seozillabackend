@@ -29,7 +29,7 @@ namespace seozillabackend.Controllers
             user user = dl.getuser(u);
             if (user != null)
             {
-                FormsAuthentication.SetAuthCookie(user.email, false);
+                FormsAuthentication.SetAuthCookie(user.email, true);
                 var authTicket = new FormsAuthenticationTicket(1, user.email, DateTime.Now, DateTime.Now.AddMinutes(20), false, user.Roles);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);

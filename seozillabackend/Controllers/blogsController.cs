@@ -38,7 +38,7 @@ namespace seozillabackend.Controllers
             }
             return View(blog);
         }
-
+        [Authorize]
         // GET: blogs/Create
         public ActionResult Create()
         {
@@ -70,7 +70,8 @@ namespace seozillabackend.Controllers
 
             return Convert.ToInt32( db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
         }
-
+        [Authorize
+        ]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(List<blog> blogs_f)

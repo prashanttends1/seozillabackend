@@ -12,12 +12,15 @@ namespace seozillabackend.Models
     {
       
         [Display(Name = "First Name")]
-        public string firstname { get; set; }       
+        public string firstname { get; set; }
+         [Display(Name = "Last Name")]
         public string lastname { get; set; }         
         public int ID { get; set; }
         [Display(Name="Email")]
         public string email { get; set; }
+         [Display(Name = "Country")]
         public string country { get; set; }
+         [Display(Name = "Password")]
         public string password { get; set; }
         public string Roles { get; set; }
         public virtual ICollection<order> orders { get; set; }

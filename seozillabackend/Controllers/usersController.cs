@@ -55,10 +55,20 @@ namespace seozillabackend.Controllers
             
                 if (ModelState.IsValid)
                 {
-                    db.users.Add(user);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    var userfound= db.users.Where(u => u.email == user.email).FirstOrDefault();
+                    if ( userfound == null)
+                    {
+                        db.users.Add(user);
+                        db.SaveChanges();
+                        return RedirectToAction("Index", "orders");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Emailexists", "This email is already taken!");
+                        return View(user);
+                    }
                 }
+            
             
 
             return View(user);

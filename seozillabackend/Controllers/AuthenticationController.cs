@@ -15,18 +15,22 @@ namespace seozillabackend.Controllers
         // GET: Authentication
         public ActionResult Index()
         {
+            if(User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "orders");
+            }
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(user u)
+        public ActionResult Index(string email, string password)
         {
             if (!ModelState.IsValid)
             {
-                return View(u);
+                return View();
             }
             dal dl = new dal();
-            user user = dl.getuser(u);
+            user user = dl.getuser(email, password);
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(user.email, true);
@@ -38,8 +42,8 @@ namespace seozillabackend.Controllers
             }
             else
             {
-                ModelState.AddModelError("incorrectcrentials", "Invalid login attempt.");
-                return View(u);
+                ModelState.AddModelError("incorrectcredentials", "Invalid login attempt.");
+                return View();
             }
             
         }

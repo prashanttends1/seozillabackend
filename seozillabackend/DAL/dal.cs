@@ -10,10 +10,10 @@ namespace seozillabackend.DAL
     {
 
         usercontext db = new usercontext();
-        public user getuser(user user)
+        public user getuser(string email, string pass)
         {
-            return db.users.Where(u => u.email.ToLower() == user.email.ToLower() &&
-            u.password == user.password).FirstOrDefault();
+            return db.users.Where(u => u.email.ToLower() == email.ToLower() &&
+            u.password == pass).FirstOrDefault();
         }
 
     }

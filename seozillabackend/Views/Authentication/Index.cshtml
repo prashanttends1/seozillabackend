@@ -1,5 +1,4 @@
 ﻿
-@model seozillabackend.Models.user
 
 @{
 
@@ -61,14 +60,16 @@
                     <div class="form-group ">
                         <div class="col-xs-12">
                             Email Address
-                            @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+                            @*@Html.TextBoxFor(x => x.email, new { @class = "form-control" })*@
+                            <input type="text" name="email" class="form-control" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-12">
                             Password
-                            @Html.PasswordFor(x => x.password, new { @class = "form-control" })
+                            @*@Html.PasswordFor(x => x.password, new { @class = "form-control" })*@
+                            <input type="password" name="password" class="form-control" />
                         </div>
                     </div>
 
@@ -93,7 +94,7 @@
 
                     <div class="form-group text-center m-t-30">
                         <div class="col-xs-12">
-                            @Html.ValidationMessage("incorrectcrentials")
+                            @Html.ValidationMessage("incorrectcredentials")
                         </div>
                     </div>
 
@@ -109,11 +110,11 @@
             </div>
         </div>
         <!-- end card-box-->
-        <!--<div class="row">
+        <div class="row">
             <div class="col-sm-12 text-center">
-                <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                <p class="text-muted">Don't have an account? <a href="~/users/create" class="text-primary m-l-5"><b>Sign Up</b></a></p>
             </div>
-        </div>-->
+        </div>
 
     </div>
     <!-- end wrapper page -->

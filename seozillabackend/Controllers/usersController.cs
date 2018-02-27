@@ -11,7 +11,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
-    
+    [Authorize]
     public class usersController : Controller
     {
         private usercontext db = new usercontext();
@@ -36,6 +36,7 @@ namespace seozillabackend.Controllers
             }
             return View(user);
         }
+        [AllowAnonymous]
 
         // GET: users/Create
         public ActionResult Create()
@@ -46,16 +47,19 @@ namespace seozillabackend.Controllers
         // POST: users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,firstname,lastname,email,country,password,Roles")] user user)
         {
-            if (ModelState.IsValid)
-            {
-                db.users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            
+                if (ModelState.IsValid)
+                {
+                    db.users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            
 
             return View(user);
         }

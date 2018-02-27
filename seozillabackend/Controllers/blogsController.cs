@@ -76,28 +76,31 @@ namespace seozillabackend.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(List<blog> blogs_f)
         {
-            
-            //create an order for blog 
-            order order = new order();
-            int last = findlast()+111;
-            order.orderno = "SZ" + last;
-            order.orderdate = DateTime.Now;
-            order.service = "blog";
-            order.status = status.awaiting_payment;
-            order.userID= db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
-            db.orders.Add(order);
-            db.SaveChanges();
-            if (ModelState.IsValid)
+            if (blogs_f != null)
             {
-                
-                foreach (blog blog in blogs_f)
-                {
-                    
-                    blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
-                    db.blogs.Add(blog);
-                }
+                //create an order for blog 
+                order order = new order();
+                int last = findlast() + 111;
+                order.orderno = "SZ" + last;
+                order.orderdate = DateTime.Now;
+                order.service = "blog";
+                order.status = status.awaiting_payment;
+                order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                db.orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index", "orders");
+                if (ModelState.IsValid)
+                {
+
+                    foreach (blog blog in blogs_f)
+                    {
+
+                        blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        db.blogs.Add(blog);
+                    }
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "orders");
+
+                }
             }
            
             //foreach (blog blog in blogs_f)

@@ -5,13 +5,15 @@
     Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
 }
 <div class="content-page">
-  
+
     <div class="content">
         <div class="container">
             <div class="row">
 @using (Html.BeginForm())
-    {
+                        {
     @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
                 <div class="col-sm-12">
                     <div class="card-box">
 
@@ -21,73 +23,56 @@
                 <div class="col-sm-6">
                     <div class="card-box">
                         <h3>Account Details</h3>
-                    
+                        
 
-    @Html.ValidationSummary(true)
-    @Html.HiddenFor(model => model.ID)
-    <div class="form-group">
-        <div class="form-group col-sm-12">
-            @Html.LabelFor(model => model.firstname)
-
-           @Html.TextBoxFor(model => model.firstname, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.firstname)
-            </div>
-        </div>
-    <div class="form-group">
-        <div class="form-group col-sm-12">
-            @Html.LabelFor(model => model.lastname)
-           
-                @Html.TextBoxFor(model => model.lastname, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.lastname)
-            </div>
-        </div>
+                            
                             <div class="form-group">
+                                <div class="form-group ">
+                                    @Html.LabelFor(model => model.firstname)
+
+                                    @Html.TextBoxFor(model => model.firstname, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.firstname)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group ">
+                                    @Html.LabelFor(model => model.lastname)
+
+                                    @Html.TextBoxFor(model => model.lastname, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.lastname)
+                                </div>
+                            </div>
+                            @*<div class="form-group">
                                 <label for="phone">Telephone Number</label>
-                                <input id="phone" type="number" placeholder="Telephone Number"  class="form-control" data-parsley-id="8">
+                                <input id="phone" type="number" placeholder="Telephone Number" required="" class="form-control" data-parsley-id="8">
+                            </div>*@
+                            <div class="form-group">
+                                <div class="form-group ">
+                                    @Html.LabelFor(model => model.email)
+
+                                    @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.email)
+                                </div>
                             </div>
-    <div class="form-group">
-        <div class="form-group col-sm-12">
-            @Html.LabelFor(model => model.email)
-            
-                @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.email)
-            </div>
-        </div>
-                        <div class="form-group hidden">
-                            @Html.LabelFor(model => model.Roles, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Roles)
-                                @Html.ValidationMessageFor(model => model.Roles)
+
+
+                            <div class="form-group">
+                                <div class="form-group ">
+                                    @Html.LabelFor(model => model.password)
+
+                                    @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Enter your password" })
+                                    @Html.ValidationMessageFor(model => model.password)
+                                </div>
                             </div>
-                        </div>
 
-
-    <div class="form-group">
-        <div class="form-group col-sm-12">
-            @Html.LabelFor(model => model.password)
-<<<<<<< HEAD
-                <input type="password" name="password" class="form-control" />
-                @*@Html.PasswordFor(model => model.password, new { @class = "form-control" })*@
-=======
-        
-                @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Enter your password" })
->>>>>>> d09cfea2cf07ebf4ad516da4b0bfad85e480d8cb
-                @Html.ValidationMessageFor(model => model.password)
-            </div>
-        </div>
-
-
-                            <div>
+                       
+                            @*<div >
                                 <label for="passWord2">Confirm Password </label>
-                                <input data-parsley-equalto="#pass1" type="password"  placeholder="Verify your new password" class="form-control" id="passWord2" data-parsley-id="10">
-                            </div>
+                                <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Verify your new password" class="form-control" id="passWord2" data-parsley-id="10">
+                            </div>*@
 
 
-<<<<<<< HEAD
-    
-=======
-                     }
->>>>>>> d09cfea2cf07ebf4ad516da4b0bfad85e480d8cb
+                        
 
 
                     </div>
@@ -96,9 +81,9 @@
                     <div class="card-box">
                         <h3>Billing Information (Displayed on Invoices)</h3>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label for="companyName">Company Name <span class="required-field">*</span></label>
-                            <input id="companyName" type="text" class="form-control" name="company" placeholder="Company Name" >
+                            <input id="companyName" type="text" class="form-control" name="company" placeholder="Company Name" required="">
                         </div>
                         <div class="form-group">
                             <label for="BuildingName">Building Name or Number</label>
@@ -106,7 +91,7 @@
                         </div>
                         <div class="form-group">
                             <label for="Address1">Address Line 1 <span class="required-field">*</span></label>
-                            <input id="Address1" type="text" class="form-control" name="address_line_1" value="" placeholder="Address Line 1" >
+                            <input id="Address1" type="text" class="form-control" name="address_line_1" value="" placeholder="Address Line 1" required="">
                         </div>
                         <div class="form-group">
                             <label for="Address2">Address Line 2</label>
@@ -114,24 +99,18 @@
                         </div>
                         <div class="form-group">
                             <label for="city">City / State <span class="required-field">*</span></label>
-                            <input id="city" type="text" class="form-control" name="city" value="" placeholder="City / State " >
+                            <input id="city" type="text" class="form-control" name="city" value="" placeholder="City / State " required="">
                         </div>
                         <div class="form-group">
                             <label for="postcode">Postcode / Zipcode <span class="required-field">*</span></label>
-                            <input id="postcode" type="text" class="form-control" name="postcode" value="" placeholder="Postcode / Zipcode" >
-                        </div>
+                            <input id="postcode" type="text" class="form-control" name="postcode" value="" placeholder="Postcode / Zipcode" required="">
+                        </div>*@
                         <div class="form-group">
                             <label for="country">Country <span class="required-field">*</span></label>
-<<<<<<< HEAD
-                            @Html.DropDownListFor(model => model.country, new SelectList(listof.countries,"Value","Text",Model.country), new { @class="form-control"})
-                            @*<select id="country" name="country" class="form-control" >
-
-                                <option value="" >None</option>
-=======
-                            <select id="country" name="country" class="form-control">
+                            @Html.DropDownListFor(model => model.country, new SelectList(listof.countries, "Value", "Text", Model.country), new { @class = "form-control" })
+                            @*<select id="country" name="country" class="form-control">
 
                                 <option value="" selected>None</option>
->>>>>>> d09cfea2cf07ebf4ad516da4b0bfad85e480d8cb
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -374,63 +353,51 @@
 
                             </select>*@
                         </div>
-
+                        @Html.HiddenFor(model=>model.Roles)
                         <div class="text-right">
-<<<<<<< HEAD
-                            @*<button type="submit" value="Save" class="btn btn-inverse btn-trans waves-effect w-md waves-inverse m-b-5">Update</button>*@
-                            <input type="submit" value="Update" class="btn btn-primary" />
+
+                            <button  value="save" type="submit" class="btn btn-primary">Update</button>
+
+
+
                         </div>
-=======
-                            
-                            <button value="save" type="submit" class="btn btn-inverse btn-trans waves-effect w-md waves-inverse m-b-5">Update</button>
-                       
->>>>>>> d09cfea2cf07ebf4ad516da4b0bfad85e480d8cb
 
-                           
-                         </div>
-                       
 
-                       
+
                     </div>
 
 
-<<<<<<< HEAD
-    }
-            </div>
 
-=======
-               
 
                 </div>
 
-                    
 
+}
             </div>
-                    
->>>>>>> d09cfea2cf07ebf4ad516da4b0bfad85e480d8cb
-        </div> 
-                         
-                    
-    
+
+        </div>
+
+
+
     </div>
 
-                    
-                         
-                         
-</div>
-                         
-                    
 
-    @*@using (Html.BeginForm())
+
+
+</div>
+
+
+
+@*@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>user</h4>
             <hr />
             @Html.ValidationSummary(true)
             @Html.HiddenFor(model => model.ID)
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -438,7 +405,7 @@
                     @Html.ValidationMessageFor(model => model.firstname)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -446,7 +413,7 @@
                     @Html.ValidationMessageFor(model => model.lastname)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -454,7 +421,7 @@
                     @Html.ValidationMessageFor(model => model.email)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.country, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -462,7 +429,7 @@
                     @Html.ValidationMessageFor(model => model.country)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -470,7 +437,7 @@
                     @Html.ValidationMessageFor(model => model.password)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Roles, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -478,7 +445,7 @@
                     @Html.ValidationMessageFor(model => model.Roles)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />
@@ -486,8 +453,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>*@
-

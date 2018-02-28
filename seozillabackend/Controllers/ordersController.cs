@@ -241,7 +241,7 @@ namespace seozillabackend.Controllers
             db.SaveChanges();
             return RedirectToAction("Cancelled");
         }
-
+         [AccessDeniedAuthorize(Roles = "Admin")]
         // GET: orders/Cancel/5
         public ActionResult Archive(int? id)
         {
@@ -293,24 +293,24 @@ namespace seozillabackend.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult emailheading(int id)
+        public ActionResult emailheading()
         {
 
             //order order = db.orders.Find(id);
             if (User.IsInRole("Admin"))
-                return PartialView("_adminlinks", id);
+                return PartialView("_emailheading");
             else
                 return new EmptyResult();
 
         }
 
         [ChildActionOnly]
-        public ActionResult emailvalues(int id)
+        public ActionResult emailvalues(string email)
         {
 
             //order order = db.orders.Find(id);
             if (User.IsInRole("Admin"))
-                return PartialView("_adminlinks", id);
+                return PartialView("_emailvalues", email);
             else
                 return new EmptyResult();
 

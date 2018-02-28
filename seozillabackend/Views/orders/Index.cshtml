@@ -36,6 +36,7 @@
                                         @*<th>
                                             @Html.DisplayNameFor(model => model.user.email)
                                         </th>*@
+                                       
                                         <th>
                                             @Html.DisplayNameFor(model => model.orderno)
                                         </th>
@@ -91,7 +92,12 @@
                                             <td>
                                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |*@
                                                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                                                @Html.ActionLink("Cancel", "Cancel", new { id = item.ID })
+                                                @Html.ActionLink("Cancel", "Cancel", new { id = item.ID }) |
+
+                                                @Html.Action("actionlinks", new { id = item.ID })
+
+
+
                                             </td>
                                         </tr>
                                     }

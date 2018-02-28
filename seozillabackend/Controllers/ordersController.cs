@@ -270,15 +270,50 @@ namespace seozillabackend.Controllers
         }
         [AccessDeniedAuthorize(Roles="Admin")]
         // POST: orders/Cancel/5
-        [HttpPost, ActionName("Archived")]
+        [HttpPost, ActionName("Archive")]
         [ValidateAntiForgeryToken]
         public ActionResult ArchiveConfirmed(int id)
         {
             order order = db.orders.Find(id);
-            order.status = status.cancelled;
+            order.status = status.archived;
             db.orders.AddOrUpdate(o => o.ID, order);
             db.SaveChanges();
-            return RedirectToAction("Cancelled");
+            return RedirectToAction("Archived");
+        }
+        [ChildActionOnly]
+        public ActionResult actionlinks(int id)
+        {
+
+            //order order = db.orders.Find(id);
+            if (User.IsInRole("Admin"))
+                return PartialView("_adminlinks",id);
+            else
+                return new EmptyResult();
+
+        }
+
+        [ChildActionOnly]
+        public ActionResult emailheading(int id)
+        {
+
+            //order order = db.orders.Find(id);
+            if (User.IsInRole("Admin"))
+                return PartialView("_adminlinks", id);
+            else
+                return new EmptyResult();
+
+        }
+
+        [ChildActionOnly]
+        public ActionResult emailvalues(int id)
+        {
+
+            //order order = db.orders.Find(id);
+            if (User.IsInRole("Admin"))
+                return PartialView("_adminlinks", id);
+            else
+                return new EmptyResult();
+
         }
 
         [ChildActionOnly]

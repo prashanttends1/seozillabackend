@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using seozillabackend.DAL;
 using seozillabackend.Models;
+using seozillabackend.Extensions;
 
 namespace seozillabackend.Controllers
 {
@@ -71,7 +72,20 @@ namespace seozillabackend.Controllers
 
             return Convert.ToInt32( db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
         }
+
         
+        [ChildActionOnly]
+        public ActionResult updatedetails(int id)
+        {
+
+            blog blog = db.blogs.Find(id);
+            if (User.IsInRole("Admin"))
+                return PartialView("_adminupdatedetails", blog);
+            else
+                return PartialView("_userupdatedetails", blog);
+         
+        }
+         
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(List<blog> blogs_f)

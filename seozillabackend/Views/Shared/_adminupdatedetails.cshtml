@@ -1,0 +1,40 @@
+﻿@model seozillabackend.Models.blog
+
+
+                                <div class="form-horizontal">
+
+       
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.posttitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.posttitle, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.posttitle)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.postplacement, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.postplacement, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.postplacement)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.da, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.da, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.da)
+                                        </div>
+                                    </div>
+
+                               
+
+                                </div>
+                        
+   

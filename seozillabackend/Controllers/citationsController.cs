@@ -11,6 +11,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+    [Authorize]
     public class citationsController : Controller
     {
         private usercontext db = new usercontext();
@@ -73,29 +74,30 @@ namespace seozillabackend.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(List<citation> citations_f)
         {
-            
-            //create an order for citation 
-            order order = new order();
-            int last = findlast()+111;
-            order.orderno = "SZ" + last;
-            order.orderdate = DateTime.Now;
-            order.service = "citation";
-            order.status = status.awaiting_payment;
-            order.userID = 1;
-            
-            db.orders.Add(order);
-            db.SaveChanges();
-            if (ModelState.IsValid)
+            if (citations_f != null)
             {
-
-                foreach (citation citation in citations_f)
+                //create an order for citation 
+                order order = new order();
+                int last = findlast() + 111;
+                order.orderno = "SZ" + last;
+                order.orderdate = DateTime.Now;
+                order.service = "citation";
+                order.status = status.awaiting_payment;
+                order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                db.orders.Add(order);
+                db.SaveChanges();
+                if (ModelState.IsValid)
                 {
 
-                    citation.orderID = findlast(); //assign last(i.e. above) order ID to citation OrderID
-                    db.citations.Add(citation);
+                    foreach (citation citation in citations_f)
+                    {
+
+                        citation.orderID = findlast(); //assign last(i.e. above) order ID to citation OrderID
+                        db.citations.Add(citation);
+                    }
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "orders");
                 }
-                db.SaveChanges();
-                return RedirectToAction("Index", "orders");
             }
             return View(citations_f);
         }
@@ -109,12 +111,34 @@ namespace seozillabackend.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             citation citation = db.citations.Find(id);
-            if (citation == null)
+            if (User.IsInRole("Admin"))
             {
-                return HttpNotFound();
+                if (citation == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", citation.orderID);
+                return View(citation);
             }
-            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", citation.orderID);
-            return View(citation);
+            else
+            {
+                if(User.Identity.Name== citation.order.user.email)
+                {
+                    if (citation == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", citation.orderID);
+                    return View(citation);
+                }
+                else
+                {
+                   
+                    return RedirectToAction("AccessDenied", "Authentication");
+                    //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                
+                }
+            }
         }
 
         // POST: citations/Edit/5

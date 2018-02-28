@@ -13,6 +13,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+    [Authorize]
     public class blogsController : Controller
     {
         private usercontext db = new usercontext();
@@ -38,7 +39,7 @@ namespace seozillabackend.Controllers
             }
             return View(blog);
         }
-
+        
         // GET: blogs/Create
         public ActionResult Create()
         {
@@ -70,34 +71,36 @@ namespace seozillabackend.Controllers
 
             return Convert.ToInt32( db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(List<blog> blogs_f)
         {
-            
-            //create an order for blog 
-            order order = new order();
-            int last = findlast()+111;
-            order.orderno = "SZ" + last;
-            order.orderdate = DateTime.Now;
-            order.service = "blog";
-            order.status = status.awaiting_payment;
-            order.userID = 1;
-            
-            db.orders.Add(order);
-            db.SaveChanges();
-            if (ModelState.IsValid)
+            if (blogs_f != null)
             {
-                
-                foreach (blog blog in blogs_f)
-                {
-                    
-                    blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
-                    db.blogs.Add(blog);
-                }
+                //create an order for blog 
+                order order = new order();
+                int last = findlast() + 111;
+                order.orderno = "SZ" + last;
+                order.orderdate = DateTime.Now;
+                order.service = "blog";
+                order.status = status.awaiting_payment;
+                order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                db.orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index", "orders");
+                if (ModelState.IsValid)
+                {
+
+                    foreach (blog blog in blogs_f)
+                    {
+
+                        blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        db.blogs.Add(blog);
+                    }
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "orders");
+
+                }
             }
            
             //foreach (blog blog in blogs_f)
@@ -112,26 +115,50 @@ namespace seozillabackend.Controllers
             //}
             return View(blogs_f);
         }
-
+        
         // GET: blogs/Edit/5
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             blog blog = db.blogs.Find(id);
-            if (blog == null)
+            if (User.IsInRole("Admin"))
             {
-                return HttpNotFound();
+                if (blog == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+                return View(blog);
             }
-            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
-            return View(blog);
+            else
+            {
+
+                if (blog.order.user.email == User.Identity.Name)
+                {
+                    if (blog == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+                    return View(blog);
+                }
+                else
+                {
+                    return RedirectToAction("AccessDenied", "Authentication");
+                    //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                }
+            }
         }
 
         // POST: blogs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,daordered,wordcount,anchortext,targeturl,posttitle,postplacement,da,orderID")] blog blog)

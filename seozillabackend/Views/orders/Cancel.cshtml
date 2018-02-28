@@ -31,7 +31,7 @@
                         <div class="table-responsive">
                             <table class="table">
 
-                                <tr>
+                                @*<tr>
 
                                     <th>
                                         @Html.DisplayNameFor(model => model.user.firstname)
@@ -40,13 +40,13 @@
                                     <td>
                                         @Html.DisplayFor(model => model.user.firstname)
                                     </td>
-                                </tr>
+                                </tr>*@
                                 <tr>
-                                    <th>
+                                    <th class="zero_border_top">
                                         @Html.DisplayNameFor(model => model.orderno)
                                     </th>
 
-                                    <td>
+                                    <td class="zero_border_top">
                                         @Html.DisplayFor(model => model.orderno)
                                     </td>
                                 </tr>
@@ -69,7 +69,7 @@
                                         @Html.DisplayFor(model => model.orderdate)
                                     </td>
                                 </tr>
-                                <tr>
+                                @*<tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.duedate)
                                     </th>
@@ -96,7 +96,7 @@
                                     <td>
                                         @Html.DisplayFor(model => model.comment)
                                     </td>
-                                </tr>
+                                </tr>*@
 
                             </table>
                         </div>
@@ -107,7 +107,8 @@
                             @Html.AntiForgeryToken()
 
                             <div class="form-actions no-color">
-                                <input type="submit" value="Cancel" class="btn btn-default" /> |
+
+                                <input type="submit" value="Cancel" class="btn btn-primary" /> |
                                 @Html.ActionLink("Back to List", "Index")
                             </div>
                         }

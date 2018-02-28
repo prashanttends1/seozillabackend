@@ -1205,7 +1205,7 @@ pre {
 .waves-effect.waves-inverse .waves-ripple {
   background-color: rgba(59, 62, 71, 0.4);
 }
-
+a.back_to_list{float:left;padding:6px 0px}
 /* =============
    Print css
 ============= */

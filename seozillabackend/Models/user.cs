@@ -10,15 +10,25 @@ namespace seozillabackend.Models
     
     public class user
     {
-      
+        [Required]
         [Display(Name = "First Name")]
-        public string firstname { get; set; }       
-        public string lastname { get; set; }         
-        public int ID { get; set; }        
+        public string firstname { get; set; }
+        [Required]
+         [Display(Name = "Last Name")]
+        public string lastname { get; set; }  
+        [Required]
+        public int ID { get; set; }
+        [Display(Name="Email")]
+        [Required]
         public string email { get; set; }
+         [Display(Name = "Country")]
+        [Required]
         public string country { get; set; }
+         [Display(Name = "Password")]
+        [Required]
         public string password { get; set; }
-        public string role { get; set; }
+        [Required]
+        public string Roles { get; set; }
         public virtual ICollection<order> orders { get; set; }
 
         //public virtual ICollection<blog> blogs { get; set; }

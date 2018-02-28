@@ -13,7 +13,7 @@ namespace seozillabackend.DAL
         {
             var userss = new List<user>
             {
-                new user{firstname="Ajit", lastname="Prakash", email="ajit@gmail.com", country="India", password="123", Roles="Admin"},
+                new user{firstname="Hitesh", lastname="Patel", email="hitesh@inteventure.com", country="United Kingdom", password="123", Roles="Admin"},
                 new user{firstname="Ajit2", lastname="Prakash", email="ajit2@gmail.com", country="India", password="123", Roles="User"},
                 new user {firstname="Nikhil", lastname="Verma", email="nikhil@gmail.com", country="India", password="123", Roles="User"}
             };

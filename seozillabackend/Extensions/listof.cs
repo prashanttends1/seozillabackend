@@ -10,7 +10,8 @@ namespace seozillabackend.Extensions
     {
         public static List<SelectListItem> countries = new List<SelectListItem>() { 
                 new SelectListItem(){ Text="Afghanistan", Value="Afghanistan"},
-                new SelectListItem(){ Text="India", Value="India"},};
+                new SelectListItem(){ Text="India", Value="India"},
+                new SelectListItem(){ Text="United Kingdom", Value="United Kingdom"},};
         public static List<SelectListItem> status = new List<SelectListItem>()
         {
             new SelectListItem(){ Text="Awaiting Payment", Value="awaiting_payment"},

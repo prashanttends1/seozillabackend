@@ -31,7 +31,7 @@
                         <div class="table-responsive">
                             <table class="table">
 
-                                <tr>
+                                @*<tr>
 
                                     <th>
                                         @Html.DisplayNameFor(model => model.user.firstname)
@@ -40,8 +40,8 @@
                                     <td>
                                         @Html.DisplayFor(model => model.user.firstname)
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr>*@
+                              <tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.orderno)
                                     </th>
@@ -50,7 +50,7 @@
                                         @Html.DisplayFor(model => model.orderno)
                                     </td>
                                 </tr>
-                                <tr>
+                               <tr>
 
                                     <th>
                                         @Html.DisplayNameFor(model => model.service)
@@ -69,7 +69,7 @@
                                         @Html.DisplayFor(model => model.orderdate)
                                     </td>
                                 </tr>
-                                <tr>
+                                @*<tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.duedate)
                                     </th>
@@ -77,8 +77,8 @@
                                     <td>
                                         @Html.DisplayFor(model => model.duedate)
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr>*@
+                                @*<tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.status)
                                     </th>
@@ -86,8 +86,8 @@
                                     <td>
                                         @Html.DisplayFor(model => model.status)
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr>*@
+                                @*<tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.comment)
                                     </th>
@@ -95,7 +95,7 @@
                                     <td>
                                         @Html.DisplayFor(model => model.comment)
                                     </td>
-                                </tr>
+                                </tr>*@
 
                             </table>
                         </div>
@@ -106,7 +106,7 @@
                             @Html.AntiForgeryToken()
 
                             <div class="form-actions no-color">
-                                <input type="submit" value="Archive" class="btn btn-default" /> |
+                                <input type="submit" value="Archive" class="btn btn-primary" /> |
                                 @Html.ActionLink("Back to List", "Index")
                             </div>
                         }

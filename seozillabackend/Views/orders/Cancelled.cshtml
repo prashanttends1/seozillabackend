@@ -33,9 +33,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.user.firstname)
-                                        </th>
+                                        @*<th>
+            @Html.DisplayNameFor(model => model.user.email)
+        </th>*@
+                                        @Html.Action("emailheading")
                                         <th>
                                             @Html.DisplayNameFor(model => model.orderno)
                                         </th>
@@ -65,9 +66,10 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.user.firstname)
-                                            </td>
+                                            @*<td>
+        @Html.DisplayFor(modelItem => item.user.email)
+    </td>*@
+                                            @Html.Action("emailvalues", new { email = item.user.email })
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.orderno)
                                             </td>

@@ -1,4 +1,4 @@
-﻿
+﻿@using seozillabackend.DAL
 <!DOCTYPE html>
 <html>
 
@@ -110,8 +110,14 @@
 
                         <li>
 
-                            <a href="my_profile.html" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
-
+                           @{
+                               
+                               usercontext db = new usercontext();
+                               int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                               string url= "users/edit/"+id;
+                                                                                      
+                             <a href=@url class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                           }
                         </li>
 
                         <li>

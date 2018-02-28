@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using seozillabackend.DAL;
 using seozillabackend.Models;
 
@@ -50,6 +51,7 @@ namespace seozillabackend.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create([Bind(Include = "ID,firstname,lastname,email,country,password,Roles")] user user)
         {
             
@@ -60,7 +62,15 @@ namespace seozillabackend.Controllers
                     {
                         db.users.Add(user);
                         db.SaveChanges();
+                        dal dl = new dal();
+                        user userauth = dl.getuser(user.email, user.password);
+                        FormsAuthentication.SetAuthCookie(userauth.email, true);
+                        var authTicket = new FormsAuthenticationTicket(1, userauth.email, DateTime.Now, DateTime.Now.AddMinutes(20), false, userauth.Roles);
+                        string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                        var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                        HttpContext.Response.Cookies.Add(authCookie);
                         return RedirectToAction("Index", "orders");
+                        
                     }
                     else
                     {

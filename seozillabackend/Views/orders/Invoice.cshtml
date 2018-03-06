@@ -1,0 +1,162 @@
+﻿
+@model IEnumerable<seozillabackend.Models.order>
+
+@{
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+    ViewBag.Title="Invoice";
+}
+
+
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3>INVOICE</h3>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="clearfix">
+                                <div class="pull-left">
+                                    @*<h3 class="logo">SEOZILLA</h3>*@
+                                    <img class="zmdi zmdi-layers logo" src="~/assets/images/logo-home.png" />
+                                </div>
+                                <div class="pull-right">
+                                    @*<h4>
+                                        Invoice # <br>
+                                        <strong>2016-04-23654789</strong>
+                                    </h4>*@
+                               <dl>
+                                   <dt>
+                                       @Html.DisplayNameFor(model => model.userID)
+                                   </dt>
+                               </dl>
+
+                                    
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-left m-t-30">
+                                        <address>
+                                            <strong>Twitter, Inc.</strong><br>
+                                            795 Folsom Ave, Suite 600<br>
+                                            San Francisco, CA 94107<br>
+                                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                                        </address>
+                                    </div>
+                                    <div class="pull-right m-t-30">
+                                        <dl>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.status)
+                                            </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.orderno)
+                                            </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.orderdate)
+                                            </dt>
+                                        </dl>
+
+                                         </div>
+                                </div>
+                            </div>
+                           
+                            <div class="m-h-50"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                  
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.orderno)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.service)
+                                                    </th>
+                                                    <th>Description</th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.orderdate)
+                                                    </th>
+                                                    <th>Quantity</th>
+                                                    <th>Cost</th>
+                                                    <th>Total</th>
+                                                   
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="invoices-result">
+                                            
+                                                @foreach (var item in Model)
+                                                {
+                                                    
+                                                    <tr>
+                                                      
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.orderno)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.service)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.comment)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.orderdate)
+                                                        </td>
+                                                        <td>
+                                                      @Model.Count()
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                }
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="clearfix m-t-40">
+                                        <h5 class="small text-inverse font-600">PAYMENT TERMS AND POLICIES</h5>
+                                        <small>
+                                            All accounts are to be paid within 7 days from receipt of
+                                            invoice. To be paid by cheque or credit card or direct payment
+                                            online. If account is not paid within 7 days the credits details
+                                            supplied as confirmation of work undertaken will be charged the
+                                            agreed quoted fee noted above.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+                                    <p class="text-right"><b>Sub-total:</b> 2930.00</p>
+                                    <p class="text-right">Discout: 12.9%</p>
+                                    <p class="text-right">VAT: 12.9%</p>
+                                    <hr>
+                                    <h3 class="text-right">USD 2930.00</h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="hidden-print">
+                                <div class="pull-right">
+                                    <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
+                                    <div type="submit" class="btn btn-primary waves-effect waves-light">Submit</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+  </div>

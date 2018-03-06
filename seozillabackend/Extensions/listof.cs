@@ -155,7 +155,8 @@ namespace seozillabackend.Extensions
                           new SelectListItem(){ Text="Malta", Value="Malta"},
                           new SelectListItem(){ Text="Marshall Islands", Value="Marshall Islands"},
 
-new SelectListItem(){ Text="Martinique", Value="Martinique"},
+
+                          new SelectListItem(){ Text="Martinique", Value="Martinique"},
                           new SelectListItem(){ Text="Mauritania", Value="Mauritania"},
                           new SelectListItem(){ Text="Mauritius", Value="Mauritius"},
                           new SelectListItem(){ Text="Mayotte", Value="Mayotte"},
@@ -186,14 +187,16 @@ new SelectListItem(){ Text="Martinique", Value="Martinique"},
                           new SelectListItem(){ Text="Norfolk Island", Value="Norfolk Island"},
 
 
- new SelectListItem(){ Text="Northern Mariana Islands", Value="Northern Mariana Islands"},
+ 
+                          new SelectListItem(){ Text="Northern Mariana Islands", Value="Northern Mariana Islands"},
                           new SelectListItem(){ Text="Norway", Value="Norway"},
                           new SelectListItem(){ Text="Oman", Value="Oman"},
                           new SelectListItem(){ Text="Pakistan", Value="Pakistan"},
                           new SelectListItem(){ Text="Palau", Value="Palau"},
                           new SelectListItem(){ Text="Palestinian Territory, Occupied", Value="Palestinian Territory, Occupied"},
 
- new SelectListItem(){ Text="Panama", Value="Panama"},
+ 
+                          new SelectListItem(){ Text="Panama", Value="Panama"},
                           new SelectListItem(){ Text="Papua New Guinea", Value="Papua New Guinea"},
                           new SelectListItem(){ Text="Paraguay", Value="Paraguay"},
                           new SelectListItem(){ Text="Peru", Value="Peru"},
@@ -209,9 +212,94 @@ new SelectListItem(){ Text="Martinique", Value="Martinique"},
                           new SelectListItem(){ Text="Russian Federation", Value="Russian Federation"},
                            new SelectListItem(){ Text="Rwanda", Value="Rwanda"},
 
-                new SelectListItem(){ Text="United Kingdom", Value="United Kingdom"},};
+
+                           new SelectListItem(){ Text="Saint Helena", Value="Saint Helena"},
+                          new SelectListItem(){ Text="Saint Kitts and Nevis", Value="Saint Kitts and Nevis"},
+                          new SelectListItem(){ Text="Saint Lucia", Value="Saint Lucia"},
+                           new SelectListItem(){ Text="Saint Pierre and Miquelon", Value="Saint Pierre and Miquelon"},
+
+ 
+                           new SelectListItem(){ Text="Saint Vincent and the Grenadines", Value="Saint Vincent and the Grenadines"},
+                          new SelectListItem(){ Text="Samoa", Value="Samoa"},
+                          new SelectListItem(){ Text="San Marino", Value="San Marino"},
+                          new SelectListItem(){ Text="Sao Tome and Principe", Value="Sao Tome and Principe"},
+                          new SelectListItem(){ Text="Saudi Arabia", Value="Saudi Arabia"},
+                          new SelectListItem(){ Text="Senegal", Value="Senegal"},
+
+                          new SelectListItem(){ Text="Serbia and Montenegro", Value="Serbia and Montenegro"},
+                          new SelectListItem(){ Text="Seychelles", Value="Seychelles"},
+                          new SelectListItem(){ Text="Sierra Leone", Value="Sierra Leone"},
+                          new SelectListItem(){ Text="Singapore", Value="Singapore"},
+                          new SelectListItem(){ Text="Slovakia", Value="Slovakia"},
+
+
+  
+                          new SelectListItem(){ Text="Solomon Islands", Value="Solomon Islands"},
+                          new SelectListItem(){ Text="Somalia", Value="Somalia"},
+                          new SelectListItem(){ Text="South Africa", Value="South Africa"},
+                          new SelectListItem(){ Text="South Georgia and the South Sandwich Islands", Value="South Georgia and the South Sandwich Islands"},
+                          new SelectListItem(){ Text="Spain", Value="Spain"},
+                          new SelectListItem(){ Text="Sri Lanka", Value="Sri Lanka"},
+                           
+                          new SelectListItem(){ Text="Sudan", Value="Sudan"},
+                          new SelectListItem(){ Text="Suriname", Value="Suriname"},
+                          new SelectListItem(){ Text="Svalbard and Jan Mayen", Value="Svalbard and Jan Mayen"},
+                          new SelectListItem(){ Text="Swaziland", Value="Swaziland"},
+                          new SelectListItem(){ Text="Sweden", Value="Sweden"},
+                          new SelectListItem(){ Text="Switzerland", Value="Switzerland"},
+
+                          new SelectListItem(){ Text="Syrian Arab Republic", Value="Syrian Arab Republic"},
+                          new SelectListItem(){ Text="Taiwan, Province of China", Value="Taiwan, Province of China"},
+                          new SelectListItem(){ Text="Tajikistan", Value="Tajikistan"},
+                          new SelectListItem(){ Text="Tanzania, United Republic of", Value="Tanzania, United Republic of"},
+                          new SelectListItem(){ Text="Thailand", Value="Thailand"},
+                          new SelectListItem(){ Text="Timor-Leste", Value="Timor-Leste"},
+
+                          new SelectListItem(){ Text="Togo", Value="Togo"},
+                          new SelectListItem(){ Text="Tokelau", Value="Tokelau"},
+                          new SelectListItem(){ Text="Tonga", Value="Tonga"},
+                          new SelectListItem(){ Text="Trinidad and Tobago", Value="Trinidad and Tobago"},
+                          new SelectListItem(){ Text="Tunisia", Value="Tunisia"},
+                          new SelectListItem(){ Text="Turkey", Value="Turkey"},
+
+                          new SelectListItem(){ Text="Turkmenistan", Value="Turkmenistan"},
+                          new SelectListItem(){ Text="Turks and Caicos Islands", Value="Turks and Caicos Islands"},
+                          new SelectListItem(){ Text="Tuvalu", Value="Tuvalu"},
+                          new SelectListItem(){ Text="Uganda", Value="Uganda"},
+                          new SelectListItem(){ Text="Ukraine", Value="Ukraine"},
+                          new SelectListItem(){ Text="United Arab Emirates", Value="United Arab Emirates"},
+
+
+                
+                          new SelectListItem(){ Text="United Kingdom", Value="United Kingdom"},
+        
+        
+                   
+
+                
+                          new SelectListItem(){ Text="United States", Value="United States"},
+                          new SelectListItem(){ Text="United States Minor Outlying Islands", Value="United States Minor Outlying Islands"},
+                          new SelectListItem(){ Text="Uruguay", Value="Uruguay"},
+                          new SelectListItem(){ Text="Uzbekistan", Value="Uzbekistan"},
+                          new SelectListItem(){ Text="Vanuatu", Value="Vanuatu"},
+                          new SelectListItem(){ Text="Venezuela", Value="Venezuela"},
+
+               
+                          new SelectListItem(){ Text="Viet Nam", Value="Viet Nam"},
+                          new SelectListItem(){ Text="Virgin Islands, British", Value="Virgin Islands, British"},
+                          new SelectListItem(){ Text="Virgin Islands, U.s.", Value="Virgin Islands, U.s."},
+                          new SelectListItem(){ Text="Wallis and Futuna", Value="Wallis and Futuna"},
+                          new SelectListItem(){ Text="Western Sahara", Value="Western Sahara"},
+                          new SelectListItem(){ Text="Yemen", Value="Yemen"},
+        
+                          new SelectListItem(){ Text="Zambia", Value="Zambia"},
+          
+                          new SelectListItem(){ Text="Zimbabwe", Value="Zimbabwe"},};
+
         public static List<SelectListItem> status = new List<SelectListItem>()
         {
+            
+
             new SelectListItem(){ Text="Awaiting Payment", Value="awaiting_payment"},
                 new SelectListItem(){ Text="Payment Done", Value="Payment Done"},
                 new SelectListItem(){ Text="Task In Progress", Value="task_in_progress"},
@@ -219,7 +307,7 @@ new SelectListItem(){ Text="Martinique", Value="Martinique"},
                 new SelectListItem(){ Text="Cancelled", Value="cancelled"},
                 new SelectListItem(){ Text="Archived", Value="archived"}
         };
-        
+
 
     }
      

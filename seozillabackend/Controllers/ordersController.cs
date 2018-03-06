@@ -373,6 +373,23 @@ namespace seozillabackend.Controllers
         {
             return View();
         }
+
+        public ActionResult Invoice()
+        {
+          
+            if (User.IsInRole("User"))
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled && o.status != status.archived).Where(o => o.user.email == User.Identity.Name);
+
+                return View(orders.ToList());
+            }
+            else
+            {
+                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+
+                return View(orders.ToList());
+            }
+        }
       
         protected override void Dispose(bool disposing)
         {

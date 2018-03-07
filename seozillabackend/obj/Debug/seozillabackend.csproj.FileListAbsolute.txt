@@ -325,7 +325,6 @@ F:\repo\seozillabackend\seozillabackend\bin\Microsoft.Owin.Security.OAuth.xml
 F:\repo\seozillabackend\seozillabackend\bin\Microsoft.Owin.Security.Google.xml
 F:\repo\seozillabackend\seozillabackend\bin\Microsoft.Owin.Security.Twitter.xml
 F:\repo\seozillabackend\seozillabackend\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\repo\seozillabackend\seozillabackend\obj\Debug\seozillabackend.csprojResolveAssemblyReference.cache
 F:\repo\seozillabackend\seozillabackend\obj\Debug\seozillabackend.dll
 F:\repo\seozillabackend\seozillabackend\obj\Debug\seozillabackend.pdb
 D:\my clients\repo\seozillabackend2\seozillabackend\bin\seozillabackend.dll.config

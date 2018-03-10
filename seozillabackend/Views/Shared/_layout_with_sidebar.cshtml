@@ -50,7 +50,8 @@
 
             @*LOGO*@
             <div class="topbar-left">
-                <a href="current.html" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>
+                <a href="" class="logo"><img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" /></a>
+                @*<a href="current.html" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>*@
             </div>
 
 
@@ -81,7 +82,7 @@
                 @*User*@
                 <div class="user-box">
 
-                    <h5><a href="">@User.Identity.Name </a> </h5>
+                    <h5><a href="">@User.Identity.Name</a> </h5>
 
                 </div>
                 @*End User*@
@@ -110,14 +111,21 @@
 
                         <li>
 
-                           @{
+                           @*@{
                                
                                usercontext db = new usercontext();
                                int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
                                string url= "users/edit/"+id;
                                                                                       
                              <a href=@url class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
-                           }
+                           }*@
+                            @{
+
+                                usercontext db = new usercontext();
+                                int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+
+                                <a href="~/users/Edit/@id" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                            }
                         </li>
 
                         <li>

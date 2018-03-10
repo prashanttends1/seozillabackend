@@ -373,7 +373,7 @@ File: Menu
   letter-spacing: .035em;
   pointer-events: none;
   cursor: default;
-  font-size: 13px;
+  font-size: 15px;
 }
 #wrapper.enlarged .menu-title,
 #wrapper.enlarged .menu-arrow {

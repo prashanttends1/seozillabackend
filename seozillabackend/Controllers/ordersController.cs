@@ -379,18 +379,73 @@ namespace seozillabackend.Controllers
           
             if (User.IsInRole("User"))
             {
-                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled && o.status != status.archived).Where(o => o.user.email == User.Identity.Name);
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled || o.status == status.awaiting_payment).Where(o => o.user.email == User.Identity.Name);
 
                 return View(orders.ToList());
             }
             else
             {
-                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled || o.status == status.awaiting_payment || o.status == status.archived);
 
                 return View(orders.ToList());
             }
         }
-      
+        public ActionResult Invoices(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (User.IsInRole("User"))
+            {
+                var order = db.orders.Where(o => o.ID == id && o.user.email == User.Identity.Name).FirstOrDefault();
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
+            }
+            else
+            {
+                var order = db.orders.Find(id);
+                if (order == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(order);
+            }
+          
+        }
+        [ChildActionOnly]
+        public ActionResult invoicedetailstable(int id)
+        {
+
+            order order = db.orders.Find(id);
+           
+            string service = order.service;
+
+            ViewBag.service = service;
+
+            ViewBag.countblog = order.blogs.Count();
+
+         
+
+            switch (service)
+            {
+                case "blog":
+                    return PartialView("_bloginvoice", order);
+               
+                case "citation":
+                    return PartialView("_citationdetailstable", order);
+               
+                default:
+                    return Content("Incorrect ID");
+
+            }
+         
+        }
+         
         protected override void Dispose(bool disposing)
         {
             if (disposing)

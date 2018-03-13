@@ -429,7 +429,9 @@ namespace seozillabackend.Controllers
 
             ViewBag.countblog = order.blogs.Count();
 
-         
+          
+            //ViewBag.data = order.blogs.Distinct();
+
 
             switch (service)
             {

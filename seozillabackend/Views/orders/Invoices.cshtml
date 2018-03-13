@@ -24,11 +24,11 @@
                                 <div class="pull-right">
                                    
                                <dl>
-                                   <dt>
-                                       @Html.DisplayNameFor(model => model.orderno)
-                                   </dt>
+                                  
+                                      
+                                   
                                    <dd>
-                                       @Html.DisplayFor(model => model.orderno)
+                                       <strong> @Html.DisplayNameFor(model => model.orderno) :</strong>       @Html.DisplayFor(model => model.orderno)
                                    </dd>
                                </dl>
 
@@ -42,59 +42,53 @@
                                         <address>
                                             <strong>Seozilla, Inc.</strong><br>
                                             795 Folsom Ave, Suite 600<br>
-                                            london , uk<br>
+                                            London , UK<br>
                                             <abbr title="Phone">P:</abbr> (123) 456-7890
                                         </address>
                                     </div>
                                     <div class="pull-right m-t-30">
                                         <dl>
-                                            <dt>
-                                                @Html.DisplayNameFor(model => model.status)
-                                            </dt>
-                                            <dd>
-                                                @Html.DisplayFor(model => model.status)
-                                            </dd>
-                                           
-                                            <dt>
-                                                @Html.DisplayNameFor(model => model.orderdate)
-                                            </dt>
-                                            <dd>
-                                                @Html.DisplayFor(model => model.orderdate)
-                                            </dd>
-                                          
-                                        </dl>
+                                            <dd class="fixwidth">
+                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a class="label label-danger"> @Model.status.DisplayName()</a>
+                                        </dd>
 
-                                         </div>
-                                </div>
-                            </div>
-                           
-                            <div class="m-h-50"></div>
-                    
+                    <dd>
+                        <strong>  @Html.DisplayNameFor(model => model.orderdate) :</strong> @Html.DisplayFor(model => model.orderdate)
+                    </dd>
 
-                            @Html.Action("invoicedetailstable", new { id = Model.ID })
+                </dl>
+
+                 </div>
+        </div>
+    </div>
+
+    <div class="m-h-50"></div>
+
+
+    @Html.Action("invoicedetailstable", new { id = Model.ID })
 
 
 
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="clearfix m-t-40">
-                                        <h5 class="small text-inverse font-600">PAYMENT TERMS AND POLICIES</h5>
-                                        <small>
-                                            All accounts are to be paid within 7 days from receipt of
-                                            invoice. To be paid by cheque or credit card or direct payment
-                                            online. If account is not paid within 7 days the credits details
-                                            supplied as confirmation of work undertaken will be charged the
-                                            agreed quoted fee noted above.
-                                        </small>
-                                    </div>
-                                </div>
-                                @*<div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
-                                    <p class="text-right"><b>Sub-total:</b> </p>
-                                    <p class="text-right">Discout: </p>
-                                    <p class="text-right">VAT: </p>
-                                    <hr>
-                                    <h3 class="text-right">USD </h3>
-                                </div>*@
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="clearfix m-t-40">
+                <h5 class="small text-inverse font-600">PAYMENT TERMS AND POLICIES</h5>
+                <small>
+                    All accounts are to be paid within 7 days from receipt of
+                    invoice. To be paid by cheque or credit card or direct payment
+                    online. If account is not paid within 7 days the credits details
+                    supplied as confirmation of work undertaken will be charged the
+                    agreed quoted fee noted above.
+                </small>
+            </div>
+        </div>
+        @*<div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+            <p class="text-right"><b>Sub-total:</b> </p>
+            <p class="text-right">Discout: </p>
+            <p class="text-right">VAT: </p>
+            <hr>
+            <h3 class="text-right">USD </h3>
+        </div>*@
                             </div>
                             <hr>
                             <div class="hidden-print">

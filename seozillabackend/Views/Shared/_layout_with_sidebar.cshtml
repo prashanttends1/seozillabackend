@@ -234,13 +234,37 @@
                 $(".label-danger").css({ "cursor": "initial" });
             }
 
-            //$(".zmdi-menu").click(function () {
-                
-            //    $("div#wrapper").toggleClass("enlarged");
-            //});
+           
+            var newcount = parseInt($(".count").text());
+ 
+             
+            if ($(".details").text() == "DA 10+ blog") {
 
+                alert($(".details").text());
 
+                $(".unit-cost").text(45);
 
+            }
+             else if($(".details").text() == "DA 20+ blog") {
+
+                $(".unit-cost").text(60);
+
+            }
+             else if($(".details").text() == "DA 30+ blog") {
+
+                $(".unit-cost").text(80);
+
+            }
+             else if($(".details").text() == "DA 40+ blog") {
+
+                $(".unit-cost").text(250);
+
+            }
+               
+            var newunit = parseInt($(".unit-cost").text());
+
+           
+            $(".total-cost").text(newcount * newunit);
         });
 
     </script>

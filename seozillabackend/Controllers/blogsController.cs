@@ -101,7 +101,7 @@ namespace seozillabackend.Controllers
                 order.status = status.awaiting_payment;
                 order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
                 db.orders.Add(order);
-                db.SaveChanges();
+                db.SaveChanges();                
                 if (ModelState.IsValid)
                 {
 
@@ -109,10 +109,12 @@ namespace seozillabackend.Controllers
                     {
 
                         blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        Session["orderID"] = findlast();
                         db.blogs.Add(blog);
                     }
                     db.SaveChanges();
-                    return RedirectToAction("Index", "orders");
+                    //return RedirectToAction("Index", "orders");
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
 
                 }
             }

@@ -284,21 +284,22 @@ namespace seozillabackend.Controllers
         [Authorize]
         public ActionResult afterpayment(string invoicestatus)
         {
-           
-            if(invoicestatus=="paid")
+
+            if (invoicestatus == "Paid")
             {
-                if (Session["orderID"]==null)
-                    return RedirectToAction("Cancel");
+                if (Session["orderID"] == null)
+                    return RedirectToAction("Cancelled");
                 int id = Convert.ToInt32(Session["orderID"]);
                 order order = db.orders.Find(id);
                 order.status = status.payment_done;
                 db.orders.AddOrUpdate(o => o.ID, order);
                 db.SaveChanges();
-                return RedirectToAction("Archive");
+                return RedirectToAction("Index");
             }
-            else
+            else if (invoicestatus == null)
                 return RedirectToAction("Cancelled");
-        
+            else
+                return Content(invoicestatus);
         }
         [ChildActionOnly]
         public ActionResult actionlinks(int id)

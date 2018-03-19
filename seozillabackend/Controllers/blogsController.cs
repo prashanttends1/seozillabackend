@@ -88,7 +88,7 @@ namespace seozillabackend.Controllers
          
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(List<blog> blogs_f)
+        public ActionResult Create(List<blog> blogs_f,string url)
         {
             if (blogs_f != null)
             {
@@ -114,8 +114,8 @@ namespace seozillabackend.Controllers
                     }
                     db.SaveChanges();
                     //return RedirectToAction("Index", "orders");
-                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
-
+                    //return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
+                    return Redirect(url);
                 }
             }
            

@@ -12,8 +12,7 @@ namespace seozillabackend.DAL
         usercontext db = new usercontext();
         public user getuser(string email, string pass)
         {
-            return db.users.Where(u => u.email.ToLower() == email.ToLower() &&
-            u.password == pass).FirstOrDefault();
+            return db.users.Where(u => u.email.ToLower() == email.ToLower() && u.password == pass).FirstOrDefault();
         }
 
     }

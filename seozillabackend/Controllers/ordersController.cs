@@ -119,6 +119,7 @@ namespace seozillabackend.Controllers
                 db.orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+                
             }
 
             ViewBag.userID = new SelectList(db.users, "ID", "firstname", order.userID);
@@ -279,6 +280,26 @@ namespace seozillabackend.Controllers
             db.orders.AddOrUpdate(o => o.ID, order);
             db.SaveChanges();
             return RedirectToAction("Archived");
+        }
+        [Authorize]
+        public ActionResult afterpayment(string invoicestatus)
+        {
+
+            if (invoicestatus == "Paid")
+            {
+                if (Session["orderID"] == null)
+                    return RedirectToAction("Cancelled");
+                int id = Convert.ToInt32(Session["orderID"]);
+                order order = db.orders.Find(id);
+                order.status = status.payment_done;
+                db.orders.AddOrUpdate(o => o.ID, order);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else if (invoicestatus == null)
+                return RedirectToAction("Cancelled");
+            else
+                return Content(invoicestatus);
         }
         [ChildActionOnly]
         public ActionResult actionlinks(int id)

@@ -447,20 +447,21 @@ namespace seozillabackend.Controllers
             string service = order.service;
 
             ViewBag.service = service;
-
+           
             ViewBag.countblog = order.blogs.Count();
 
-          
-            //ViewBag.data = order.blogs.Distinct();
+            ViewBag.countcitation = order.citations.Count();
 
+           
 
             switch (service)
             {
                 case "blog":
+                  
                     return PartialView("_bloginvoice", order);
                
                 case "citation":
-                    return PartialView("_citationdetailstable", order);
+                    return PartialView("_citationinvoice", order);
                
                 default:
                     return Content("Incorrect ID");

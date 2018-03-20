@@ -117,26 +117,14 @@
             $(".package-qty").on("change", function () {
 
 
-                //$("#package-data-" + id).nextAll(".form-group-row").remove();
-
-                //$("package-container").find(".form-group-row").remove();
-
-                //$("#package-data-" + id).find(".form-group-row").remove();
-
-                //$(".form-group-row").remove();
-
                 var $quantity = $(this);
 
 
                 id = $quantity.data("package-id");
 
-
-
                 quantity = parseInt($quantity.val());
 
                 id1 =  $("#package-data-" + id).index();
-
-            
 
                 if (isNaN(quantity) || quantity < 0 || quantity == 0) {
 
@@ -232,23 +220,20 @@
                     }
                 }
                 
-                    var Cost = $("#oldCost-"+id).text();
-                    var newcost = (Cost * quantity);
-                    
+                var Cost = $("#oldCost-" + id).text();
+                var newcost = (Cost * quantity);
 
-
+                
                     $("#newCost-" + id).text(newcost); 
 
                     var new1 = parseInt($("#newCost-1").text());
                     var new2 =  parseInt($("#newCost-2").text());
                     var new3 = parseInt ($("#newCost-3").text());
                     var new4 =  parseInt($("#newCost-4").text());
-                    var new5 = parseInt($("#newCost-5").text());
-
                                     
-                    $(".totalcost").text(new1 + new2 + new3 + new4 + new5);
+                    $(".totalcost").text(new1 + new2 + new3 + new4);
 
-                    $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4 + new5) * (1.40)));
+                    $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)));
 
                     if(quantity<5 && quantity!=0)
                     {
@@ -267,10 +252,64 @@
                         $(".approx_days").html(NaN);
                     }
 
-                  
-                   
+                    if ($("#url").attr("value") == undefined) {
+                        if(id==1 && quantity==1)
+                        {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
+                 
+                        }
+                        if (id == 1 && quantity == 5)
+                        {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
+                 
+                        }
+                        if (id == 1 && quantity == 10) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
 
-        });
+                        }
+                        if (id == 2 && quantity == 1) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
+
+                        }
+                        if (id == 2 && quantity == 5) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
+
+                        }
+                        if (id == 2 && quantity == 10) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
+
+                        }
+
+                        if (id == 3 && quantity == 1) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
+
+                        }
+                        if (id == 3 && quantity == 5) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
+
+                        }
+                        if (id == 3 && quantity == 10) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
+
+                        }
+                        if (id == 4 && quantity == 1) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
+
+                        }
+                        if (id == 4 && quantity == 5) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
+
+                        }
+                        if (id == 4 && quantity == 10) {
+                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
+
+                        }
+                       
+                    }
+                
+            });
+
+           
     });
     </script>
 

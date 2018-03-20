@@ -234,28 +234,28 @@
                 $(".label-danger").css({ "cursor": "initial" });
             }
 
-           
             var newcount = parseInt($(".count").text());
  
-             
-            if ($(".details").text() == "DA 10+ blog") {
+            var newdetails = $(".details").text();
 
-                alert($(".details").text());
+           
+             
+            if ($(newdetails == 'DA 10+ blog')) {
 
                 $(".unit-cost").text(45);
 
             }
-             else if($(".details").text() == "DA 20+ blog") {
+          else if($(newdetails == 'DA 20+ blog')) {
 
                 $(".unit-cost").text(60);
 
             }
-             else if($(".details").text() == "DA 30+ blog") {
+           else if($(newdetails == 'DA 30+ blog')) {
 
                 $(".unit-cost").text(80);
 
             }
-             else if($(".details").text() == "DA 40+ blog") {
+          else if($(newdetails == 'DA 40+ blog')) {
 
                 $(".unit-cost").text(250);
 

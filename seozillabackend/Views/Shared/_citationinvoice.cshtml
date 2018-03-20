@@ -5,35 +5,31 @@
         <table class="table">
             <thead>
                 <tr>
-                   <th>Quantity</th>
+                <tr>
+                    <th>Quantity</th>
                     <th>Details</th>
                     <th>Unit Cost</th>
                     <th>Subtotal</th>
                     <th></th>
 
+
                 </tr>
             </thead>
             <tbody>
-         
-            @foreach (var itemblog in Model.blogs.Take(1))
+                @foreach (var itemcitation in Model.citations.Take(1))
                 {
-            
                     <tr>
-                        <td class="count">@ViewBag.countblog</td>`
-                    <td class="details"> @itemblog.daordered.DisplayName() @ViewBag.service</td>
-                                   
-                       <td class="unit-cost"></td>
-                        <td class="total-cost"></td>
-                     
-                </tr>
-              }
 
-</tbody>
+                        <td class="count">@ViewBag.countcitation</td>`
+                        <td class="details">@ViewBag.service</td>
+                        <td class="unit-cost"></td>
+                        <td class="total-cost"></td>
+                    </tr>
+                }
+            </tbody>
+
         </table>
 
-
     </div>
-   
 </div>
-
 

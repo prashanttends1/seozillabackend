@@ -112,7 +112,7 @@
 
         $(document).ready(function () {
 
-       
+          
           
             $(".package-qty").on("change", function () {
 
@@ -124,9 +124,16 @@
 
                 quantity = parseInt($quantity.val());
 
-                id1 =  $("#package-data-" + id).index();
+                id1 = $("#package-data-" + id).index();
 
-                if (isNaN(quantity) || quantity < 0 || quantity == 0) {
+
+               
+
+
+
+
+                if (isNaN(quantity) || quantity < 0 || quantity == 0)
+                {
 
                     $quantity.val(0);
 
@@ -146,7 +153,8 @@
 
 
 
-                    for (var i = 0; i < quantity; i++) {
+                    for (var i = 0; i < quantity; i++)
+                    {
 
 
                         $("#package-data-" + id + " .panel-sub-heading").after(pack);
@@ -194,26 +202,31 @@
 
                         if ($("#blog_order").attr("value") == undefined)
 
-                            if (id1 == 0) {
+                            if (id1 == 0)
+                            {
 
                                 $("#blog_order").attr("value", "ten_plus");
                             }
-                       else if (id1 == 1) {
+                            else if (id1 == 1)
+                            {
 
-                            $("#blog_order").attr("value", "twenty_plus");
-                        }
-                       else if (id1 == 2) {
+                                $("#blog_order").attr("value", "twenty_plus");
+                            }
+                            else if (id1 == 2)
+                            {
 
-                            $("#blog_order").attr("value", "thirty_plus");
-                        }
-                       else if (id1 == 3) {
+                                $("#blog_order").attr("value", "thirty_plus");
+                            }
+                            else if (id1 == 3)
+                            {
 
-                            $("#blog_order").attr("value", "forty_plus");
-                        }
-                       else if (id1 == 4) {
+                                $("#blog_order").attr("value", "forty_plus");
+                            }
+                            else if (id1 == 4)
+                            {
 
-                           $("#blog_order").attr("value", " ten_plus_special");
-                        }
+                                $("#blog_order").attr("value", " ten_plus_special");
+                            }
 
                       
 
@@ -234,6 +247,19 @@
                     $(".totalcost").text(new1 + new2 + new3 + new4);
 
                     $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)));
+                    if (quantity == 5) {
+                         $(".totalcost").text((new1 + new2 + new3 + new4) - (25));
+
+                        $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)) - (100));
+
+
+                    }
+                    if (quantity == 10) {
+                        $(".totalcost").text(new1 + new2 + new3 + new4);
+
+                        $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)));
+
+                    }
 
                     if(quantity<5 && quantity!=0)
                     {
@@ -252,7 +278,10 @@
                         $(".approx_days").html(NaN);
                     }
 
-                    if ($("#url").attr("value") == undefined) {
+                   
+
+                        
+                        
                         if(id==1 && quantity==1)
                         {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
@@ -305,8 +334,75 @@
 
                         }
                        
-                    }
-                
+                    
+ 
+
+                    $('input[name="radio-button"]').click(function () {
+
+                        if ($('input[name="radio-button"]').is(':checked')) {
+
+                            var radioValue = $("input[name='radio-button']:checked").val();
+
+                            switch(radioValue)
+                            {
+                                case "radio-1":
+                                    $("#select1").prop("disabled", false);
+                                    $("#select2").prop("disabled", true);
+                                    $("#select3").prop("disabled", true);
+                                    $("#select4").prop("disabled", true);
+                                    break;
+
+                                case "radio-2":
+                                    $("#select2").prop("disabled", false);
+                                    $("#select1").prop("disabled", true);
+                                    $("#select3").prop("disabled", true);
+                                    $("#select4").prop("disabled", true);
+
+                                    break;
+
+                                case "radio-3":
+                                    $("#select3").prop("disabled", false);
+                                    $("#select1").prop("disabled", true);
+                                    $("#select2").prop("disabled", true);
+                                    $("#select4").prop("disabled", true);
+
+                                    break;
+
+                                case "radio-4":
+                                    $("#select4").prop("disabled", false);
+                                    $("#select1").prop("disabled", true);
+                                    $("#select2").prop("disabled", true);
+                                    $("#select3").prop("disabled", true);
+                                    break;
+
+                                default:
+                                    $("#select4").prop("disabled", true);
+                                    $("#select1").prop("disabled", true);
+                                    $("#select2").prop("disabled", true);
+                                    $("#select3").prop("disabled", true);
+
+
+                            }
+
+                            $("#package-data-" + id).addClass("hidden");
+
+                            $("#package-data-" + id).find(".form-group-row").remove();
+
+                            $quantity.val(0);
+
+                            $("#newCost-" + id).text(0);
+
+                            $(".totalcost").text(0);
+
+                            $(".totalcost_usd").text(0);
+
+
+                           
+                        }
+
+                    });
+
+
             });
 
            

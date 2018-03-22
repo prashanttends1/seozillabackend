@@ -22,7 +22,47 @@ File: Core
 /* =============
    Common
 ============= */
+.place-order {
 
+font-size:25px;
+}
+.reg {
+        padding: 10px 15px !important;
+            border-radius: 25px !important;
+            font-size:20px !important;
+                margin: 20px;
+}
+.box-head {
+    color:#ffffff;
+}
+.first {
+    background-color: #71b6f9 !important;
+}
+
+.second {
+    background-color: #98a6ad !important;
+}
+.line {
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+}
+
+.boxes {
+    width: 17%;
+    float: left;
+    text-align: center;
+    padding: 30px;
+    margin: 21px;
+    color: #ffffff;
+    border-radius: 9px;
+}
+.style-register {
+        font-size: 24px;
+        padding: 7px;
+}
+#register-field {
+    margin-left:10px;
+}
 .breadcrumb2{
     margin-bottom:auto !important;
 }

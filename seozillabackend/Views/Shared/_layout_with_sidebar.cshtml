@@ -218,8 +218,8 @@
             
 
             var originalContent = $('.label-danger').html();
-
-            if (originalContent != ' Archived') {
+           
+            if (originalContent != ' Archived' && originalContent != 'Payment Done') {
 
                 $(".label-danger").hover(function () {
                     originalContent = $(this).html();
@@ -229,7 +229,8 @@
                     $(this).html(originalContent).css({ "background": "#ff5b5b" });
 
                 });
-            }
+            }	
+            
             else {
                 $(".label-danger").css({ "cursor": "initial" });
             }

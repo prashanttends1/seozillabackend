@@ -112,13 +112,16 @@
 
         $(document).ready(function () {
 
-          
+            var $quantity = $('.package-qty');
+            var id = 1;
+            var quantity = 1;
+            var id1 = 0;
+            
           
             $(".package-qty").on("change", function () {
 
-
-                var $quantity = $(this);
-
+                
+                $quantity = $(this);
 
                 id = $quantity.data("package-id");
 
@@ -338,71 +341,75 @@
                     
  
 
-                    $('input[name="radio-button"]').click(function () {
-
-                        if ($('input[name="radio-button"]').is(':checked')) {
-
-                            var radioValue = $("input[name='radio-button']:checked").val();
-
-                            switch(radioValue)
-                            {
-                                case "radio-1":
-                                    $("#select1").prop("disabled", false);
-                                    $("#select2").prop("disabled", true);
-                                    $("#select3").prop("disabled", true);
-                                    $("#select4").prop("disabled", true);
-                                    break;
-
-                                case "radio-2":
-                                    $("#select2").prop("disabled", false);
-                                    $("#select1").prop("disabled", true);
-                                    $("#select3").prop("disabled", true);
-                                    $("#select4").prop("disabled", true);
-
-                                    break;
-
-                                case "radio-3":
-                                    $("#select3").prop("disabled", false);
-                                    $("#select1").prop("disabled", true);
-                                    $("#select2").prop("disabled", true);
-                                    $("#select4").prop("disabled", true);
-
-                                    break;
-
-                                case "radio-4":
-                                    $("#select4").prop("disabled", false);
-                                    $("#select1").prop("disabled", true);
-                                    $("#select2").prop("disabled", true);
-                                    $("#select3").prop("disabled", true);
-                                    break;
-
-                                default:
-                                    $("#select4").prop("disabled", true);
-                                    $("#select1").prop("disabled", true);
-                                    $("#select2").prop("disabled", true);
-                                    $("#select3").prop("disabled", true);
+                   
 
 
-                            }
+            });
 
-                            $("#package-data-" + id).addClass("hidden");
+            $('input[type="radio"]').change(function () {
+                
 
-                            $("#package-data-" + id).find(".form-group-row").remove();
-
-                            $quantity.val(0);
-
-                            $("#newCost-" + id).text(0);
-
-                            $(".totalcost").text(0);
-
-                            $(".totalcost_usd").text(0);
+                
+               
+                if ($('input[name="radio-button"]').is(':checked')) {
 
 
-                           
-                        }
+                    var radioValue = $("input[name='radio-button']:checked").val();
+                    
+                    switch (radioValue) {
+                        case "1":
+                            $("#select1").prop("disabled", false);
+                            $("#select2").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+                            $("#select4").prop("disabled", true);
+                            break;
 
-                    });
+                        case "2":
+                            $("#select2").prop("disabled", false);
+                            $("#select1").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+                            $("#select4").prop("disabled", true);                            
+                            break;
 
+                        case "3":
+                            $("#select3").prop("disabled", false);
+                            $("#select1").prop("disabled", true);
+                            $("#select2").prop("disabled", true);
+                            $("#select4").prop("disabled", true);
+
+                            break;
+
+                        case "4":
+                            $("#select4").prop("disabled", false);
+                            $("#select1").prop("disabled", true);
+                            $("#select2").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+                            break;
+
+                        default:
+                            $("#select4").prop("disabled", true);
+                            $("#select1").prop("disabled", true);
+                            $("#select2").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+
+
+                    }
+                   
+                    $("#package-data-" + id).addClass("hidden");
+
+                    $("#package-data-" + id).find(".form-group-row").remove();
+
+                    $quantity.val(0);
+
+                    $("#newCost-" + id).text(0);
+
+                    $(".totalcost").text(0);
+
+                    $(".totalcost_usd").text(0);
+
+
+
+                }
 
             });
 

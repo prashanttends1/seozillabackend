@@ -301,7 +301,7 @@ namespace seozillabackend.Extensions
             
 
             new SelectListItem(){ Text="Awaiting Payment", Value="awaiting_payment"},
-                new SelectListItem(){ Text="Payment Done", Value="Payment Done"},
+                new SelectListItem(){ Text="Payment Done", Value="payment_done"},
                 new SelectListItem(){ Text="Task In Progress", Value="task_in_progress"},
                 new SelectListItem(){ Text="Task Completed", Value="task_completed"},
                 new SelectListItem(){ Text="Cancelled", Value="cancelled"},

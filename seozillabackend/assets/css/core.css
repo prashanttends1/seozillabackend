@@ -22,18 +22,33 @@ File: Core
 /* =============
    Common
 ============= */
+
+#side-row {
+
+    margin-left:30px;
+}
+
+
+#snaps {
+    margin-top: 10%;
+}
+.custom-card {
+    height: 610px;
+}
 .place-order {
 
-font-size:25px;
+font-size: 15px;
+padding:15px;
 }
 .reg {
-        padding: 10px 15px !important;
-            border-radius: 25px !important;
-            font-size:20px !important;
-                margin: 20px;
+            padding: 5px 9px !important;
+    border-radius: 25px !important;
+    font-size: 15px !important;
+    margin: 10px;
 }
 .box-head {
     color:#ffffff;
+    font-size: 15px;
 }
 .first {
     background-color: #71b6f9 !important;
@@ -48,17 +63,15 @@ font-size:25px;
 }
 
 .boxes {
-    width: 17%;
-    float: left;
-    text-align: center;
-    padding: 30px;
-    margin: 21px;
+   font-size: 12px;
+    padding: 20px;
+	margin: 18px;
     color: #ffffff;
     border-radius: 9px;
 }
 .style-register {
-        font-size: 24px;
-        padding: 7px;
+       font-size: 15px;
+    padding: 5px;
 }
 #register-field {
     margin-left:10px;

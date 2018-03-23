@@ -216,24 +216,38 @@
     <script>
         $(document).ready(function () {
             
+          
+                
 
-            var originalContent = $('.label-danger').html();
-           
-            if (originalContent != ' Archived' && originalContent != 'Payment Done') {
+                var originalContent ="Awaiting Payment"
 
-                $(".label-danger").hover(function () {
-                    originalContent = $(this).html();
+            $('.label-danger').hover(function () {
+                originalContent = $(this).html();
+               
+                if (originalContent != ' Archived' && originalContent != ' Payment Done' && originalContent != ' Task In Progress' && originalContent != ' Task Completed') {
+                        
                     $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
 
-                }, function () {
-                    $(this).html(originalContent).css({ "background": "#ff5b5b" });
-
-                });
-            }	
-            
-            else {
-                $(".label-danger").css({ "cursor": "initial" });
+                }
+                else {
+                   
+                    $(this).css({ "cursor": "initial" });
+                    $(this).removeAttr("href");
+                }
             }
+                        , function () {
+                            if ($(this).html() == "<strong>Make Payment</strong>") {
+                               
+                                $(this).html(originalContent).css({ "background": "#ff5b5b", "cursor": "pointer" });
+                               
+                            }
+                    
+                    });
+                
+
+                
+           
+        
 
             var newcount = parseInt($(".count").text());
  

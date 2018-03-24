@@ -251,20 +251,7 @@
 
                     $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)));
 
-                    if (quantity == 5) {
-                         $(".totalcost").text((new1 + new2 + new3 + new4) - (25));
-
-                        $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)) - (100));
-
-
-                    }
-                    if (quantity == 10) {
-                        $(".totalcost").text(new1 + new2 + new3 + new4);
-
-                        $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)));
-
-                    }
-
+                   
                     if(quantity<5 && quantity!=0)
                     {
                         $(".approx_days").html('Approx 14 Days');

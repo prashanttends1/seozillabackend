@@ -255,35 +255,86 @@
 
            
              
-            if (newdetails == ' DA 10+ blog') {
+            if (newdetails == ' DA 10+ blog' && newcount == 1) {
 
                 $(".unit-cost").text(75);
+                $(".total-cost").text(75);
 
             }
-           if(newdetails == ' DA 20+ blog') {
+            if (newdetails == ' DA 20+ blog' && newcount == 1) {
 
-               $(".unit-cost").text(110);
+                $(".unit-cost").text(110);
+                $(".total-cost").text(110);
 
             }
-            if(newdetails == ' DA 30+ blog'){
+            if (newdetails == ' DA 30+ blog' && newcount == 1) {
 
                 $(".unit-cost").text(150);
+                $(".total-cost").text(150);
 
             }
-           if(newdetails == ' DA 40+ blog') {
+            if (newdetails == ' DA 40+ blog' && newcount == 1) {
 
-               $(".unit-cost").text(300);
+                $(".unit-cost").text(300);
+                $(".total-cost").text(300);
 
             }
 
-           var newunit = parseInt($(".unit-cost").text());
+            if (newdetails == ' DA 10+ blog' && newcount == 5) {
 
-           $(".total-cost").text(newcount * newunit);
+                $(".unit-cost").text(75);
+                $(".total-cost").text(350);
+
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(500);
+
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(670);
+
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 5 ){
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(1350);
+
+            }
+
+            if (newdetails == ' DA 10+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(650);
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(980);
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(1300);
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(2600);
+            }
+
+            
+           //var newunit = parseInt($(".unit-cost").text());
+
+           //$(".total-cost").text(newcount * newunit);
 
            var total = $(".total-cost").text();
-          
+            
            $(".total-cost-usd").text(Math.round((total) * (1.40)));
-
+            
         });
 
     </script>

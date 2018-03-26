@@ -130,10 +130,6 @@
                 id1 = $("#package-data-" + id).index();
 
 
-               
-
-
-
 
                 if (isNaN(quantity) || quantity < 0 || quantity == 0)
                 {
@@ -236,97 +232,115 @@
                     }
                 }
                 
-                var Cost = $("#oldCost-" + id).text();
-                var newcost = (Cost * quantity);
-
-                
-                    $("#newCost-" + id).text(newcost); 
-
-                    var new1 = parseInt($("#newCost-1").text());
-                    var new2 =  parseInt($("#newCost-2").text());
-                    var new3 = parseInt ($("#newCost-3").text());
-                    var new4 =  parseInt($("#newCost-4").text());
-                                    
-                    $(".totalcost").text(new1 + new2 + new3 + new4);
-
-                    $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4) * (1.40)));
-
-                   
-                    if(quantity<5 && quantity!=0)
-                    {
-                        $(".approx_days").html('Approx 14 Days');
-                    }
-                   if (quantity >5 )
-                    {
-                        $(".approx_days").html('Approx 21 Days');
-                   }
-                if (quantity > 25 )
-                    {
-                    $(".approx_days").html('  Approx 28 Days');
-                   }
-                 
-                    if (quantity == 0) {
-                        $(".approx_days").html(NaN);
-                    }
-
-                   
+               
 
                         
                         
                         if(id==1 && quantity==1)
                         {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
+                            $("#amount").attr("value", "75");
                  
                         }
                         if (id == 1 && quantity == 5)
                         {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
+                            $("#amount").attr("value", "350");
                  
                         }
                         if (id == 1 && quantity == 10) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
+                            $("#amount").attr("value", "650");
 
                         }
                         if (id == 2 && quantity == 1) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
+                            $("#amount").attr("value", "110");
 
                         }
                         if (id == 2 && quantity == 5) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
+                            $("#amount").attr("value", "500");
 
                         }
                         if (id == 2 && quantity == 10) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
+                            $("#amount").attr("value", "980");
 
                         }
 
                         if (id == 3 && quantity == 1) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
+                            $("#amount").attr("value", "150");
 
                         }
                         if (id == 3 && quantity == 5) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
+                            $("#amount").attr("value", "670");
 
                         }
                         if (id == 3 && quantity == 10) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
+                            $("#amount").attr("value", "1300");
 
                         }
                         if (id == 4 && quantity == 1) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
+                            $("#amount").attr("value", "300");
 
                         }
                         if (id == 4 && quantity == 5) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
+                            $("#amount").attr("value", "1350");
 
                         }
                         if (id == 4 && quantity == 10) {
                             $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
+                            $("#amount").attr("value", "2600");
 
                         }
                        
+                           
+                       
                     
- 
+                        var amount_add = $("#amount").val();
+
+                        //var Cost = $("#oldCost-" + id).text();
+                        //var newcost = (Cost * quantity);
+
+
+                        //$("#newCost-" + id).text(newcost);
+
+                        //var new1 = parseInt($("#newCost-1").text());
+                        //var new2 = parseInt($("#newCost-2").text());
+                        //var new3 = parseInt($("#newCost-3").text());
+                        //var new4 = parseInt($("#newCost-4").text());
+
+                        $(".totalcost").text(amount_add);
+
+                        $(".totalcost_usd").text(Math.round((amount_add) * (1.40)));
+
+
+                        if (quantity < 5 && quantity != 0) {
+                            $(".approx_days").html('Approx 14 Days');
+                        }
+
+                        if (quantity > 5 && quantity != 0) {
+                            $(".approx_days").html('Approx 21 Days');
+                        }
+                        //if (quantity > 25) {
+                        //    $(".approx_days").html('  Approx 28 Days');
+                        //}
+
+                        if (quantity == 0) {
+                            $(".approx_days").html(NaN);
+                            $(".totalcost").text(0);
+
+                            $(".totalcost_usd").text(0);
+
+                        }
+
+
 
                    
 

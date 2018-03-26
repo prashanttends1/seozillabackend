@@ -299,7 +299,7 @@ namespace seozillabackend.Controllers
                     return RedirectToAction("Index");
                 }
                 else
-                    return Content("Invalid Session. please try again.")
+                    return Content("Invalid Session. please try again.");
             }
             else if (invoicestatus == null)
                 return RedirectToAction("Cancelled");

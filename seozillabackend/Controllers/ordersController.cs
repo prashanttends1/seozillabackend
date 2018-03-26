@@ -289,12 +289,17 @@ namespace seozillabackend.Controllers
             {
                 if (Session["orderID"] == null)
                     return RedirectToAction("Cancelled");
-                int id = Convert.ToInt32(Session["orderID"]);
-                order order = db.orders.Find(id);
-                order.status = status.payment_done;
-                db.orders.AddOrUpdate(o => o.ID, order);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                else if (Query.findlast() == Convert.ToInt32(Session["orderID"])
+                {
+                    int id = Convert.ToInt32(Session["orderID"]);
+                    order order = db.orders.Find(id);
+                    order.status = status.payment_done;
+                    db.orders.AddOrUpdate(o => o.ID, order);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                    return Content("Invalid Session. please try again.")
             }
             else if (invoicestatus == null)
                 return RedirectToAction("Cancelled");

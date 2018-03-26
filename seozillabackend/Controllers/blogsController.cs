@@ -88,7 +88,7 @@ namespace seozillabackend.Controllers
          
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(List<blog> blogs_f,string url)
+        public ActionResult Create(List<blog> blogs_f,string url, string amount)
         {
             if (blogs_f != null)
             {
@@ -110,6 +110,7 @@ namespace seozillabackend.Controllers
 
                         blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
                         Session["orderID"] = findlast();
+                        Session["amount"] = amount;
                         db.blogs.Add(blog);
                     }
                     db.SaveChanges();

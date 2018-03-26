@@ -282,27 +282,28 @@ namespace seozillabackend.Controllers
             return RedirectToAction("Archived");
         }
         [Authorize]
-        public ActionResult afterpayment(string invoicestatus)
+        public ActionResult afterpayment(string invoicestatus, int invoiceamount)
         {
 
             if (invoicestatus == "Paid")
             {
                 if (Session["orderID"] == null)
-                    return RedirectToAction("Cancelled");
-                else if (Query.findlast() == Convert.ToInt32(Session["orderID"])
+                    return Content("Invalid Session. Please try again.");
+                else if (Query.findlast() == Convert.ToInt32(Session["orderID"]) && Convert.ToDouble(Session["amount"]) == invoiceamount/100)
                 {
                     int id = Convert.ToInt32(Session["orderID"]);
                     order order = db.orders.Find(id);
                     order.status = status.payment_done;
                     db.orders.AddOrUpdate(o => o.ID, order);
                     db.SaveChanges();
+                    Session["orderID"] = null;
                     return RedirectToAction("Index");
                 }
                 else
-                    return Content("Invalid Session. please try again.");
+                    return Content("Invalid Session Error#2. Please try again.");
             }
             else if (invoicestatus == null)
-                return RedirectToAction("Cancelled");
+                return Content("Cannot find order. Please try again.");
             else
                 return Content(invoicestatus);
         }

@@ -49,7 +49,7 @@
                                     <div class="pull-right m-t-30">
                                         <dl>
                                             <dd class="fixwidth">
-                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a class="label label-danger"> @Model.status.DisplayName()</a>
+                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a href="~/orders/makepayment/@Model.ID"  class="label label-danger"> @Model.status.DisplayName()</a>
                                         </dd>
 
                     <dd>
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    
+                            <div class="m-h-50"></div>
 
     @Html.Action("invoicedetailstable", new { id = Model.ID })
 
@@ -94,7 +94,7 @@
                             <div class="hidden-print">
                                 <div class="pull-right">
                                     <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
-                                    <div type="submit" class="btn btn-primary waves-effect waves-light">Submit</div>
+                                    @*<div type="submit" class="btn btn-primary waves-effect waves-light">Submit</div>*@
                                 </div>
                             </div>
                         </div>

@@ -121,10 +121,19 @@
                            }*@
                             @{
 
-                                usercontext db = new usercontext();
-                                int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    usercontext db = new usercontext();
+                                    int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
 
-                                <a href="~/users/Edit/@id" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                                    <a href="~/users/Edit/@id" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/Authentication");
+                                }
+
+
                             }
                         </li>
 

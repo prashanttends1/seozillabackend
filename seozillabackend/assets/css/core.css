@@ -748,12 +748,13 @@ textarea.form-control {
 }
 /* Badge */
 .badge {
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 3px 5px;
-  font-size: 12px;
-  margin-top: 1px;
-  background-color: #71b6f9;
+ text-transform: uppercase;
+    font-weight: 500;
+    padding: 10px 14px;
+    font-size: 20px;
+    margin-right: 5px;
+    background-color: #71b6f9;
+    border-radius: 25px;
 }
 .badge-xs {
   font-size: 9px;

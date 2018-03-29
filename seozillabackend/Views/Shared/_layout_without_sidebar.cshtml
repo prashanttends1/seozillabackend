@@ -305,9 +305,13 @@
                     
                         var amount_add = $("#amount").val();
 
-                        //var Cost = $("#oldCost-" + id).text();
-                        //var newcost = (Cost * quantity);
+                        var Cost = $("#oldCost-" + id).text();
+                
+                        var newcost = (Cost * quantity);
 
+                        $(".total-citation-cost").text(newcost);
+
+                        $(".totalcost-citation-usd").text(Math.round((newcost) * (1.40)));
 
                         //$("#newCost-" + id).text(newcost);
 
@@ -319,7 +323,6 @@
                         $(".totalcost").text(amount_add);
 
                         $(".totalcost_usd").text(Math.round((amount_add) * (1.40)));
-
 
                         if (quantity < 5 && quantity != 0) {
                             $(".approx_days").html('Approx 14 Days');
@@ -408,9 +411,10 @@
 
                     $(".totalcost_usd").text(0);
 
-
-
-                }
+                    $(".total-citation-cost").text(0);
+                   
+                    $(".totalcost-citation-usd").text(0);
+                } 
 
             });
 

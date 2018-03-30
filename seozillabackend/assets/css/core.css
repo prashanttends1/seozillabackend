@@ -24,7 +24,7 @@ File: Core
 ============= */
 .tooltip {
     opacity: initial;
-     
+    position: initial;     
 }
 .tooltip .tooltiptext {
     visibility: hidden;
@@ -35,7 +35,7 @@ File: Core
     border-radius: 6px;
     padding: 6px 3px;
     position: absolute;
-    z-index: 1;
+    z-index: 99;
     top: 150%;
     margin-left: -145px;
 }

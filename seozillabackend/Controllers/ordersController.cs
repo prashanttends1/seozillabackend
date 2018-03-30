@@ -307,6 +307,101 @@ namespace seozillabackend.Controllers
             else
                 return Content(invoicestatus);
         }
+
+        public ActionResult makepayment(int id)
+        {
+            order order = db.orders.Find(id);
+            string service = order.service;
+
+            
+
+            if (service == "blog")
+            {
+                daordered daordered = order.blogs.FirstOrDefault().daordered;
+                int count = order.blogs.Count;
+                if (daordered == daordered.ten_plus && count == 1)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 75;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
+                }
+                if (daordered == daordered.ten_plus && count == 5)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 350;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
+                }
+                if (daordered == daordered.ten_plus && count == 10)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 650;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
+                }
+                if (daordered == daordered.twenty_plus && count == 1)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 110;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
+                }
+                if (daordered == daordered.twenty_plus && count == 5)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 500;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
+                }
+                if (daordered == daordered.twenty_plus && count == 10)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 980;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
+                }
+                if (daordered == daordered.thirty_plus && count == 1)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 150;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
+                }
+                if (daordered == daordered.thirty_plus && count == 5)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 670;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
+                }
+                if (daordered == daordered.thirty_plus && count == 10)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 1300;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
+                }
+                if (daordered == daordered.forty_plus && count == 1)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 300;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
+                }
+                if (daordered == daordered.forty_plus && count == 5)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 1350;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
+                }
+                if (daordered == daordered.forty_plus && count == 10)
+                {
+                    Session["orderID"] = id;
+                    Session["amount"] = 2600;
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
+                }
+                else
+                {
+                    return Content("Invalid Session. Please try again.");
+                }
+            }
+            else
+            {
+                return Content("Invalid Service. Please try again.");
+            }
+        }
+
         [ChildActionOnly]
         public ActionResult actionlinks(int id)
         {

@@ -198,6 +198,10 @@
 
                         if ($("#text10").attr("name") == undefined)
                             $("#text10").attr("name", "[" + i + "].email");
+                        if ($("#text11").attr("name") == undefined)
+                            $("#text11").attr("name", "[" + i + "].cloudurl");
+                        if ($("#citation_order").attr("name") == undefined)
+                            $("#citation_order").attr("name", "[" + i + "].plan");
 
                         if ($("#blog_order").attr("value") == undefined)
 
@@ -226,7 +230,25 @@
 
                                 $("#blog_order").attr("value", " ten_plus_special");
                             }
+                        if ($("#citation_order").attr("value") == undefined)
 
+                            if (id1 == 0) {
+
+                                $("#citation_order").attr("value", "Zilla Local Starter");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#citation_order").attr("value", "Zilla Local Small");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#citation_order").attr("value", "Zilla Local Medium");
+                            }
+                            else if (id1 == 3) {
+
+                                $("#citation_order").attr("value", "Zilla Local Large");
+                            }
+                           
                       
 
                     }

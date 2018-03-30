@@ -72,7 +72,7 @@ namespace seozillabackend.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(List<citation> citations_f)
+        public ActionResult Create(List<citation> citations_f,string url, string amount)
         {
             if (citations_f != null)
             {
@@ -93,10 +93,13 @@ namespace seozillabackend.Controllers
                     {
 
                         citation.orderID = findlast(); //assign last(i.e. above) order ID to citation OrderID
+                        Session["orderID"] = findlast();
+                        Session["amount"] = amount;
                         db.citations.Add(citation);
                     }
                     db.SaveChanges();
-                    return RedirectToAction("Index", "orders");
+
+                    return Redirect(url);
                 }
             }
             return View(citations_f);

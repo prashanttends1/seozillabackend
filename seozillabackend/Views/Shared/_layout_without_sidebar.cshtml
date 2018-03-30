@@ -172,8 +172,8 @@
                             $("#text2").attr("name", "[" + i + "].targeturl");
 
 
-                        if ($("#select2").attr("name") == undefined)
-                            $("#select2").attr("name", "[" + i + "].country");
+                        if ($("#country").attr("name") == undefined)
+                            $("#country").attr("name", "[" + i + "].country");
 
                         if ($("#text3").attr("name") == undefined)
                             $("#text3").attr("name", "[" + i + "].businessname");
@@ -235,73 +235,94 @@
                
 
                         
-                        
-                        if(id==1 && quantity==1)
-                        {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
-                            $("#amount").attr("value", "75");
-                 
-                        }
-                        if (id == 1 && quantity == 5)
-                        {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
-                            $("#amount").attr("value", "350");
-                 
-                        }
-                        if (id == 1 && quantity == 10) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
-                            $("#amount").attr("value", "650");
+                if (document.getElementById("blog")) { 
 
-                        }
-                        if (id == 2 && quantity == 1) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
-                            $("#amount").attr("value", "110");
+                    if (id == 1 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
+                        $("#amount").attr("value", "75");
 
-                        }
-                        if (id == 2 && quantity == 5) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
-                            $("#amount").attr("value", "500");
+                    }
+                    if (id == 1 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
+                        $("#amount").attr("value", "350");
 
-                        }
-                        if (id == 2 && quantity == 10) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
-                            $("#amount").attr("value", "980");
+                    }
+                    if (id == 1 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
+                        $("#amount").attr("value", "650");
 
-                        }
+                    }
+                    if (id == 2 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
+                        $("#amount").attr("value", "110");
 
-                        if (id == 3 && quantity == 1) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
-                            $("#amount").attr("value", "150");
+                    }
+                    if (id == 2 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
+                        $("#amount").attr("value", "500");
 
-                        }
-                        if (id == 3 && quantity == 5) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
-                            $("#amount").attr("value", "670");
+                    }
+                    if (id == 2 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
+                        $("#amount").attr("value", "980");
 
-                        }
-                        if (id == 3 && quantity == 10) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
-                            $("#amount").attr("value", "1300");
+                    }
 
-                        }
-                        if (id == 4 && quantity == 1) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
-                            $("#amount").attr("value", "300");
+                    if (id == 3 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
+                        $("#amount").attr("value", "150");
 
-                        }
-                        if (id == 4 && quantity == 5) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
-                            $("#amount").attr("value", "1350");
+                    }
+                    if (id == 3 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
+                        $("#amount").attr("value", "670");
 
-                        }
-                        if (id == 4 && quantity == 10) {
-                            $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
-                            $("#amount").attr("value", "2600");
+                    }
+                    if (id == 3 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
+                        $("#amount").attr("value", "1300");
 
-                        }
-                       
-                           
-                       
+                    }
+                    if (id == 4 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
+                        $("#amount").attr("value", "300");
+
+                    }
+                    if (id == 4 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
+                        $("#amount").attr("value", "1350");
+
+                    }
+                    if (id == 4 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
+                        $("#amount").attr("value", "2600");
+
+                    }
+
+                }
+                if (document.getElementById("citation")) {
+
+                    if (id == 1 && quantity == 1 || quantity == 2 || quantity == 3 ) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-starter");
+                        $("#amount").attr("value", "125");
+
+                    }
+                    if (id == 2 && quantity == 1 || quantity == 2 || quantity == 3) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-small");
+                        $("#amount").attr("value", "150");
+
+                    }
+                    if (id == 3 && quantity == 1 || quantity == 2 || quantity == 3) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-medium");
+                        $("#amount").attr("value", "260");
+
+                    }
+                    if (id == 4 && quantity == 1 || quantity == 2 || quantity == 3) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-large");
+                        $("#amount").attr("value", "400");
+
+                    }
+                }
                     
                         var amount_add = $("#amount").val();
 
@@ -404,6 +425,8 @@
                     $("#package-data-" + id).find(".form-group-row").remove();
 
                     $quantity.val(0);
+
+                    $(".approx_days").html(NaN);
 
                     $("#newCost-" + id).text(0);
 

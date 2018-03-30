@@ -5,7 +5,7 @@
 }
 
 
-<div class="content-page content-page-new">
+<div class="content-page content-page-new" id="citation">
     <div class="content">
         <div class="container">
             <div class="col-lg-12">
@@ -65,9 +65,9 @@
                                         each &nbsp;
                                         <i class="fa fa-question-circle tooltip">
                                             <span class="tooltiptext">
-                                            Full Citation Audit <br />
-                                            30 Local Directory Citations <br />
-                                            5 Photos x 3 Photo Sharing Sites
+                                                Full Citation Audit <br />
+                                                30 Local Directory Citations <br />
+                                                5 Photos x 3 Photo Sharing Sites
                                             </span>
                                         </i>
                                     </span>
@@ -109,7 +109,7 @@
                                                 5 Videos Submitted to Video Sharing Sites
                                             </span>
                                         </i>
-                                        </span>
+                                    </span>
                                 </div>
 
                             </div>
@@ -143,7 +143,7 @@
                                                 50 Local Directory Citations<br />
                                                 10 Photos x 5 Photo Sharing Sites<br />
                                                 5 Videos x 5 Video Sharing Sites<br />
-                                                 Social Media Submissions
+                                                Social Media Submissions
                                             </span>
                                         </i>
                                     </span>
@@ -177,7 +177,7 @@
                                         each &nbsp;
                                         <i class="fa fa-question-circle tooltip">
                                             <span class="tooltiptext">
-                                               Full Citation Audit<br />
+                                                Full Citation Audit<br />
                                                 90 Local Directory Citations<br />
                                                 10 Photos x 10 Photo Sharing Sites<br />
                                                 5 Videos x 10 Video Sharing Sites<br />
@@ -188,7 +188,7 @@
                                 </div>
 
                             </div>
-                        
+
                         </div>
                         <div class="col-md-6">
                             <!--<div class="btn">
@@ -240,7 +240,7 @@
                         </div>
 
                     <!-------->
-                       <div class="row hidden">
+                        <div class="row hidden">
 
                             <div class="col-md-12">
                                 <label>Optional Order Comments (Please note: special order requests are not guaranteed)</label><br />
@@ -248,7 +248,11 @@
                             </div>
                         </div><br /><br />
 
-                        <div class="row" >
+                        <input type="hidden" id="url" name="url"  />
+
+
+                        <input type="hidden" id="amount" name="amount" />
+                        <div class="row">
 
 
                             <div class="col-xs-6">
@@ -272,7 +276,7 @@
 
 </div>
 <script>
-    var pack ='<div class="form-group-row"><hr class="hr-new" /><input class="hidden" id="citation_order" type="text" /><div class="col-md-4"><label class="label-field">Select Country*</label><select  id="select2" class="form-control"><option value="UK">UK</option><option value="USA">USA</option><option value="Canada">Canada</option><option value="Australia">Australia</option></select></div><div class="col-md-4"><label class="label-field">Business Name*</label><div class="input-group"><input id="text3" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the name of the business here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Website URL*</label><div class="input-group"><input id="text4" type="url" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the full homepage website address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Brief Business Description (Max 100 Words)*</label><div class="input-group"><input id="text5" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Please enter a brief description of what this business is and the services it offers.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keywords (Max 5)*</label><div class="input-group"><input id="text6" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter a maximum of 5 keywords associated with this business.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Founder / CEO*</label><div class="input-group"><input id="text7" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the business owners name here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Full Address Inc Post / Zip Code*</label><div class="input-group"><input id="text8" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the full registered business address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Phone Number*</label><div class="input-group"><input id="text9" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the phone number including area code here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Listing Email Address*</label><div class="input-group"><input id="text10" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="This is the business email used which will be displayed on listings.">Tip</a></div></div></div>  <div class="col-md-12"><label class="label-field">URL of Cloud*</label><div class="input-group"><input id="text11" type="url" class="form-control" value=""><div class="input-group-addon"><a class="label label-primary" title="Upload Your Photos & Videos in a folder at any Cloud like Dropbox Or Google Drive & Share it Here">Tip</a></div></div></div></div>';
+    var pack ='<div class="form-group-row"><hr class="hr-new" /><input class="hidden" id="citation_order" type="text" /><div class="col-md-4"><label class="label-field">Select Country*</label><select id="country" class="form-control"><option value="UK" >UK</option><option value="USA" >USA</option><option value="Canada" >Canada</option><option value="Australia" >Australia</option></select></div><div class="col-md-4"><label class="label-field">Business Name*</label><div class="input-group"><input id="text3" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the name of the business here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Website URL*</label><div class="input-group"><input id="text4" type="url" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the full homepage website address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Brief Business Description (Max 100 Words)*</label><div class="input-group"><input id="text5" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Please enter a brief description of what this business is and the services it offers.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keywords (Max 5)*</label><div class="input-group"><input id="text6" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter a maximum of 5 keywords associated with this business.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Founder / CEO*</label><div class="input-group"><input id="text7" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the business owners name here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Full Address Inc Post / Zip Code*</label><div class="input-group"><input id="text8" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the full registered business address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Phone Number*</label><div class="input-group"><input id="text9" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the phone number including area code here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Listing Email Address*</label><div class="input-group"><input id="text10" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="This is the business email used which will be displayed on listings.">Tip</a></div></div></div> <div class="col-md-12"><label class="label-field">URL of Cloud*</label><div class="input-group"><input id="text11" type="url" class="form-control" value=""><div class="input-group-addon"><a class="label label-primary" title="Upload Your Photos & Videos in a folder at any Cloud like Dropbox Or Google Drive & Share it Here">Tip</a></div></div></div></div>';
 </script>
 
 @*@model seozillabackend.Models.citation

@@ -31,13 +31,17 @@ namespace seozillabackend.Controllers
             }
             dal dl = new dal();
             user user = dl.getuser(email, password);
-            if (user != null)
+            if (user != null && !User.Identity.IsAuthenticated)
             {
                 FormsAuthentication.SetAuthCookie(user.email, true);
                 var authTicket = new FormsAuthenticationTicket(1, user.email, DateTime.Now, DateTime.Now.AddMinutes(20), false, user.Roles);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 HttpContext.Response.Cookies.Add(authCookie);
+                return RedirectToAction("Index", "orders");
+            }
+            else if (User.Identity.IsAuthenticated)
+            {
                 return RedirectToAction("Index", "orders");
             }
             else

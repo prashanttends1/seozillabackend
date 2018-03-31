@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     @*<th>Edit Order</th>*@
-
+                    <th>Plan</th>
                     <th>Country</th>
                     <th>Business Name</th>
                     <th>Website Url</th>
@@ -27,7 +27,7 @@
                 {
                     <tr>
                         @*<td><a href="update_blogger_outreach.html" class="btn btn-icon waves-effect waves-light btn-info m-b-5"><span class="fa fa-pencil"></span></a></td>*@
-
+                        <td>@Html.DisplayFor(modelitem => itemcitation.plan)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.country)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.businessname)</td>
                         <td><a href="#">@Html.DisplayFor(modelitem => itemcitation.websiteurl)</a></td>

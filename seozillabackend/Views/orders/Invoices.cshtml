@@ -16,7 +16,7 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="clearfix">
+                            <div class="clearfix"> 
                                 <div class="pull-left">
                                    
                                     <img class="zmdi zmdi-layers logo" src="~/assets/images/logo-home.png" />
@@ -34,7 +34,7 @@
 
                                     
                                 </div>
-                            </div>
+                         </div>
                             <hr>
                             <div class="row">
                                 <div class="col-md-12">
@@ -49,7 +49,7 @@
                                     <div class="pull-right m-t-30">
                                         <dl>
                                             <dd class="fixwidth">
-                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a class="label label-danger"> @Model.status.DisplayName()</a>
+                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a href="~/orders/makepayment/@Model.ID"  class="label label-danger"> @Model.status.DisplayName()</a>
                                         </dd>
 
                     <dd>
@@ -63,8 +63,7 @@
         </div>
     </div>
 
-    <div class="m-h-50"></div>
-
+                            <div class="m-h-50"></div>
 
     @Html.Action("invoicedetailstable", new { id = Model.ID })
 
@@ -83,19 +82,19 @@
                 </small>
             </div>
         </div>
-        @*<div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
-            <p class="text-right"><b>Sub-total:</b> </p>
-            <p class="text-right">Discout: </p>
-            <p class="text-right">VAT: </p>
+        <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+            @*<p class="text-right"><b>Sub-total:</b> </p>*@
+            @*<p class="text-right">Discout: </p>
+            <p class="text-right">VAT: </p>*@
             <hr>
-            <h3 class="text-right">USD </h3>
-        </div>*@
+    <h3 class="text-right">GBP  <span class="total-cost-usd"></span>.00 </h3>
+        </div>
                             </div>
                             <hr>
                             <div class="hidden-print">
                                 <div class="pull-right">
                                     <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
-                                    <div type="submit" class="btn btn-primary waves-effect waves-light">Submit</div>
+                                    @*<div type="submit" class="btn btn-primary waves-effect waves-light">Submit</div>*@
                                 </div>
                             </div>
                         </div>

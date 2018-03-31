@@ -22,7 +22,93 @@ File: Core
 /* =============
    Common
 ============= */
+.tooltip {
+    opacity: initial;
+    position: initial;     
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #797979;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 3px;
+    position: absolute;
+    z-index: 99;
+    top: 150%;
+    margin-left: -145px;
+}
 
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #797979  transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+#side-row {
+
+    margin-left:30px;
+}
+
+
+#snaps {
+    margin-top: 10%;
+}
+.custom-card {
+    height: 610px;
+}
+.place-order {
+
+font-size: 15px;
+padding:15px;
+}
+.reg {
+            padding: 5px 9px !important;
+    border-radius: 25px !important;
+    font-size: 15px !important;
+    margin: 10px;
+}
+.box-head {
+    color:#ffffff;
+    font-size: 15px;
+}
+.first {
+    background-color: #71b6f9 !important;
+}
+
+.second {
+    background-color: #98a6ad !important;
+}
+.line {
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+}
+
+.boxes {
+   font-size: 12px;
+    padding: 20px;
+	margin: 18px;
+    color: #ffffff;
+    border-radius: 9px;
+}
+.style-register {
+       font-size: 15px;
+    padding: 5px;
+}
+#register-field {
+    margin-left:10px;
+}
 .breadcrumb2{
     margin-bottom:auto !important;
 }
@@ -695,12 +781,13 @@ textarea.form-control {
 }
 /* Badge */
 .badge {
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 3px 5px;
-  font-size: 12px;
-  margin-top: 1px;
-  background-color: #71b6f9;
+ text-transform: uppercase;
+    font-weight: 500;
+    padding: 10px 14px;
+    font-size: 20px;
+    margin-right: 5px;
+    background-color: #71b6f9;
+    border-radius: 25px;
 }
 .badge-xs {
   font-size: 9px;

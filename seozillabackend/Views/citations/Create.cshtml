@@ -5,7 +5,7 @@
 }
 
 
-<div class="content-page content-page-new">
+<div class="content-page content-page-new" id="citation">
     <div class="content">
         <div class="container">
             <div class="col-lg-12">
@@ -27,8 +27,8 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <strong>Sub Total:</strong> <span>GBP <i class="fa fa-gbp"></i><span class="totalcost">0</span> </span>/<span> Approx USD <strong>$</strong> <span class="totalcost_usd">0</span></span><br>
-                            <span style="margin-left:22%;">Estimated Completion</span>
+                            <strong>Sub Total:</strong> <span>GBP <i class="fa fa-gbp"></i><span class="total-citation-cost">0.00</span> </span>/<span> Approx USD <strong>$</strong> <span class="totalcost-citation-usd">0</span></span><br>
+                            <span>Estimated Completion:</span><span class="approx_days"></span>
                         </div>
 
                     </div>
@@ -44,16 +44,32 @@
 
                                 <div id="package-quantity-1" class="form-group">
 
-                                    <span>25 Citations</span>
+                                    @*<span>25 Citations</span>*@
+                                    <div class="radio radio-custom">
+                                        <input type="radio" name="radio-button" value="1" checked />
+                                        <label for="radio03">Zilla Local Starter</label>
+                                    </div>
                                 </div>
 
                                 <div class="input-group m-t-10">
-                                    <input type="number" data-package-id="1" name="packages[1]" class="form-control package-qty" value="0">
+                                    @*<input type="number" data-package-id="1" name="packages[1]" class="form-control package-qty" value="0">*@
+                                    <select id="select1" data-package-id="1" name="packages[1]" class=" form-control package-qty">
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option disabled value="2">2</option>
+                                        <option disabled value="3">3</option>
+                                    </select>
                                     <span class="input-group-addon">
-                                        <span id="oldCost-1"><i class="fa fa-gbp"></i>40</span>
+                                        <span id="oldCost-1"><i class="fa fa-gbp"></i>125</span>
                                         <span class="hide" id="newCost-1">0</span>
-                                        each
-                                        <i class="fa fa-question-circle" title="25 Citations costs 1+ £40.00 each"></i>
+                                        each &nbsp;
+                                        <i class="fa fa-question-circle tooltip">
+                                            <span class="tooltiptext">
+                                                Full Citation Audit <br />
+                                                30 Local Directory Citations <br />
+                                                5 Photos x 3 Photo Sharing Sites
+                                            </span>
+                                        </i>
                                     </span>
                                 </div>
 
@@ -66,16 +82,33 @@
 
                                 <div id="package-quantity-2" class="form-group">
 
-                                    <span>50 Citations</span>
+                                    @*<span>50 Citations</span>*@
+                                    <div class="radio radio-custom">
+                                        <input type="radio" name="radio-button" value="2" />
+                                        <label for="radio03">Zilla Local Small</label>
+                                    </div>
                                 </div>
 
                                 <div class="input-group m-t-10">
-                                    <input type="number" data-package-id="2" name="packages[2]" class="form-control package-qty" value="0">
+                                    @*<input type="number" data-package-id="2" name="packages[2]" class="form-control package-qty" value="0">*@
+                                    <select id="select2" data-package-id="2" name="packages[2]" class=" form-control package-qty" disabled>
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option disabled value="2">2</option>
+                                        <option disabled value="3">3</option>
+                                    </select>
                                     <span class="input-group-addon">
-                                        <span id="oldCost-2"><i class="fa fa-gbp"></i>70</span>
+                                        <span id="oldCost-2"><i class="fa fa-gbp"></i>150</span>
                                         <span class="hide" id="newCost-2">0</span>
-                                        each
-                                        <i class="fa fa-question-circle" title="50 Citations costs 1+ £50.00 each"></i>
+                                        each &nbsp;
+                                        <i class="fa fa-question-circle tooltip">
+                                            <span class="tooltiptext">
+                                                Full Citation Audit<br />
+                                                30 Local Directory Citations<br />
+                                                10 Photos x 3 Photo Sharing Sites<br />
+                                                5 Videos Submitted to Video Sharing Sites
+                                            </span>
+                                        </i>
                                     </span>
                                 </div>
 
@@ -85,22 +118,76 @@
 
                                 <div id="package-quantity-3" class="form-group">
 
-                                    <span>100 Citations</span>
+                                    @*<span>100 Citations</span>*@
+                                    <div class="radio radio-custom">
+                                        <input type="radio" name="radio-button" value="3" />
+                                        <label for="radio03">Zilla Local Medium</label>
+                                    </div>
                                 </div>
 
                                 <div class="input-group m-t-10">
-                                    <input type="number" data-package-id="3" name="packages[3]" class="form-control package-qty" value="0">
+                                    @*<input type="number" data-package-id="3" name="packages[3]" class="form-control package-qty" value="0">*@
+                                    <select id="select3" data-package-id="3" name="packages[3]" class=" form-control package-qty" disabled>
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option disabled value="2">2</option>
+                                        <option disabled value="3">3</option>
+                                    </select>
                                     <span class="input-group-addon">
-                                        <span id="oldCost-3"><i class="fa fa-gbp"></i>100</span>
+                                        <span id="oldCost-3"><i class="fa fa-gbp"></i>260</span>
                                         <span class="hide" id="newCost-3">0</span>
-                                        each
-                                        <i class="fa fa-question-circle" title="100 Citations costs 1+ £100.00 each"></i>
+                                        each &nbsp;
+                                        <i class="fa fa-question-circle tooltip">
+                                            <span class="tooltiptext">
+                                                Full Citation Audit<br />
+                                                50 Local Directory Citations<br />
+                                                10 Photos x 5 Photo Sharing Sites<br />
+                                                5 Videos x 5 Video Sharing Sites<br />
+                                                Social Media Submissions
+                                            </span>
+                                        </i>
                                     </span>
                                 </div>
 
                             </div>
-                            <span class="hide" id="newCost-4">0</span><span class="hide" id="newCost-5">0</span>
 
+
+                            <div class="form-group">
+
+                                <div id="package-quantity-4" class="form-group">
+
+                                    @*<span>100 Citations</span>*@
+                                    <div class="radio radio-custom">
+                                        <input type="radio" name="radio-button" value="4" />
+                                        <label for="radio03">Zilla Local Large</label>
+                                    </div>
+                                </div>
+
+                                <div class="input-group m-t-10">
+                                    @*<input type="number" data-package-id="4" name="packages[4]" class="form-control package-qty" value="0">*@
+                                    <select id="select4" data-package-id="4" name="packages[4]" class=" form-control package-qty" disabled>
+                                        <option value="0"></option>
+                                        <option value="1">1</option>
+                                        <option disabled value="2">2</option>
+                                        <option disabled value="3">3</option>
+                                    </select>
+                                    <span class="input-group-addon">
+                                        <span id="oldCost-4"><i class="fa fa-gbp"></i>400</span>
+                                        <span class="hide" id="newCost-4">0</span>
+                                        each &nbsp;
+                                        <i class="fa fa-question-circle tooltip">
+                                            <span class="tooltiptext">
+                                                Full Citation Audit<br />
+                                                90 Local Directory Citations<br />
+                                                10 Photos x 10 Photo Sharing Sites<br />
+                                                5 Videos x 10 Video Sharing Sites<br />
+                                                15 Social Media Citations
+                                            </span>
+                                        </i>
+                                    </span>
+                                </div>
+
+                            </div>
 
                         </div>
                         <div class="col-md-6">
@@ -127,26 +214,33 @@
                         <div id="package-data">
                             <div id="package-data-1" class="hidden package-container">
                                 <div class="panel-sub-heading">
-                                    <h4 class="panel-title" style="color:#188ae2;">25 Citations project details</h4>
+                                    <h4 class=" panel-title panel-title2">Zilla Local Starter Details</h4>
                                 </div>
 
                             </div>
                             <div id="package-data-2" class="hidden package-container">
                                 <div class="panel-sub-heading">
-                                    <h4 class="panel-title" style="color:#188ae2;">50 Citations project details</h4>
+                                    <h4 class=" panel-title panel-title2">Zilla Local Small Details</h4>
                                 </div>
 
                             </div>
                             <div id="package-data-3" class="hidden package-container">
                                 <div class="panel-sub-heading">
-                                    <h4 class="panel-title" style="color:#188ae2;">100 Citations project details</h4>
+                                    <h4 class=" panel-title panel-title2">Zilla Local Medium Details</h4>
+                                </div>
+
+                            </div>
+
+                            <div id="package-data-4" class="hidden package-container">
+                                <div class="panel-sub-heading">
+                                    <h4 class=" panel-title panel-title2">Zilla Local Large Details</h4>
                                 </div>
 
                             </div>
                         </div>
 
                     <!-------->
-                       <div class="row hidden">
+                        <div class="row hidden">
 
                             <div class="col-md-12">
                                 <label>Optional Order Comments (Please note: special order requests are not guaranteed)</label><br />
@@ -154,11 +248,15 @@
                             </div>
                         </div><br /><br />
 
-                        <div class="row" >
+                        <input type="hidden" id="url" name="url"  />
+
+
+                        <input type="hidden" id="amount" name="amount" />
+                        <div class="row">
 
 
                             <div class="col-xs-6">
-                                <a href="~/Add_new" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="margin-top:25px">Back</a>
+                                <a href="~/orders/Add_new" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="margin-top:25px">Back</a>
 
                             </div>
                             <div class="col-xs-6">
@@ -178,7 +276,7 @@
 
 </div>
 <script>
-    var pack = '<div class="form-group-row"><div class="col-md-4"><label class="label-field">Select Country*</label><select  id="select2" class="form-control" data-field="0" data-condition="undefined" data-condition-target="undefined" data-row="0"><option value="UK" data-cost="0">UK</option><option value="USA" data-cost="0">USA</option><option value="Canada" data-cost="0">Canada</option><option value="Australia" data-cost="0">Australia</option></select></div><div class="col-md-4"><label class="label-field">Business Name*</label><div class="input-group"><input id="text3" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="1" data-row="0" value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Enter the name of the business here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Website URL*</label><div class="input-group"><input id="text4" type="url" data-field-type="url" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="2" data-row="0"  value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Enter the full homepage website address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Brief Business Description (Max 100 Words)*</label><div class="input-group"><input id="text5" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="3" data-row="0" value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Please enter a brief description of what this business is and the services it offers.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keywords (Max 5)*</label><div class="input-group"><input id="text6" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="4" data-row="0"  value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Enter a maximum of 5 keywords associated with this business.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Founder / CEO*</label><div class="input-group"><input id="text7" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="5" data-row="0"  value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Enter the business owners name here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Full Address Inc Post / Zip Code*</label><div class="input-group"><input id="text8" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="6" data-row="0" value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Enter the full registered business address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Phone Number*</label><div class="input-group"><input id="text9" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="7" data-row="0" value=""  ><div class="input-group-addon"><a data-toggle="tooltip" data-placement="bottom" data-container="body" class="label label-primary" title="Enter the phone number including area code here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Listing Email Address*</label><div class="input-group"><input id="text10" type="text" data-field-type="text" data-condition="undefined" data-condition-target="undefined" class="form-control" data-field="8" data-row="0" value=""  ><div class="input-group-addon"><a  data-placement="bottom" data-container="body" class="label label-primary" title="This is the business email used which will be displayed on listings.">Tip</a></div></div></div></div>';
+    var pack ='<div class="form-group-row"><hr class="hr-new" /><input class="hidden" id="citation_order" type="text" /><div class="col-md-4"><label class="label-field">Select Country*</label><select id="country" class="form-control"><option value="UK" >UK</option><option value="USA" >USA</option><option value="Canada" >Canada</option><option value="Australia" >Australia</option></select></div><div class="col-md-4"><label class="label-field">Business Name*</label><div class="input-group"><input id="text3" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the name of the business here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Website URL*</label><div class="input-group"><input id="text4" type="url" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the full homepage website address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Brief Business Description (Max 100 Words)*</label><div class="input-group"><input id="text5" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Please enter a brief description of what this business is and the services it offers.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keywords (Max 5)*</label><div class="input-group"><input id="text6" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter a maximum of 5 keywords associated with this business.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Founder / CEO*</label><div class="input-group"><input id="text7" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the business owners name here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Full Address Inc Post / Zip Code*</label><div class="input-group"><input id="text8" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the full registered business address here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Phone Number*</label><div class="input-group"><input id="text9" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="Enter the phone number including area code here.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Listing Email Address*</label><div class="input-group"><input id="text10" type="text" class="form-control" value=""  ><div class="input-group-addon"><a class="label label-primary" title="This is the business email used which will be displayed on listings.">Tip</a></div></div></div> <div class="col-md-12"><label class="label-field">URL of Cloud*</label><div class="input-group"><input id="text11" type="url" class="form-control" value=""><div class="input-group-addon"><a class="label label-primary" title="Upload Your Photos & Videos in a folder at any Cloud like Dropbox Or Google Drive & Share it Here">Tip</a></div></div></div></div>';
 </script>
 
 @*@model seozillabackend.Models.citation

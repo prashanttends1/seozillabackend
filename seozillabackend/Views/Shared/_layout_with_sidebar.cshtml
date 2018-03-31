@@ -121,10 +121,19 @@
                            }*@
                             @{
 
-                                usercontext db = new usercontext();
-                                int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    usercontext db = new usercontext();
+                                    int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
 
-                                <a href="~/users/Edit/@id" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                                    <a href="~/users/Edit/@id" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/Authentication");
+                                }
+
+
                             }
                         </li>
 
@@ -216,55 +225,125 @@
     <script>
         $(document).ready(function () {
             
+          
+                
 
-            var originalContent = $('.label-danger').html();
+                var originalContent ="Awaiting Payment"
 
-            if (originalContent != ' Archived') {
-
-                $(".label-danger").hover(function () {
-                    originalContent = $(this).html();
+            $('.label-danger').hover(function () {
+                originalContent = $(this).html();
+               
+                if (originalContent != ' Archived' && originalContent != ' Payment Done' && originalContent != ' Task In Progress' && originalContent != ' Task Completed') {
+                        
                     $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
 
-                }, function () {
-                    $(this).html(originalContent).css({ "background": "#ff5b5b" });
-
-                });
+                }
+                else {
+                   
+                    $(this).css({ "cursor": "initial" });
+                    $(this).removeAttr("href");
+                }
             }
-            else {
-                $(".label-danger").css({ "cursor": "initial" });
-            }
+                        , function () {
+                            if ($(this).html() == "<strong>Make Payment</strong>") {
+                               
+                                $(this).html(originalContent).css({ "background": "#ff5b5b", "cursor": "pointer" });
+                               
+                            }
+                    
+                    });
+                
 
+                
            
+        
+
             var newcount = parseInt($(".count").text());
  
-             
-            if ($(".details").text() == "DA 10+ blog") {
-
-                alert($(".details").text());
-
-                $(".unit-cost").text(45);
-
-            }
-             else if($(".details").text() == "DA 20+ blog") {
-
-                $(".unit-cost").text(60);
-
-            }
-             else if($(".details").text() == "DA 30+ blog") {
-
-                $(".unit-cost").text(80);
-
-            }
-             else if($(".details").text() == "DA 40+ blog") {
-
-                $(".unit-cost").text(250);
-
-            }
-               
-            var newunit = parseInt($(".unit-cost").text());
+            var newdetails = $(".details").text();
 
            
-            $(".total-cost").text(newcount * newunit);
+             
+            if (newdetails == ' DA 10+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(75);
+
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(110);
+
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(150);
+
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(300);
+
+            }
+
+            if (newdetails == ' DA 10+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(350);
+
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(500);
+
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(670);
+
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 5 ){
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(1350);
+
+            }
+
+            if (newdetails == ' DA 10+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(650);
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(980);
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(1300);
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(2600);
+            }
+
+            
+           //var newunit = parseInt($(".unit-cost").text());
+
+           //$(".total-cost").text(newcount * newunit);
+
+            var total = $(".total-cost").text();
+            
+           $(".total-cost-usd").text((total));
+            
         });
 
     </script>

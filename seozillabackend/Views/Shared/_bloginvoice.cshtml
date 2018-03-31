@@ -8,9 +8,8 @@
                    <th>Quantity</th>
                     <th>Details</th>
                     <th>Unit Cost</th>
-                    <th>Subtotal</th>
-                    <th></th>
-
+                    <th>Total</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -19,11 +18,11 @@
                 {
             
                     <tr>
-                        <td class="count">@ViewBag.countblog</td>`
+                        <td class="count">@ViewBag.countblog</td>
                     <td class="details"> @itemblog.daordered.DisplayName() @ViewBag.service</td>
                                    
-                       <td class="unit-cost"></td>
-                        <td class="total-cost"></td>
+                        <td>£<span class="unit-cost"></span></td>
+                        <td>£<span class="total-cost"></span></td>
                      
                 </tr>
               }

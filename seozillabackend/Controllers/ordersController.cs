@@ -321,7 +321,35 @@ namespace seozillabackend.Controllers
                     return HttpNotFound();
                 }
                 string service = order.service;
-
+                if (service == "citation")
+                {
+                    //int count = order.citations.Count;
+                    String plan = order.citations.FirstOrDefault().plan;
+                    if (plan == "Zilla Local Starter")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 125;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-starter");
+                    }
+                    if (plan == "Zilla Local Small")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 150;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-small");
+                    }
+                    if (plan == "Zilla Local Medium")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 260;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-medium");
+                    }
+                    if (plan == "Zilla Local Large")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 400;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-large");
+                    }
+                }
 
 
                 if (service == "blog")

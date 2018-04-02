@@ -28,7 +28,7 @@
                                       
                                    
                                    <dd>
-                                       <strong> @Html.DisplayNameFor(model => model.orderno) :</strong>       @Html.DisplayFor(model => model.orderno)
+                                       <strong> @Html.DisplayNameFor(model => model.orderno) :</strong> @Html.DisplayFor(model => model.orderno)
                                    </dd>
                                </dl>
 
@@ -49,7 +49,7 @@
                                     <div class="pull-right m-t-30">
                                         <dl>
                                             <dd class="fixwidth">
-                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a href="~/orders/makepayment/@Model.ID"  class="label label-danger"> @Model.status.DisplayName()</a>
+                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> @Model.status.DisplayName()
                                         </dd>
 
                     <dd>
@@ -87,7 +87,7 @@
             @*<p class="text-right">Discout: </p>
             <p class="text-right">VAT: </p>*@
             <hr>
-    <h3 class="text-right">GBP  <span class="total-cost-usd"></span>.00 </h3>
+    <h3 class="text-center">GBP  <span class="total-cost-usd"></span>.00 </h3>
         </div>
                             </div>
                             <hr>

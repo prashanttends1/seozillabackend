@@ -49,11 +49,12 @@
                                     <div class="pull-right m-t-30">
                                         <dl>
                                             <dd class="fixwidth">
-                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> @Model.status.DisplayName()
+                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a class="label label-danger label-url" > @Model.status.DisplayName()</a>
                                         </dd>
 
                     <dd>
                         <strong>  @Html.DisplayNameFor(model => model.orderdate) :</strong> @Html.DisplayFor(model => model.orderdate)
+                        <div class="hidden" id="ID"> @Html.DisplayFor(model => model.ID)</div>  
                     </dd>
                                           
 

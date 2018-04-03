@@ -536,7 +536,9 @@ namespace seozillabackend.Controllers
 
         public ActionResult Invoice()
         {
-          
+
+            daordered daordered = db.blogs.FirstOrDefault().daordered;
+
             if (User.IsInRole("User"))
             {
                 var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled || o.status == status.awaiting_payment || o.status == status.payment_done).Where(o => o.user.email == User.Identity.Name);

@@ -363,6 +363,30 @@
 
             $(".total-cost-usd").text((total));
 
+
+            $(".label-url").click(function () {
+
+                var contant = $(this).html();
+
+                var id = $("#ID").text();
+
+                @*var url = '@Url.Action("makepayment", "orders" , + id)';*@
+
+                //alert(id);
+
+              //$(".label-url").attr("href", url);
+
+                @*window.location.href = '@Url.Action("makepayment", "orders")'*@
+
+                if (contant != ' Payment Done' && contant !=' Archived')
+                {
+                    window.location.href = '/orders/makepayment/' + id;
+                }
+
+                
+
+            });
+
         });
 
     </script>

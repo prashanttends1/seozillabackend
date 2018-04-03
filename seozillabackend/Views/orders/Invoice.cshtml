@@ -52,7 +52,7 @@
                                                 {
                                                     
                                                     <tr>
-                                                      
+                                                    
                                                         <td>
                                                             @Html.DisplayFor(modelItem => item.orderno)
                                                         </td>
@@ -69,6 +69,9 @@
                                                     <td>
                                                         @Html.ActionLink("View", "Invoices", new { id = item.ID })
                                                     </td>
+                                                        @*<td class="hidden">@item.blogs.Count</td>
+                                                        <td class="hidden">@item.citations.Count</td>*@
+                                                        
                                                     </tr>
                                                 }
                                                

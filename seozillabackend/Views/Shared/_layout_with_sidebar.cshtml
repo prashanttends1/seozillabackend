@@ -81,8 +81,21 @@
 
                 @*User*@
                 <div class="user-box">
+                @*@{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        usercontext db = new usercontext();
+                        string firstname = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().firstname;
 
+                        <h5><a href="">Hi @firstname,</a></h5>
+                    }
+                    else
+                    {
+                    Response.Redirect("~/Authentication");
+                    }
+                    }*@
                     <h5><a href="">@User.Identity.Name</a> </h5>
+                    
 
                 </div>
                 @*End User*@

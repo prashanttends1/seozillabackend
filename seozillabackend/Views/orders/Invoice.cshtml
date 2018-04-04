@@ -25,10 +25,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="table-responsive">
-                                        <table class="table">
+                                        <table class="table" id="table">
                                             <thead>
                                                 <tr>
-                                                  
+                                                    @*<th></th><th></th><th></th>*@
                                                     <th>
                                                         @Html.DisplayNameFor(model => model.orderno)
                                                     </th>
@@ -38,6 +38,9 @@
                                                     
                                                     <th>
                                                         @Html.DisplayNameFor(model => model.orderdate)
+                                                    </th>
+                                                    <th>
+                                                        Total
                                                     </th>
                                                     <th>
                                                         @Html.DisplayNameFor(model => model.status)
@@ -52,17 +55,19 @@
                                                 {
                                                     
                                                     <tr>
-                                                    
-                                                        <td>
+                                                        <td class="daordered hidden">@Html.DisplayFor(modelItem => item.blogs.FirstOrDefault().daordered)</td>
+                                                        <td class="blogscount hidden">@Html.DisplayFor(modelItem => item.blogs.Count)</td>  
+                                                        <td class="plan hidden">@Html.DisplayFor(modelItem => item.citations.FirstOrDefault().plan)</td>  
+                                                        <td >
                                                             @Html.DisplayFor(modelItem => item.orderno)
                                                         </td>
-                                                        <td>
-                                                            @Html.DisplayFor(modelItem => item.service)
-                                                        </td>
+                                                        <td class="service" id="service">@Html.DisplayFor(modelItem => item.service)</td>
                                                       
-                                                        <td>
+                                                        <td >
                                                             @Html.DisplayFor(modelItem => item.orderdate)
                                                         </td>
+                                                        
+                                                        <td class="total"></td>
                                                         <td class="fixwidth">
                                                             <a href="~/orders/makepayment/@item.ID" class="label label-danger"> @item.status.DisplayName()</a>
                                                         </td>
@@ -73,9 +78,66 @@
                                                         <td class="hidden">@item.citations.Count</td>*@
                                                         
                                                     </tr>
+                                                    <script>
+                                                        
+                                                        var rows = document.getElementById("table").getElementsByTagName("tr");
+                                                        var lastrow = rows[rows.length - 1];
+                                                        //alert(lastrow.getElementsByClassName("service")[0].innerHTML);
+                                                        if (lastrow.getElementsByClassName("service")[0].innerHTML == "blog")
+                                                        {
+                                                            //if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "ten_plus")
+                                                            //    alert("blog1");
+                                                            //if (lastrow.getElementsByClassName("blogscount")[0].innerHTML == "1")
+                                                            //    alert("count1");
+                                                            if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "ten_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "1") 
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£75.00";                                                            
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "ten_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£350.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "ten_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£650.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "twenty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "1")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£110.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "twenty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£500.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "twenty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£980.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "thirty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "1")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£150.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "thirty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£670.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "thirty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1300.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "forty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "1")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£300.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "forty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1350.00";
+                                                            else if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "forty_plus" && lastrow.getElementsByClassName("blogscount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£26000.00";
+                                                            else                                                                
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "";
+                                                            
+                                                            }
+                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "citation") {
+                                                               
+                                                            if(lastrow.getElementsByClassName("plan")[0].innerHTML == "Zilla Local Starter")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£125.00";
+                                                            else if (lastrow.getElementsByClassName("plan")[0].innerHTML == "Zilla Local Small")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£150.00";
+                                                            else if (lastrow.getElementsByClassName("plan")[0].innerHTML == "Zilla Local Medium")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£260.00";
+                                                            else if (lastrow.getElementsByClassName("plan")[0].innerHTML == "Zilla Local Large")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£400.00";
+                                                            else
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "";
+                                                        }
+                                                        else
+                                                            lastrow.getElementsByClassName("total")[0].innerHTML = "";
+
+                                                    </script>
                                                 }
                                                
                                             </tbody>
+                                            
                                         </table>
                                     </div>
                                 </div>

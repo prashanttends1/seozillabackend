@@ -38,23 +38,23 @@
     <div class="content">
         <div class="container">
             <div class="col-sm-12">
-                <div class="text-center logo">
+                <div class="text-center logo" id="top-logo">
                     <img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" />
 
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-6">
-                            <div class="m-t-40 card-box custom-card">
-                                <div class="col-md-12">
-                                    <div class="col-md-10">
-                                        <h2 class="text-muted m-t-0 font-600">Create New Account</h2>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p class="text-muted"><a href="~/Authentication" class="text-primary m-l-5"><b>Log In</b></a></p>
-                                    </div>
+
+                            <div class="m-t-40">
+
+                                <div class="head-box">
+                                    <h2 class="text-muted m-t-0 font-600 head-h2">Create New Account</h2>
+
+                                    <a href="~/Authentication" class="text-primary m-l-5"><b>Or Login</b></a>
+
                                 </div>
-                                <div class="panel-body">
+                                <div class="panel-body card-box register-box">
                                     @using (Html.BeginForm())
                                     {
                                         @Html.AntiForgeryToken()
@@ -388,6 +388,8 @@
                                 </div>
                             </div>
 
+
+
                             @*<div>
                                     <div class="row">
                                         <div class="col-sm-12 text-center">
@@ -400,24 +402,29 @@
                         </div>
 
                         <div class="col-md-6">
-                            <div class="m-t-40 card-box custom-card">
+                            <div class="m-t-40">
+                                <div style="padding: 0px 30px;">
 
-                                <h2 class="text-muted m-t-0 font-600">10,000 SEO Agencies & Counting.....</h2>
-                                <h4 class="text-custom">The Only Link Building & Content Service You'll Ever Need</h4>
-                                <ul class="list-unstyled lh1-4">
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Founded in 2012.</strong>Our experience leads the market</li>
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Premium Links.</strong> Genuine, Trusted, White Hat Links</li>
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>White Label.</strong>Resell as part of a strategy or like for like</li>
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>100% Scalable.</strong> Order as often or as little as you like</li>
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Zero Contracts.</strong> Services on tap, as and when you need</li>
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Unrivalled Support.</strong> We're here by Telephone or Email</li>
-                                    <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>All-In-One Dashboard.</strong>Place, manage & track orders</li>
-                                </ul>
+                                    <h2 class="text-muted m-t-0 font-600" id="text-head">10,000 SEO Agencies & Counting.....</h2>
 
+                                    <h4 class="text-custom">The Only Link Building & Content Service You'll Ever Need</h4>
+                                    <ul class="list-unstyled lh1-4">
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Founded in 2012.</strong>Our experience leads the market</li>
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Premium Links.</strong> Genuine, Trusted, White Hat Links</li>
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>White Label.</strong>Resell as part of a strategy or like for like</li>
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>100% Scalable.</strong> Order as often or as little as you like</li>
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Zero Contracts.</strong> Services on tap, as and when you need</li>
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>Unrivalled Support.</strong> We're here by Telephone or Email</li>
+                                        <li class="style-register"><i class="fa fa-check-circle circle" aria-hidden="true"></i><strong>All-In-One Dashboard.</strong>Place, manage & track orders</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="row" id="side-row">
                     <div class="text-center">
                         <h2 class="text-muted m-t-0 font-600">Choose from any of these services</h2>

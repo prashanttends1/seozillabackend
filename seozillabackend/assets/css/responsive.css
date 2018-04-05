@@ -21,6 +21,9 @@ File: Responsive
   }
 }
 @media (max-width: 768px) {
+    #register-field{
+      margin-left: inherit;
+    }
   body {
     overflow-x: hidden;
   }

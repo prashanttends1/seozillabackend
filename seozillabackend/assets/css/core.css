@@ -22,6 +22,35 @@ File: Core
 /* =============
    Common
 ============= */
+.head-box
+{
+ background: #ebeff2;
+ padding: 30px 25px;
+ border:1px solid #e3e3e3;
+}
+.head-h2
+{
+    display:initial;
+    margin-right:30%;
+}
+.register-box
+{
+    border: 1px solid #e3e3e3;
+    border-top: none;
+    padding-left: 30px !important;
+    border-radius:initial !important;
+}
+#top-logo
+{
+    border-bottom: 1px solid #e3e3e3;
+    padding: 25px;
+}
+#text-head
+{
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+}
 .tooltip {
     opacity: initial;
     position: initial;     
@@ -57,17 +86,19 @@ File: Core
 
 
 #side-row {
-
-    margin-left:30px;
+    margin-left: 30px;
+    border-top: 1px solid #e3e3e3;
+    padding-top: 30px;
+        margin-top: 50px;
 }
 
 
 #snaps {
-    margin-top: 10%;
+        border-top: 1px solid #e3e3e3;
+    padding-top: 30px;
+    margin-top: 50px;
 }
-.custom-card {
-    height: 610px;
-}
+
 .place-order {
 
 font-size: 15px;
@@ -103,7 +134,7 @@ padding:15px;
     border-radius: 9px;
 }
 .style-register {
-       font-size: 15px;
+    font-size: 19px;
     padding: 5px;
 }
 #register-field {

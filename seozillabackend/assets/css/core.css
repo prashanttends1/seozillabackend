@@ -23,12 +23,12 @@ File: Core
    Common
 ============= */
  div.form-group-2 {
-margin-bottom:5px;
+margin-bottom:0px;
 }
 .head-box
 {
  background: #ebeff2;
- padding: 30px 25px;
+ padding: 25px 25px;
  border:1px solid #e3e3e3;
 }
 .head-h2

@@ -17,6 +17,7 @@
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Status</th>
+                    <th>Cloud URL</th>
                     <th></th>
 
 
@@ -37,11 +38,14 @@
                         <td>@Html.DisplayFor(modelitem => itemcitation.address)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.phone)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.email)</td>
+                        
                         <td class="fixwidth">
                             @*@Html.DisplayFor(item => Model.status)*@
                         @*@Model.status.DisplayName()*@
                             <a href="~/orders/makepayment/@itemcitation.orderID" class="label label-danger"  title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
                     </td>
+                        <td>@Html.DisplayFor(modelitem => itemcitation.cloudurl)</td>
+
                     <td>@Html.ActionLink("Edit", "Edit", "citations", new { id = itemcitation.ID }, null)</td>
 
 

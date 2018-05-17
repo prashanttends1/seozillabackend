@@ -31,7 +31,9 @@
                         <td>@Html.DisplayFor(modelitem => itemcitation.plan)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.country)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.businessname)</td>
-                        <td><a href="">@Html.DisplayFor(modelitem => itemcitation.websiteurl)</a></td>
+                        <td>
+                            <a target="_blank" href="@Html.DisplayFor(modelitem => itemcitation.websiteurl)">@Html.DisplayFor(modelitem => itemcitation.websiteurl)</a>
+                        </td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.businessdescription)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.keywords)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.founder)</td>

@@ -10,7 +10,7 @@ File: Menu
 }
 
 .navbar-right {
-    margin-top:6px;
+    margin-top:12px;
 }
 .navbar-right>li>a{
     padding-top:8px;
@@ -25,7 +25,9 @@ File: Menu
 
 .content-page-new {
     margin-left: 0px !important;
+    margin-top: 20px;
   }
+
 .next_btn {
     float: right;
 }
@@ -373,7 +375,7 @@ File: Menu
   letter-spacing: .035em;
   pointer-events: none;
   cursor: default;
-  font-size: 13px;
+  font-size: 15px;
 }
 #wrapper.enlarged .menu-title,
 #wrapper.enlarged .menu-arrow {

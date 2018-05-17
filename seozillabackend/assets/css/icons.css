@@ -11,6 +11,12 @@ File: Icons
  */
 /* FONT PATH
  * -------------------------- */
+.circle
+{
+    font-size: 25px !important;
+    color: #71b6f9;
+        margin: 10px;
+}
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/fontawesome-webfont3e6e.eot?v=4.7.0');

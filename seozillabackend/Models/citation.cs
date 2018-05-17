@@ -10,6 +10,7 @@ namespace seozillabackend.Models
     public class citation // : order
     {
         public int ID { get; set; }
+        public string plan { get; set;}
         [Display(Name="Country")]
         public string country { get; set; }
          [Display(Name = "Business Name")]
@@ -28,6 +29,8 @@ namespace seozillabackend.Models
         public string phone { get; set; }
          [Display(Name = "Email")]
         public string email { get; set; }
+        [Display(Name = "URL of Cloud")]
+         public string cloudurl { get; set; }
         //public int userID { get; set; }
         //public virtual user user { get; set; }
          [Display(Name = "Order Id")]

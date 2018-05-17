@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     @*<th>Edit Order</th>*@
-
+                    <th>Plan</th>
                     <th>Country</th>
                     <th>Business Name</th>
                     <th>Website Url</th>
@@ -18,8 +18,8 @@
                     <th>Email</th>
                     <th>Status</th>
                     <th></th>
-                   
-                    
+
+
                 </tr>
             </thead>
             <tbody>
@@ -27,28 +27,29 @@
                 {
                     <tr>
                         @*<td><a href="update_blogger_outreach.html" class="btn btn-icon waves-effect waves-light btn-info m-b-5"><span class="fa fa-pencil"></span></a></td>*@
-
+                        <td>@Html.DisplayFor(modelitem => itemcitation.plan)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.country)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.businessname)</td>
-                        <td><a href="#">@Html.DisplayFor(modelitem => itemcitation.websiteurl)</a></td>
+                        <td><a href="">@Html.DisplayFor(modelitem => itemcitation.websiteurl)</a></td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.businessdescription)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.keywords)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.founder)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.address)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.phone)</td>
                         <td>@Html.DisplayFor(modelitem => itemcitation.email)</td>
-                        <td class="fixwidth">@*@Html.DisplayFor(item => Model.status)*@
-                            @*@Model.status.DisplayName()*@
-                            <a class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
-                        </td>
-                        <td>@Html.ActionLink("Edit", "Edit", "citations", new { id = itemcitation.ID }, null)</td>
-                       
+                        <td class="fixwidth">
+                            @*@Html.DisplayFor(item => Model.status)*@
+                        @*@Model.status.DisplayName()*@
+                            <a href="~/orders/makepayment/@itemcitation.orderID" class="label label-danger"  title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
+                    </td>
+                    <td>@Html.ActionLink("Edit", "Edit", "citations", new { id = itemcitation.ID }, null)</td>
 
-                        
 
-                        @*<td><a class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically.">@Html.DisplayFor(item=>Model.status)</a></td>*@
-                       
-                    </tr>
+
+
+                    @*<td><a class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically.">@Html.DisplayFor(item=>Model.status)</a></td>*@
+
+                </tr>
                 }
 
 

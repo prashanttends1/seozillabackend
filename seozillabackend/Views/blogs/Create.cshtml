@@ -6,7 +6,7 @@
 }
 
 
-<div class="content-page content-page-new">
+<div class="content-page content-page-new" id="blog">
     <div class="content">
         <div class="container">
             <div class="col-sm-12">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-md-6">
                                 <strong>Sub Total:</strong>  <span>GBP <i class="fa fa-gbp"></i><span class="totalcost">0.00</span> </span>/<span> Approx USD <strong>$</strong><span class="totalcost_usd">0</span></span><br>
-                                <span style="margin-left:22%;">Estimated Completion:</span><span class="approx_days"></span>
+                                <span>Estimated Completion:</span><span class="approx_days"></span>
                             </div>
 
                         </div>
@@ -41,16 +41,40 @@
 
                                     <div id="package-quantity-1" class="form-group">
 
-                                        <span>DA 10+ Websites *LowTier*</span>
-                                    </div>
+
+                                       @*<input type="radio" name="radio-button" value="1" checked/> <span>DA 10+ Websites *LowTier*</span>*@
+                                    @*</div>*@
+
+                                      
+                                        @*<input  type="radio" name="radio-button" value="radio-1" checked /> <span>DA 10+ Websites *LowTier*</span>*@
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="1" checked />
+                                            <label for="radio03"> DA 10+ Websites *LowTier*</label>                                         
+                                        </div>
+                                     </div>
+
 
                                     <div class="input-group m-t-10">
-                                        <input type="number" data-package-id="1" name="packages[1]" class=" form-control package-qty" value="0">
-                                        <span class="input-group-addon">
-                                            <span id="oldCost-1"><i class="fa fa-gbp"></i>45</span>
+                                        <select id="select1" data-package-id="1" name="packages[1]" class=" form-control package-qty">
+                                            <option value="0"></option>
+                                            <option value="1">1 Pack</option>
+                                            <option value="5">5 Packs</option>
+                                            <option value="10">10 Packs</option>
+
+                                        </select>
+
+                                         <span class="input-group-addon">
+                                            <span id="oldCost-1"><i class="fa fa-gbp"></i>75</span>
                                             <span class="hide" id="newCost-1">0</span>
-                                            each
-                                            <i class="fa fa-question-circle" title="DA 10+ Websites *LowTier* costs  1 - 24 £45.00 each  25 - 49 £40.00 each 50+ £35.00 each"></i>
+                                            each &nbsp;
+                                             <i class="fa fa-question-circle tooltip">
+                                                 <span class="tooltiptext">
+                                                     DA 10+ Websites *LowTier* costs <br />
+                                                      1 pack £75.00 each <br />
+                                                      5 packs £350.00  <br />
+                                                     10 packs £650 
+                                                 </span>
+                                             </i>
                                         </span>
                                     </div>
 
@@ -63,16 +87,36 @@
 
                                     <div id="package-quantity-2" class="form-group">
 
-                                        <span>DA 20+ Websites *MidTier*</span>
+
+                                        @*<input type="radio" name="radio-button" value="2" />   <span>DA 20+ Websites *MidTier*</span>*@
+
+                                        @*<input type="radio" name="radio-button" value="radio-2" />   <span>DA 20+ Websites *MidTier*</span>*@
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="2"/>
+                                            <label for="radio03">DA 20+ Websites *MidTier*</label>
+                                        </div>
+
                                     </div>
 
                                     <div class="input-group m-t-10">
-                                        <input type="number" data-package-id="2" name="packages[2]" class=" form-control package-qty" value="0">
+                                        <select id="select2" data-package-id="2" name="packages[2]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="1">1 Pack</option>
+                                            <option value="5">5 Packs</option>
+                                            <option value="10">10 Packs</option>
+                                        </select>
                                         <span class="input-group-addon">
-                                            <span id="oldCost-2"><i class="fa fa-gbp"></i>60</span>
+                                            <span id="oldCost-2"><i class="fa fa-gbp"></i>110</span>
                                             <span class="hide" id="newCost-2">0</span>
-                                            each
-                                            <i class="fa fa-question-circle" title="DA 20+ Websites *MidTier* costs 1 - 24 £60.00 each 25 - 49 £55.00 each 50+ £50.00 each"></i>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    DA 20+ Websites *MidTier* costs <br />
+                                                     1 pack £110.00 each  <br />
+                                                    5 packs £500.00 <br />
+                                                    10 packs £980.00 
+                                                </span>
+                                            </i>
                                         </span>
                                     </div>
 
@@ -82,16 +126,37 @@
 
                                     <div id="package-quantity-3" class="form-group">
 
-                                        <span>DA 30+ Websites *HighTier*</span>
+
+                                        @*<input type="radio" name="radio-button" value="3" />  <span>DA 30+ Websites *HighTier*</span>*@
+
+                                        @*<input type="radio" name="radio-button" value="radio-3" />  <span>DA 30+ Websites *HighTier*</span>*@
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="3"/>
+                                            <label for="radio03">DA 30+ Websites *HighTier*</label>
+                                        </div>
+
                                     </div>
 
                                     <div class="input-group m-t-10">
-                                        <input type="number" data-package-id="3" name="packages[3]" class=" form-control package-qty" value="0">
+                                        <select id="select3" data-package-id="3" name="packages[3]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="1">1 Pack</option>
+                                            <option value="5">5 Packs</option>
+                                            <option value="10">10 Packs</option>
+
+                                        </select>
                                         <span class="input-group-addon">
-                                            <span id="oldCost-3"><i class="fa fa-gbp"></i>80</span>
+                                            <span id="oldCost-3"><i class="fa fa-gbp"></i>150</span>
                                             <span class="hide" id="newCost-3">0</span>
-                                            each
-                                            <i class="fa fa-question-circle" title="DA 30+ Websites *HighTier* costs 1 - 24 £80.00 each 25 - 49 £75.00 each 50+ £70.00 each"></i>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                  DA 30+ Websites *HighTier* costs <br />
+                                                  1 pack £150.00 each  <br />
+                                                  5 packs £670.00  <br />
+                                                  10 packs £1300.00 
+                                                </span>
+                                            </i>
                                         </span>
                                     </div>
 
@@ -101,22 +166,44 @@
 
                                     <div id="package-quantity-4" class="form-group">
 
-                                        <span>DA 40+ Websites *Premium*</span>
+
+                                        @*<input type="radio" name="radio-button" value="4" />   <span>DA 40+ Websites *Premium*</span>*@
+
+                                        @*<input type="radio" name="radio-button" value="radio-4" />   <span>DA 40+ Websites *Premium*</span>*@
+
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="4"/>
+                                            <label for="radio03">DA 40+ Websites *Premium*</label>
+                                        </div>
+
                                     </div>
 
                                     <div class="input-group m-t-10">
-                                        <input type="number" data-package-id="4" name="packages[4]" class=" form-control package-qty" value="0">
+                                        <select id="select4" data-package-id="4" name="packages[4]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="1">1 Pack</option>
+                                            <option value="5">5 Packs</option>
+                                            <option value="10">10 Packs</option>
+
+                                        </select>
                                         <span class="input-group-addon">
-                                            <span id="oldCost-4"><i class="fa fa-gbp"></i>250</span>
+                                            <span id="oldCost-4"><i class="fa fa-gbp"></i>300</span>
                                             <span class="hide" id="newCost-4">0</span>
-                                            each
-                                            <i class="fa fa-question-circle" title="DA 40+ Websites *Premium* costs  1+ £250.00 each"></i>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                   DA 40+ Websites *Premium* costs <br />
+                                                   1 pack £300.00 each  <br />
+                                                   5 packs £1350.00  <br />
+                                                   10 packs £2600.00 
+                                                </span>
+                                            </i>
                                         </span>
                                     </div>
 
                                 </div>
 
-                                <div class="form-group">
+                                @*<div class="form-group">
 
                                     <div id="package-quantity-5" class="form-group">
 
@@ -124,7 +211,7 @@
                                     </div>
 
                                     <div class="input-group m-t-10">
-                                        <input type="number" data-package-id="5" name="packages[5]" class=" form-control package-qty" value="0">
+                                        <input type="number" data-package-id="5" name="packages[5]" class=" form-control package-qty">
                                         <span class="input-group-addon">
                                             <span id="oldCost-5"><i class="fa fa-gbp"></i>80</span>
                                             <span class="hide" id="newCost-5">0</span>
@@ -133,7 +220,7 @@
                                         </span>
                                     </div>
 
-                                </div>
+                                </div>*@
 
 
                             </div>
@@ -165,31 +252,31 @@
                             <div id="package-data">
                                 <div id="package-data-1" class="hidden package-container">
                                     <div class="panel-sub-heading">
-                                        <h4 class="panel-title" style="color:#188ae2;">DA 10+ Websites *LowTier* project details</h4>
+                                        <h4 class=" panel-title panel-title2" >DA 10+ Websites *LowTier* project details</h4>
                                     </div>
 
                                 </div>
                                 <div id="package-data-2" class="hidden package-container">
                                     <div class="panel-sub-heading">
-                                        <h4 class="panel-title" style="color:#188ae2;">DA 20+ Websites *MidTier* project details</h4>
+                                        <h4 class="panel-title panel-title2">DA 20+ Websites *MidTier* project details</h4>
                                     </div>
 
                                 </div>
                                 <div id="package-data-3" class="hidden package-container">
                                     <div class="panel-sub-heading">
-                                        <h4 class="panel-title" style="color:#188ae2;">DA 30+ Websites *HighTier* project details</h4>
+                                        <h4 class="panel-title panel-title2">DA 30+ Websites *HighTier* project details</h4>
                                     </div>
 
                                 </div>
                                 <div id="package-data-4" class="hidden package-container">
                                     <div class="panel-sub-heading">
-                                        <h4 class="panel-title" style="color:#188ae2;">DA 40+ Websites *Premium* project details</h4>
+                                        <h4 class="panel-title panel-title2">DA 40+ Websites *Premium* project details</h4>
                                     </div>
 
                                 </div>
                                 <div id="package-data-5" class="hidden package-container">
                                     <div class="panel-sub-heading">
-                                        <h4 class="panel-title" style="color:#188ae2;">DA 10+ Websites (Payday Loans / Gambling / Pharma) project details</h4>
+                                        <h4 class="panel-title panel-title2">DA 10+ Websites (Payday Loans / Gambling / Pharma) project details</h4>
                                     </div>
 
                                 </div>
@@ -204,8 +291,16 @@
                                     </div>
                                 </div>
                             </div><br /><br />
+                            
+                        <input type="hidden" id="url" name="url"  />
+                            
+    
+                            <input type="hidden" id="amount" name="amount" />
+
+
 
                             <div class="row">
+                        
 
                                 <div class="col-xs-6">
                                     <a href="~/orders/Add_new" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="margin-top:25px">Back</a>
@@ -225,7 +320,7 @@
     </div> <!-- container -->
 </div>
 <script>
-    var pack = '<div class="form-group-row"><input class="hidden" id="blog_order" type="text" /><div class="col-md-4"><label class="label-field">Word Count Required</label><div class="input-group"><select id="select1" class="form-control" data-field="0" data-row="0"><option value="fivehundredplus" data-cost="0">500 Words</option><option value="sevenfiftyplus" data-cost="7.50">750 Words +(£7.50)</option><option value="thousandplus" data-cost="10.00">1000 Words +(£10.00)</option><option value="twelevefiftyplus" data-cost="12.50">1250 Words +(£12.50)</option><option value="fifteenhundrednplus" data-cost="15.00">1500 Words +(£15.00)</option></select><div class="input-group-addon"><a class="label label-primary" title="We recommend you vary word counts to avoid leaving link building footprints." ">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Anchor Text*</label><div class="input-group"><input  id="text1" type="text" class="form-control" data-field="1" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="We may tweak anchor phrases slightly (even remove regional identifiers) if they will not naturally fit into the flow of content.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Target URL*</label><div class="input-group"><input  id="text2" type="url" data-field-type="url" class="form-control" data-field="2" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please tell us the URL you would like the link to point to." ">Tip</a></div></div></div></div>';
+    var pack = '<div class="form-group-row"><hr class="hr-new" /><input class="hidden" id="blog_order" type="text" /><div class="col-md-4"><label class="label-field">Word Count</label><div class="input-group"><select id="select1" class="form-control"><option value="fivehundredplus" data-cost="0">500 Words</option><option disabled value="sevenfiftyplus" data-cost="7.50">750 Words +(£7.50)</option><option disabled value="thousandplus" data-cost="10.00">1000 Words +(£10.00)</option><option disabled value="twelevefiftyplus" data-cost="12.50">1250 Words +(£12.50)</option><option disabled value="fifteenhundrednplus" data-cost="15.00">1500 Words +(£15.00)</option></select><div class="input-group-addon"><a class="label label-primary"  title="We recommend you vary word counts to avoid leaving link building footprints." ">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Anchor Text*</label><div class="input-group"><input  id="text1" type="text" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="We may tweak anchor phrases slightly (even remove regional identifiers) if they will not naturally fit into the flow of content.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Target URL*</label><div class="input-group"><input  id="text2" type="url" data-field-type="url" class="form-control" data-field="2" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please tell us the URL you would like the link to point to." ">Tip</a></div></div></div></div> ';
 </script>
 
 

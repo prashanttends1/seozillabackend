@@ -1,4 +1,4 @@
-﻿
+﻿@model seozillabackend.Models.user
 
 @{
 
@@ -40,7 +40,8 @@
     <div class="clearfix"></div>
     <div class="wrapper-page">
         <div class="text-center">
-            <a href="index.html" class="logo"><span>SEO<span>ZILLA</span></span></a>
+            <a href="" class="logo"><img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" /></a>
+            @*<a href="index.html" class="logo"><span>SEO<span>ZILLA</span></span></a>*@
             <h5 class="text-muted m-t-0 font-600">Dashboard</h5>
         </div>
         <div class="m-t-40 card-box">
@@ -59,18 +60,20 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            Email Address
+                            @*Email Address*@
+                           @Html.LabelFor(model => model.email)
                             @*@Html.TextBoxFor(x => x.email, new { @class = "form-control" })*@
-                            <input type="text" name="email" class="form-control" required/>
-                        </div>
+                           @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Email" })
+                        @Html.ValidationMessageFor(model => model.email)   </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-xs-12">
-                            Password
+                            @*Password*@
+                            @Html.LabelFor(model => model.password)
                             @*@Html.PasswordFor(x => x.password, new { @class = "form-control" })*@
-                            <input type="password" name="password" class="form-control" required/>
-                        </div>
+                           @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(model => model.password) </div>
                     </div>
 
                     <!--<div class="form-group ">

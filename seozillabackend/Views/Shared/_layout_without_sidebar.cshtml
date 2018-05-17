@@ -41,8 +41,9 @@
                 <div class="container">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a href="" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>
-                        </li>
+                            <a href="" class="logo"><img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" /></a>
+                                @*<a href="" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>*@
+</li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -111,33 +112,27 @@
 
         $(document).ready(function () {
 
-       
+            var $quantity = $('.package-qty');
+            var id = 1;
+            var quantity = 1;
+            var id1 = 0;
+            
           
             $(".package-qty").on("change", function () {
 
-
-                //$("#package-data-" + id).nextAll(".form-group-row").remove();
-
-                //$("package-container").find(".form-group-row").remove();
-
-                //$("#package-data-" + id).find(".form-group-row").remove();
-
-                //$(".form-group-row").remove();
-
-                var $quantity = $(this);
-
+                
+                $quantity = $(this);
 
                 id = $quantity.data("package-id");
 
-
-
                 quantity = parseInt($quantity.val());
 
-                id1 =  $("#package-data-" + id).index();
+                id1 = $("#package-data-" + id).index();
 
-            
 
-                if (isNaN(quantity) || quantity < 0 || quantity == 0) {
+
+                if (isNaN(quantity) || quantity < 0 || quantity == 0)
+                {
 
                     $quantity.val(0);
 
@@ -157,7 +152,8 @@
 
 
 
-                    for (var i = 0; i < quantity; i++) {
+                    for (var i = 0; i < quantity; i++)
+                    {
 
 
                         $("#package-data-" + id + " .panel-sub-heading").after(pack);
@@ -176,8 +172,8 @@
                             $("#text2").attr("name", "[" + i + "].targeturl");
 
 
-                        if ($("#select2").attr("name") == undefined)
-                            $("#select2").attr("name", "[" + i + "].country");
+                        if ($("#country").attr("name") == undefined)
+                            $("#country").attr("name", "[" + i + "].country");
 
                         if ($("#text3").attr("name") == undefined)
                             $("#text3").attr("name", "[" + i + "].businessname");
@@ -202,79 +198,275 @@
 
                         if ($("#text10").attr("name") == undefined)
                             $("#text10").attr("name", "[" + i + "].email");
+                        if ($("#text11").attr("name") == undefined)
+                            $("#text11").attr("name", "[" + i + "].cloudurl");
+                        if ($("#citation_order").attr("name") == undefined)
+                            $("#citation_order").attr("name", "[" + i + "].plan");
 
                         if ($("#blog_order").attr("value") == undefined)
 
-                            if (id1 == 0) {
+                            if (id1 == 0)
+                            {
 
                                 $("#blog_order").attr("value", "ten_plus");
                             }
-                       else if (id1 == 1) {
+                            else if (id1 == 1)
+                            {
 
-                            $("#blog_order").attr("value", "twenty_plus");
-                        }
-                       else if (id1 == 2) {
+                                $("#blog_order").attr("value", "twenty_plus");
+                            }
+                            else if (id1 == 2)
+                            {
 
-                            $("#blog_order").attr("value", "thirty_plus");
-                        }
-                       else if (id1 == 3) {
+                                $("#blog_order").attr("value", "thirty_plus");
+                            }
+                            else if (id1 == 3)
+                            {
 
-                            $("#blog_order").attr("value", "forty_plus");
-                        }
-                       else if (id1 == 4) {
+                                $("#blog_order").attr("value", "forty_plus");
+                            }
+                            else if (id1 == 4)
+                            {
 
-                           $("#blog_order").attr("value", " ten_plus_special");
-                        }
+                                $("#blog_order").attr("value", " ten_plus_special");
+                            }
+                        if ($("#citation_order").attr("value") == undefined)
 
+                            if (id1 == 0) {
+
+                                $("#citation_order").attr("value", "Zilla Local Starter");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#citation_order").attr("value", "Zilla Local Small");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#citation_order").attr("value", "Zilla Local Medium");
+                            }
+                            else if (id1 == 3) {
+
+                                $("#citation_order").attr("value", "Zilla Local Large");
+                            }
+                           
                       
 
                     }
                 }
                 
-                    var Cost = $("#oldCost-"+id).text();
-                    var newcost = (Cost * quantity);
+               
+
+                        
+                if (document.getElementById("blog")) { 
+
+                    if (id == 1 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
+                        $("#amount").attr("value", "75");
+
+                    }
+                    if (id == 1 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
+                        $("#amount").attr("value", "350");
+
+                    }
+                    if (id == 1 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
+                        $("#amount").attr("value", "650");
+
+                    }
+                    if (id == 2 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
+                        $("#amount").attr("value", "110");
+
+                    }
+                    if (id == 2 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
+                        $("#amount").attr("value", "500");
+
+                    }
+                    if (id == 2 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
+                        $("#amount").attr("value", "980");
+
+                    }
+
+                    if (id == 3 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
+                        $("#amount").attr("value", "150");
+
+                    }
+                    if (id == 3 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
+                        $("#amount").attr("value", "670");
+
+                    }
+                    if (id == 3 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
+                        $("#amount").attr("value", "1300");
+
+                    }
+                    if (id == 4 && quantity == 1) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
+                        $("#amount").attr("value", "300");
+
+                    }
+                    if (id == 4 && quantity == 5) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
+                        $("#amount").attr("value", "1350");
+
+                    }
+                    if (id == 4 && quantity == 10) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
+                        $("#amount").attr("value", "2600");
+
+                    }
+
+                }
+                if (document.getElementById("citation")) {
+
+                    if (id == 1 && quantity == 1 || quantity == 2 || quantity == 3 ) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-starter");
+                        $("#amount").attr("value", "125");
+
+                    }
+                    if (id == 2 && quantity == 1 || quantity == 2 || quantity == 3) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-small");
+                        $("#amount").attr("value", "150");
+
+                    }
+                    if (id == 3 && quantity == 1 || quantity == 2 || quantity == 3) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-medium");
+                        $("#amount").attr("value", "260");
+
+                    }
+                    if (id == 4 && quantity == 1 || quantity == 2 || quantity == 3) {
+                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-large");
+                        $("#amount").attr("value", "400");
+
+                    }
+                }
                     
+                        var amount_add = $("#amount").val();
+
+                        var Cost = $("#oldCost-" + id).text();
+                
+                        var newcost = (Cost * quantity);
+
+                        $(".total-citation-cost").text(newcost);
+
+                        $(".totalcost-citation-usd").text(Math.round((newcost) * (1.40)));
+
+                        //$("#newCost-" + id).text(newcost);
+
+                        //var new1 = parseInt($("#newCost-1").text());
+                        //var new2 = parseInt($("#newCost-2").text());
+                        //var new3 = parseInt($("#newCost-3").text());
+                        //var new4 = parseInt($("#newCost-4").text());
+
+                        $(".totalcost").text(amount_add);
+
+                        $(".totalcost_usd").text(Math.round((amount_add) * (1.40)));
+
+                        if (quantity < 5 && quantity != 0) {
+                            $(".approx_days").html('Approx 14 Days');
+                        }
+
+                        if (quantity > 5 && quantity != 0) {
+                            $(".approx_days").html('Approx 21 Days');
+                        }
+                        //if (quantity > 25) {
+                        //    $(".approx_days").html('  Approx 28 Days');
+                        //}
+
+                        if (quantity == 0) {
+                            $(".approx_days").html(NaN);
+                            $(".totalcost").text(0);
+
+                            $(".totalcost_usd").text(0);
+
+                        }
 
 
-                    $("#newCost-" + id).text(newcost); 
 
-                    var new1 = parseInt($("#newCost-1").text());
-                    var new2 =  parseInt($("#newCost-2").text());
-                    var new3 = parseInt ($("#newCost-3").text());
-                    var new4 =  parseInt($("#newCost-4").text());
-                    var new5 = parseInt($("#newCost-5").text());
-
-                                    
-                    $(".totalcost").text(new1 + new2 + new3 + new4 + new5);
-
-                    $(".totalcost_usd").text(Math.round((new1 + new2 + new3 + new4 + new5) * (1.40)));
-
-                    if(quantity<5 && quantity!=0)
-                    {
-                        $(".approx_days").html('Approx 14 Days');
-                    }
-                   if (quantity >5 )
-                    {
-                        $(".approx_days").html('Approx 21 Days');
-                   }
-                if (quantity > 25 )
-                    {
-                    $(".approx_days").html('  Approx 28 Days');
-                   }
-                 
-                    if (quantity == 0) {
-                        $(".approx_days").html(NaN);
-                    }
-
-                  
                    
 
-        });
+
+            });
+
+            $('input[type="radio"]').change(function () {
+                
+
+                
+               
+                if ($('input[name="radio-button"]').is(':checked')) {
+
+
+                    var radioValue = $("input[name='radio-button']:checked").val();
+                    
+                    switch (radioValue) {
+                        case "1":
+                            $("#select1").prop("disabled", false);
+                            $("#select2").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+                            $("#select4").prop("disabled", true);
+                            break;
+
+                        case "2":
+                            $("#select2").prop("disabled", false);
+                            $("#select1").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+                            $("#select4").prop("disabled", true);                            
+                            break;
+
+                        case "3":
+                            $("#select3").prop("disabled", false);
+                            $("#select1").prop("disabled", true);
+                            $("#select2").prop("disabled", true);
+                            $("#select4").prop("disabled", true);
+
+                            break;
+
+                        case "4":
+                            $("#select4").prop("disabled", false);
+                            $("#select1").prop("disabled", true);
+                            $("#select2").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+                            break;
+
+                        default:
+                            $("#select4").prop("disabled", true);
+                            $("#select1").prop("disabled", true);
+                            $("#select2").prop("disabled", true);
+                            $("#select3").prop("disabled", true);
+
+
+                    }
+                   
+                    $("#package-data-" + id).addClass("hidden");
+
+                    $("#package-data-" + id).find(".form-group-row").remove();
+
+                    $quantity.val(0);
+
+                    $(".approx_days").html(NaN);
+
+                    $("#newCost-" + id).text(0);
+
+                    $(".totalcost").text(0);
+
+                    $(".totalcost_usd").text(0);
+
+                    $(".total-citation-cost").text(0);
+                   
+                    $(".totalcost-citation-usd").text(0);
+                } 
+
+            });
+
+           
     });
     </script>
-
-
-
+    
 </body>
 
 

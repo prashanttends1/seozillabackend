@@ -21,6 +21,9 @@ File: Responsive
   }
 }
 @media (max-width: 768px) {
+    #register-field{
+      margin-left: inherit;
+    }
   body {
     overflow-x: hidden;
   }
@@ -180,4 +183,13 @@ File: Responsive
   div.hopscotch-bubble .hopscotch-bubble-container {
     max-width: 180px;
   }
+}
+@media(min-width:769px){
+    .panel-sub-heading {
+        margin-bottom: -70px;
+    }
+    .hr-new {
+        margin-top: 75px;
+        margin-bottom: 3px;
+    }
 }

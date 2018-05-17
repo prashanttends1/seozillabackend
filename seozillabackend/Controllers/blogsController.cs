@@ -88,7 +88,7 @@ namespace seozillabackend.Controllers
          
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(List<blog> blogs_f)
+        public ActionResult Create(List<blog> blogs_f,string url, string amount)
         {
             if (blogs_f != null)
             {
@@ -101,7 +101,7 @@ namespace seozillabackend.Controllers
                 order.status = status.awaiting_payment;
                 order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
                 db.orders.Add(order);
-                db.SaveChanges();
+                db.SaveChanges();                
                 if (ModelState.IsValid)
                 {
 
@@ -109,11 +109,14 @@ namespace seozillabackend.Controllers
                     {
 
                         blog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        Session["orderID"] = findlast();
+                        Session["amount"] = amount;
                         db.blogs.Add(blog);
                     }
                     db.SaveChanges();
-                    return RedirectToAction("Index", "orders");
-
+                    //return RedirectToAction("Index", "orders");
+                    //return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
+                    return Redirect(url);
                 }
             }
            

@@ -1,0 +1,108 @@
+﻿@model seozillabackend.Models.order
+
+@{
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+    ViewBag.Title="Invoices";
+}
+<div class="content-page">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3>INVOICE</h3>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="clearfix"> 
+                                <div class="pull-left">
+                                   
+                                    <img class="zmdi zmdi-layers logo" src="~/assets/images/logo-home.png" />
+                                </div>
+                                <div class="pull-right">
+                                   
+                               <dl>
+                                  
+                                      
+                                   
+                                   <dd>
+                                       <strong> @Html.DisplayNameFor(model => model.orderno) :</strong> @Html.DisplayFor(model => model.orderno)
+                                   </dd>
+                               </dl>
+
+                                    
+                                </div>
+                         </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-left m-t-30">
+                                        <address>
+                                            <strong>@Model.user.firstname @Model.user.lastname</strong><br>
+                                            
+                                            @Model.user.country
+                                            @*<abbr title="Phone">P:</abbr> (123) 456-7890*@
+                                        </address>
+                                    </div>
+                                    <div class="pull-right m-t-30">
+                                        <dl>
+                                            <dd class="fixwidth">
+                                            <strong>@Html.DisplayNameFor(model => model.status) :</strong> <a class="label label-danger label-url" > @Model.status.DisplayName()</a>
+                                        </dd>
+
+                    <dd>
+                        <strong>  @Html.DisplayNameFor(model => model.orderdate) :</strong> @Html.DisplayFor(model => model.orderdate)
+                        <div class="hidden" id="ID"> @Html.DisplayFor(model => model.ID)</div>  
+                    </dd>
+                                          
+
+                </dl>
+
+                 </div>
+        </div>
+    </div>
+
+                            <div class="m-h-50"></div>
+
+    @Html.Action("invoicedetailstable", new { id = Model.ID })
+
+
+
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="clearfix m-t-40">
+                <h5 class="small text-inverse font-600">PAYMENT TERMS AND POLICIES</h5>
+                <small>
+                    All accounts are to be paid within 7 days from receipt of
+                    invoice. To be paid by cheque or credit card or direct payment
+                    online. If account is not paid within 7 days the credits details
+                    supplied as confirmation of work undertaken will be charged the
+                    agreed quoted fee noted above.
+                </small>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
+            @*<p class="text-right"><b>Sub-total:</b> </p>*@
+            @*<p class="text-right">Discout: </p>
+            <p class="text-right">VAT: </p>*@
+            <hr>
+    <h3 class="text-center">GBP  <span class="total-cost-usd"></span>.00 </h3>
+        </div>
+                            </div>
+                            <hr>
+                            <div class="hidden-print">
+                                <div class="pull-right">
+                                    <a href="javascript:window.print()" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i></a>
+                                    @*<div type="submit" class="btn btn-primary waves-effect waves-light">Submit</div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+

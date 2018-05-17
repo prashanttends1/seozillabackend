@@ -7,13 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SEOZILLA is a product to make SEO efficient">
-    
+
 
     <link rel="shortcut icon" href="~/assets/images/favicon.ico">
 
     <title>@ViewBag.Title | SEOZILLA - A SEO Buffet</title>
 
-    @*Morris Chart CSS*@ 
+    @*Morris Chart CSS*@
     <link rel="stylesheet" href="~/assets/plugins/morris/morris.css">
 
     <!-- App css -->
@@ -42,7 +42,7 @@
 
 <body class="fixed-left">
 
-     @*Begin page*@ 
+    @*Begin page*@
     <div id="wrapper">
 
         @*Top Bar Start*@
@@ -50,7 +50,8 @@
 
             @*LOGO*@
             <div class="topbar-left">
-                <a href="current.html" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>
+                <a href="" class="logo"><img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" /></a>
+                @*<a href="current.html" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>*@
             </div>
 
 
@@ -80,8 +81,21 @@
 
                 @*User*@
                 <div class="user-box">
+                @*@{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        usercontext db = new usercontext();
+                        string firstname = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().firstname;
 
-                    <h5><a href="">@User.Identity.Name </a> </h5>
+                        <h5><a href="">Hi @firstname,</a></h5>
+                    }
+                    else
+                    {
+                    Response.Redirect("~/Authentication");
+                    }
+                    }*@
+                    <h5><a href="">@User.Identity.Name</a> </h5>
+                    
 
                 </div>
                 @*End User*@
@@ -110,19 +124,35 @@
 
                         <li>
 
-                           @{
-                               
-                               usercontext db = new usercontext();
-                               int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
-                               string url= "users/edit/"+id;
-                                                                                      
-                             <a href=@url class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
-                           }
+                            @*@{
+
+                                    usercontext db = new usercontext();
+                                    int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                                    string url= "users/edit/"+id;
+
+                                  <a href=@url class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                                }*@
+                            @{
+
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    usercontext db = new usercontext();
+                                    int id = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+
+                                    <a href="~/users/Edit/@id" class="waves-effect"><i class="fa fa-fw fa-user"></i><span>MY PROFILE</span></a>
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/Authentication");
+                                }
+
+
+                            }
                         </li>
 
                         <li>
 
-                            <a href="view_invoices.html" class="waves-effect"><i class="fa fa-fw fa-file-text"></i> <span>VIEW INVOICES</span></a>
+                            <a href="~/orders/invoice" class="waves-effect"><i class="fa fa-fw fa-file-text"></i> <span>VIEW INVOICES</span></a>
 
                         </li>
 
@@ -159,18 +189,18 @@
         <footer class="footer text-right">
             2018 - 2019 © SEOZILLA.
         </footer>
-        
+
 
     </div>
-        
+
     </div>
 
-    
-</div>
+
+    </div>
     @RenderSection("Scripts", false)
-     @*END wrapper*@ 
+    @*END wrapper*@
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script>
         var resizefunc = [];
@@ -189,9 +219,9 @@
     <script src="~/assets/js/jquery.scrollTo.min.js"></script>
 
     <!-- KNOB JS -->
-        <!--[if IE]>
-        <script type="text/javascript" src="~/assets/plugins/jquery-knob/excanvas.js"></script>
-        <![endif]-->
+    <!--[if IE]>
+    <script type="text/javascript" src="~/assets/plugins/jquery-knob/excanvas.js"></script>
+    <![endif]-->
     <script src="~/assets/plugins/jquery-knob/jquery.knob.js"></script>
 
     @*Morris Chart*@
@@ -207,31 +237,168 @@
 
     <script>
         $(document).ready(function () {
-            
 
-            var originalContent = $('.label-danger').html();
 
-            if (originalContent != ' Archived') {
 
-                $(".label-danger").hover(function () {
-                    originalContent = $(this).html();
+
+            var originalContent = "Awaiting Payment"
+
+            $('.label-danger').hover(function () {
+                originalContent = $(this).html();
+
+                if (originalContent != ' Archived' && originalContent != ' Payment Done' && originalContent != ' Task In Progress' && originalContent != ' Task Completed') {
+
                     $(this).html('<strong>Make Payment</strong>').css({ "background": "#10c469" });
 
-                }, function () {
-                    $(this).html(originalContent).css({ "background": "#ff5b5b" });
+                }
+                else {
 
-                });
+                    $(this).css({ "cursor": "initial" });
+                    $(this).removeAttr("href");
+                }
             }
-            else {
-                $(".label-danger").css({ "cursor": "initial" });
+                        , function () {
+                            if ($(this).html() == "<strong>Make Payment</strong>") {
+
+                                $(this).html(originalContent).css({ "background": "#ff5b5b", "cursor": "pointer" });
+
+                            }
+
+                        });
+
+
+
+
+
+
+            var newcount = parseInt($(".count").text());
+
+            var newdetails = $(".details").text();
+
+            if (newdetails == ' DA 10+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(75);
+
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(110);
+
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(150);
+
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 1) {
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(300);
+
             }
 
-            //$(".zmdi-menu").click(function () {
+            if (newdetails == ' DA 10+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(350);
+
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(500);
+
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(670);
+
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 5) {
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(1350);
+
+            }
+
+            if (newdetails == ' DA 10+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(75);
+                $(".total-cost").text(650);
+            }
+            if (newdetails == ' DA 20+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(110);
+                $(".total-cost").text(980);
+            }
+            if (newdetails == ' DA 30+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(1300);
+            }
+            if (newdetails == ' DA 40+ blog' && newcount == 10) {
+
+                $(".unit-cost").text(300);
+                $(".total-cost").text(2600);
+            }
+
+            if (newdetails == 'Zilla Local Starter citation' && newcount == 1) {
+
+                $(".unit-cost").text(125);
+                $(".total-cost").text(125);
+            }
+            if (newdetails == 'Zilla Local Small citation' && newcount == 1) {
+
+                $(".unit-cost").text(150);
+                $(".total-cost").text(150);
+            }
+            if (newdetails == 'Zilla Local Medium citation' && newcount == 1) {
+
+                $(".unit-cost").text(260);
+                $(".total-cost").text(260);
+            }
+            if (newdetails == 'Zilla Local Large citation' && newcount == 1) {
+
+                $(".unit-cost").text(400);
+                $(".total-cost").text(400);
+            }
+
+
+            //var newunit = parseInt($(".unit-cost").text());
+
+            //$(".total-cost").text(newcount * newunit);
+
+            var total = $(".total-cost").text();
+
+            $(".total-cost-usd").text((total));
+
+
+            $(".label-url").click(function () {
+
+                var contant = $(this).html();
+
+                var id = $("#ID").text();
+
+                @*var url = '@Url.Action("makepayment", "orders" , + id)';*@
+
+                //alert(id);
+
+              //$(".label-url").attr("href", url);
+
+                @*window.location.href = '@Url.Action("makepayment", "orders")'*@
+
+                if (contant != ' Payment Done' && contant !=' Archived')
+                {
+                    window.location.href = '/orders/makepayment/' + id;
+                }
+
                 
-            //    $("div#wrapper").toggleClass("enlarged");
-            //});
 
-
+            });
 
         });
 

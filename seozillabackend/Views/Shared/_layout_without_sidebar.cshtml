@@ -129,7 +129,7 @@
 
                 id1 = $("#package-data-" + id).index();
 
-
+                var value = $('option:selected', this).index();
 
                 if (isNaN(quantity) || quantity < 0 || quantity == 0)
                 {
@@ -203,6 +203,27 @@
                         if ($("#citation_order").attr("name") == undefined)
                             $("#citation_order").attr("name", "[" + i + "].plan");
 
+                        if ($("#title").attr("name") == undefined)
+                            $("#title").attr("name", "[" + i + "].title");
+
+                        if ($("#website").attr("name") == undefined)
+                            $("#website").attr("name", "[" + i + "].website");
+
+                        if ($("#brief").attr("name") == undefined)
+                            $("#brief").attr("name", "[" + i + "].brief");
+
+                        if ($("#zilla_blog_quantity").attr("name") == undefined)
+                            $("#zilla_blog_quantity").attr("name", "[" + i + "].quantity");
+
+                        if ($("#zilla_blog_words").attr("name") == undefined)
+                            $("#zilla_blog_words").attr("name", "[" + i + "].words");
+
+
+
+
+
+
+
                         if ($("#blog_order").attr("value") == undefined)
 
                             if (id1 == 0)
@@ -248,8 +269,72 @@
 
                                 $("#citation_order").attr("value", "Zilla Local Large");
                             }
-                           
-                      
+                        if ($("#zilla_blog_quantity").attr("value") == undefined)
+                            if (id1 == 0) {
+
+                                $("#zilla_blog_quantity").attr("value", "1");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#zilla_blog_quantity").attr("value", "2");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#zilla_blog_quantity").attr("value", "4");
+                            }
+                            else if (id1 == 3) {
+
+                                $("#zilla_blog_quantity").attr("value", "8");
+                            }
+                        if ($("#zilla_blog_words").attr("value") == undefined)
+                            if (id == 1 && value == 1) {
+                                $("#zilla_blog_words").attr("value", "1 x 500 Words Article");
+                            }
+                        if (id == 1 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "1 x 1000 Words Article");
+                        }
+                        if (id == 1 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "1 x 1500 Words Article");
+                        }
+                        if (id == 1 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "1 x 2000 Words Article");
+                        }
+                        if (id == 2 && value == 1) {
+                            $("#zilla_blog_words").attr("value", "2 x 500 Words Article");
+                        }
+                        if (id == 2 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "2 x 1000 Words Article");
+                        }
+                        if (id == 2 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "2 x 1500 Words Article");
+                        }
+                        if (id == 2 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "2 x 2000 Words Article");
+                        }
+                        if (id == 3 && value == 1) {
+                            $("#zilla_blog_words").attr("value", "4 x 500 Words Article");
+                        }
+                        if (id == 3 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "4 x 1000 Words Article");
+                        }
+                        if (id == 3 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "4 x 1500 Words Article");
+                        }
+                        if (id == 3 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "4 x 2000 Words Article");
+                        }
+                        if (id == 8 && value == 1) {
+                            $("#zilla_blog_words").attr("value", "8 x 500 Words Article");
+                        }
+                        if (id == 8 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "8 x 1000 Words Article");
+                        }
+                        if (id == 8 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "8 x 1500 Words Article");
+                        }
+                        if (id == 8 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "8 x 2000 Words Article");
+                        }
 
                     }
                 }
@@ -345,7 +430,8 @@
 
                     }
                 }
-                    
+               
+               
                         var amount_add = $("#amount").val();
 
                         var Cost = $("#oldCost-" + id).text();

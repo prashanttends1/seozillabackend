@@ -44,22 +44,72 @@ namespace seozillabackend.Controllers
             return View();
         }
 
+        [NonAction]
+        public int findlast()
+        {
+
+            return Convert.ToInt32(db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
+        }
+         [ChildActionOnly]
+        public ActionResult updatedetails(int id)
+        {
+
+            zillablog zillablog = db.zillablogs.Find(id);
+            if (User.IsInRole("Admin"))
+                return PartialView("_adminzillablogupdatedetails", zillablog);
+            else
+                return PartialView("_zillablogupdatedetails", zillablog);
+         
+        }
+
         // POST: zillablogs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,words,quantity,title,website,brief,orderID")] zillablog zillablog)
+        public ActionResult Create(List<zillablog> zillablogs_f, string url, string amount)
         {
-            if (ModelState.IsValid)
+            if (zillablogs_f != null)
             {
-                db.zillablogs.Add(zillablog);
+                //create an order for blog 
+                order order = new order();
+                int last = findlast() + 111;
+                order.orderno = "SZ" + last;
+                order.orderdate = DateTime.Now;
+                order.service = "zillablog";
+                order.status = status.awaiting_payment;
+                order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                db.orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+
+                    foreach (zillablog zillablog in zillablogs_f)
+                    {
+
+                        zillablog.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        Session["orderID"] = findlast();
+                        Session["amount"] = amount;
+                        db.zillablogs.Add(zillablog);
+                    }
+                    db.SaveChanges();
+                    //return RedirectToAction("Index", "orders");
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
+                    //return Redirect(url);
+                }
             }
 
-            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", zillablog.orderID);
-            return View(zillablog);
+            //foreach (blog blog in blogs_f)
+            //{
+            //    ViewData["[0].orderID"] = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+            //    ViewData["[1].orderID"] = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+
+            //    //ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+            //    //ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", blog.orderID);
+
+
+            //}
+            return View(zillablogs_f);
         }
 
         // GET: zillablogs/Edit/5
@@ -85,11 +135,13 @@ namespace seozillabackend.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,words,quantity,title,website,brief,orderID")] zillablog zillablog)
         {
+            int orderid = zillablog.orderID;
+
             if (ModelState.IsValid)
             {
                 db.Entry(zillablog).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "orders", new { @id = orderid });
             }
             ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", zillablog.orderID);
             return View(zillablog);

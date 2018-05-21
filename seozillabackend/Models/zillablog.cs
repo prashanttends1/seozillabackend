@@ -13,9 +13,8 @@ namespace seozillabackend.Models
         public string title { get; set; }
         public string website { get; set; } //target website or audience
         public string brief { get; set; } //project brief
-
+        public string document_url { get; set; }
         public int orderID { get; set; }
-
         public virtual order order { get; set; }
 
     }

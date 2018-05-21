@@ -498,6 +498,8 @@ namespace seozillabackend.Controllers
                         case "citation":
                             return PartialView("_citationdetailstable", order);
                         //return PartialView("_citationdetailstable");
+                        case "zillablog":
+                            return PartialView("_zillablogdetailstable", order);
                         default:
                             return Content("Incorrect ID");
 

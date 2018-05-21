@@ -48,5 +48,7 @@ namespace seozillabackend.Models
         public virtual ICollection<blog> blogs { get; set; }        
         public virtual ICollection<citation> citations { get; set; }
 
+        public virtual ICollection<zillablog> zillablogs { get; set; }
+
     }
 }

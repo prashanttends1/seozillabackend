@@ -1,0 +1,67 @@
+﻿@model seozillabackend.Models.zillablog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>zillablog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order.orderno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.orderno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.words)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.words)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.website)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.brief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brief)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

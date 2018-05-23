@@ -1,0 +1,205 @@
+﻿@model seozillabackend.Models.zillablog
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<div class="content-page">
+
+    <div class="content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="card-box">
+
+                        <div class="title"><h4>Update Zilla Blog Details</h4></div>
+                    </div>
+
+
+                    <div class="update_row">
+                        <div class="card-box">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(model => model.ID)
+
+
+                                    <div class="form-group hidden">
+
+                                        @Html.LabelFor(model => model.words, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.words, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.words)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group hidden">
+                                        @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.quantity, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.quantity)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.title, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.title)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.website, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.website, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.website)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.brief, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.brief, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.brief)
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group hidden">
+                                        @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.DropDownList("orderID", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.orderID)
+                                        </div>
+                                    </div>
+
+                                    @Html.Action("updatedetails", new { id = Model.ID })
+
+
+
+
+                                </div>
+
+                                <div class="modal-footer"><a href="~/orders" class="back_to_list">Back to List</a><button id="btn-update-order-row" class="btn btn-primary">Update</button></div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>zillablog</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.words, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.words)
+                @Html.ValidationMessageFor(model => model.words)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.quantity)
+                @Html.ValidationMessageFor(model => model.quantity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.title)
+                @Html.ValidationMessageFor(model => model.title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.website, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.website)
+                @Html.ValidationMessageFor(model => model.website)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.brief, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.brief)
+                @Html.ValidationMessageFor(model => model.brief)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("orderID", String.Empty)
+                @Html.ValidationMessageFor(model => model.orderID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

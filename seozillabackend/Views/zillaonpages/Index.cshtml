@@ -1,0 +1,58 @@
+﻿@model IEnumerable<seozillabackend.Models.zillaonpage>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.plan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pageurl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.primekeyword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.secondarykeyword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.targetlocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.plan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pageurl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.primekeyword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.secondarykeyword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.targetlocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

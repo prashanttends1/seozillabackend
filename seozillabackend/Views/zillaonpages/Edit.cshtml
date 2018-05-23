@@ -1,0 +1,70 @@
+﻿@model seozillabackend.Models.zillaonpage
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>zillaonpage</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.plan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.plan)
+                @Html.ValidationMessageFor(model => model.plan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.pageurl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pageurl)
+                @Html.ValidationMessageFor(model => model.pageurl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.primekeyword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.primekeyword)
+                @Html.ValidationMessageFor(model => model.primekeyword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.secondarykeyword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.secondarykeyword)
+                @Html.ValidationMessageFor(model => model.secondarykeyword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.targetlocation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.targetlocation)
+                @Html.ValidationMessageFor(model => model.targetlocation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

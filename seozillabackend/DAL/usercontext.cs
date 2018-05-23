@@ -23,5 +23,7 @@ namespace seozillabackend.DAL
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
+        public System.Data.Entity.DbSet<seozillabackend.Models.zillaonpage> zillaonpages { get; set; }
+
     }
 }

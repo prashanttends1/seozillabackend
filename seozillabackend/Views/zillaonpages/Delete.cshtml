@@ -1,0 +1,65 @@
+﻿@model seozillabackend.Models.zillaonpage
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>zillaonpage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.plan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pageurl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pageurl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.primekeyword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.primekeyword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.secondarykeyword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.secondarykeyword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.targetlocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.targetlocation)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

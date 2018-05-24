@@ -1,0 +1,47 @@
+﻿@model seozillabackend.Models.order
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Keyword 1</th>
+                    <th>Keyword 2</th>
+                    <th>Keyword 3</th>
+                    <th>Competitor 1</th>
+                    <th>Competitor 2</th>
+                    <th>Competitor 3</th>
+                    <th>Target Location</th>
+                    <th>Other Information</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var itemzillax in Model.zillax)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.plan)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.keyword1)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.keyword2)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.keyword3)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.competitor1)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.competitor2)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.competitor3)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.targetlocation)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillax.otherinfo)</td>
+
+                        <td class="fixwidth">
+                            <a href="" class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
+                        </td>
+                        <td>@Html.ActionLink("Edit", "Edit", "zillaxs", new { id = itemzillax.ID }, null)</td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

@@ -22,6 +22,11 @@ File: Core
 /* =============
    Common
 ============= */
+
+.label-field
+{
+    margin-top:15px !important;
+}
  div.form-group-2 {
 margin-bottom:0px;
 }

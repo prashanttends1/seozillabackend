@@ -1,0 +1,51 @@
+﻿@model seozillabackend.Models.order
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>URL 1</th>
+                    <th>URL 2</th>
+                    <th>URL 3</th>
+                    <th>Keyword 1</th>
+                    <th>Keyword 2</th>
+                    <th>Keyword 3</th>
+                    <th>Keyword 4</th>
+                    <th>Keyword 5</th>
+                    <th>Keyword 6</th>
+                    <th>Cloud URL</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var itemzillalinkbuilding in Model.zillalinkbuildings)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.plan)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.url1)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.url2)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.url3)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.keyword1a)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.keyword1b)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.keyword2a)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.keyword2b)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.keyword3a)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.keyword3b)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillalinkbuilding.cloudurl)</td>
+
+                        <td class="fixwidth">
+                            <a href="" class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
+                        </td>
+                        <td>@Html.ActionLink("Edit", "Edit", "zillalinkbuildings", new { id = itemzillalinkbuilding.ID }, null)</td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

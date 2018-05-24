@@ -11,6 +11,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+     [Authorize]
     public class zillalinkbuildingsController : Controller
     {
         private usercontext db = new usercontext();
@@ -18,6 +19,7 @@ namespace seozillabackend.Controllers
         // GET: zillalinkbuildings
         public ActionResult Index()
         {
+            var zillaxes = db.zillaxes.Include(zl => zl.order);
             return View(db.zillalinkbuildings.ToList());
         }
 
@@ -39,6 +41,7 @@ namespace seozillabackend.Controllers
         // GET: zillalinkbuildings/Create
         public ActionResult Create()
         {
+            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno");
             return View();
         }
 
@@ -47,16 +50,58 @@ namespace seozillabackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,url1,url2,url3,keyword1a,keyword1b,keyword2a,keyword2b,keyword3a,keyword3b,cloudurl")] zillalinkbuilding zillalinkbuilding)
+        //public ActionResult Create([Bind(Include = "ID,url1,url2,url3,keyword1a,keyword1b,keyword2a,keyword2b,keyword3a,keyword3b,cloudurl")] zillalinkbuilding zillalinkbuilding)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.zillalinkbuildings.Add(zillalinkbuilding);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(zillalinkbuilding);
+        //}
+
+        public ActionResult Create(List<zillalinkbuilding> zillalinkbuildings_f, string url, string amount)
         {
-            if (ModelState.IsValid)
+            if (zillalinkbuildings_f != null)
             {
-                db.zillalinkbuildings.Add(zillalinkbuilding);
+                //create an order for blog 
+                order order = new order();
+                int last = findlast() + 111;
+                order.orderno = "SZ" + last;
+                order.orderdate = DateTime.Now;
+                order.service = "zillalinkbuilding";
+                order.status = status.awaiting_payment;
+                order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                db.orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+
+                    foreach (zillalinkbuilding zillalinkbuilding in zillalinkbuildings_f)
+                    {
+
+                        zillalinkbuilding.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        Session["orderID"] = findlast();
+                        Session["amount"] = amount;
+                        db.zillalinkbuildings.Add(zillalinkbuilding);
+                    }
+                    db.SaveChanges();
+                    //return RedirectToAction("Index", "orders");
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
+                    //return Redirect(url);
+                }
             }
 
-            return View(zillalinkbuilding);
+            return View(zillalinkbuildings_f);
+        }
+
+        [NonAction]
+        public int findlast()
+        {
+
+            return Convert.ToInt32(db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
         }
 
         // GET: zillalinkbuildings/Edit/5
@@ -67,11 +112,23 @@ namespace seozillabackend.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             zillalinkbuilding zillalinkbuilding = db.zillalinkbuildings.Find(id);
-            if (zillalinkbuilding == null)
+            if (User.IsInRole("Admin"))
             {
-                return HttpNotFound();
+                if (zillalinkbuilding == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", zillalinkbuilding.orderID);
+                return View(zillalinkbuilding);
             }
-            return View(zillalinkbuilding);
+            else
+            {
+                if (zillalinkbuilding == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(zillalinkbuilding);
+            }
         }
 
         // POST: zillalinkbuildings/Edit/5
@@ -79,13 +136,14 @@ namespace seozillabackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,url1,url2,url3,keyword1a,keyword1b,keyword2a,keyword2b,keyword3a,keyword3b,cloudurl")] zillalinkbuilding zillalinkbuilding)
+        public ActionResult Edit([Bind(Include = "ID,plan,url1,url2,url3,keyword1a,keyword1b,keyword2a,keyword2b,keyword3a,keyword3b,cloudurl,orderID")] zillalinkbuilding zillalinkbuilding)
         {
+            int orderid = zillalinkbuilding.orderID;
             if (ModelState.IsValid)
             {
                 db.Entry(zillalinkbuilding).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "orders", new { @id = orderid });
             }
             return View(zillalinkbuilding);
         }

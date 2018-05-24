@@ -504,6 +504,11 @@ namespace seozillabackend.Controllers
                         case "zillaonpage":
                             return PartialView("_zillaonpagedetailstable", order);
 
+                        case "zillax":
+                            return PartialView("_zillaxdetailstable", order);
+
+                        case "zillalinkbuilding":
+                             return PartialView("_zillalinkbuildingdetailstable", order);
                         default:
                             return Content("Incorrect ID");
 

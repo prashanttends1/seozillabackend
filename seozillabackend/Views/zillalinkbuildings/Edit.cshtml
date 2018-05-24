@@ -5,7 +5,200 @@
     Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
 }
 
-<h2>Edit</h2>
+<div class="content-page">
+
+    <div class="content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="card-box">
+
+                        <div class="title"><h4>Update Zilla Link Building</h4></div>
+                    </div>
+
+
+                    <div class="update_row">
+                        <div class="card-box">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(model => model.ID)
+
+
+                                    <div class="form-group hidden">
+
+                                        @Html.LabelFor(model => model.plan, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.HiddenFor(model => model.plan, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.plan)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.url1, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.url1, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.url1)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.url2, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.url2, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.url2)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.url3, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.url3, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.url3)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword1a, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword1a, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword1a)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword1b, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword1b, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword1b)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword2a, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword2a, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword2a)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword2b, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword2b, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword2b)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword3a, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword3a, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword3a)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword3b, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword3b, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword3b)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.cloudurl, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.cloudurl, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.cloudurl)
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+
+                                <div class="form-group hidden">
+                                    @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                        @*@Html.DropDownList("orderID", null, new { @class = "form-control" })*@
+                                        @Html.HiddenFor(model => model.orderID, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.orderID)
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer"><a href="~/orders" class="back_to_list">Back to List</a><button type="submit" id="btn-update-order-row" class="btn btn-primary">Update</button></div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
@@ -107,4 +300,4 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div*@>

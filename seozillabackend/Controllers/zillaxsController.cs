@@ -11,6 +11,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.Controllers
 {
+     [Authorize]
     public class zillaxsController : Controller
     {
         private usercontext db = new usercontext();
@@ -18,6 +19,7 @@ namespace seozillabackend.Controllers
         // GET: zillaxs
         public ActionResult Index()
         {
+            var zillaxes = db.zillaxes.Include(zx => zx.order);
             return View(db.zillaxes.ToList());
         }
 
@@ -39,6 +41,7 @@ namespace seozillabackend.Controllers
         // GET: zillaxs/Create
         public ActionResult Create()
         {
+            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno");
             return View();
         }
 
@@ -47,18 +50,50 @@ namespace seozillabackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,keyword1,keyword2,keyword3,competitor1,competitor2,competitor3,targetlocation,otherinfo")] zillax zillax)
+      
+
+        public ActionResult Create(List<zillax> zillaxes_f, string url, string amount)
         {
-            if (ModelState.IsValid)
+            if (zillaxes_f != null)
             {
-                db.zillaxes.Add(zillax);
+                //create an order for blog 
+                order order = new order();
+                int last = findlast() + 111;
+                order.orderno = "SZ" + last;
+                order.orderdate = DateTime.Now;
+                order.service = "zillax";
+                order.status = status.awaiting_payment;
+                order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
+                db.orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+
+                    foreach (zillax zillax in zillaxes_f)
+                    {
+
+                        zillax.orderID = findlast(); //assign last(i.e. above) order ID to blog OrderID
+                        Session["orderID"] = findlast();
+                        Session["amount"] = amount;
+                        db.zillaxes.Add(zillax);
+                    }
+                    db.SaveChanges();
+                    //return RedirectToAction("Index", "orders");
+                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
+                    //return Redirect(url);
+                }
             }
 
-            return View(zillax);
+            return View(zillaxes_f);
         }
 
+
+        [NonAction]
+        public int findlast()
+        {
+
+            return Convert.ToInt32(db.Database.SqlQuery<decimal>("SELECT IDENT_CURRENT('order')").First());
+        }
         // GET: zillaxs/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -67,11 +102,34 @@ namespace seozillabackend.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             zillax zillax = db.zillaxes.Find(id);
-            if (zillax == null)
+            if (User.IsInRole("Admin"))
             {
-                return HttpNotFound();
+                if (zillax == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", zillax.orderID);
+                return View(zillax);
             }
-            return View(zillax);
+            else
+            {
+                if (User.Identity.Name == zillax.order.user.email)
+                {
+                    if (zillax == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", zillax.orderID);
+                    return View(zillax);
+                }
+                else
+                {
+
+                    return RedirectToAction("AccessDenied", "Authentication");
+                    //return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+
+                }
+            }
         }
 
         // POST: zillaxs/Edit/5
@@ -79,14 +137,16 @@ namespace seozillabackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,keyword1,keyword2,keyword3,competitor1,competitor2,competitor3,targetlocation,otherinfo")] zillax zillax)
+        public ActionResult Edit([Bind(Include = "ID,plan,keyword1,keyword2,keyword3,competitor1,competitor2,competitor3,targetlocation,otherinfo,orderID")] zillax zillax)
         {
+            int orderid = zillax.orderID;
             if (ModelState.IsValid)
             {
                 db.Entry(zillax).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "orders", new { @id = orderid });
             }
+            ViewBag.orderID = new SelectList(db.orders, "ID", "orderno", zillax.orderID);
             return View(zillax);
         }
 

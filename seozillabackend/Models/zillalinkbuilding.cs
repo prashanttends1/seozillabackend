@@ -8,6 +8,7 @@ namespace seozillabackend.Models
     public class zillalinkbuilding
     {
         public int ID { get; set; }
+        public string plan { get; set; }
         public string url1 { get; set; }
         public string url2 { get; set; }
         public string url3 { get; set; }
@@ -18,5 +19,7 @@ namespace seozillabackend.Models
         public string keyword3a { get; set; }
         public string keyword3b { get; set; }
         public string cloudurl { get; set; }
+        public int orderID { get; set; }
+        public virtual order order { get; set; }
     }
 }

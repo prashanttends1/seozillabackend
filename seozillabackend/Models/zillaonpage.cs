@@ -13,6 +13,8 @@ namespace seozillabackend.Models
         public string primekeyword { get; set; }
         public string secondarykeyword { get; set; }
         public string targetlocation { get; set; }
+        public int orderID { get; set; }
+        public virtual order order { get; set; }
 
     }
 }

@@ -16,6 +16,7 @@ namespace seozillabackend.DAL
         public DbSet<blog> blogs { get; set; }
         public DbSet<citation> citations { get; set; }
         public DbSet<zillablog> zillablogs { get; set; }
+        public DbSet<zillaonpage> zillaonpages { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,7 +24,7 @@ namespace seozillabackend.DAL
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
-        public System.Data.Entity.DbSet<seozillabackend.Models.zillaonpage> zillaonpages { get; set; }
+        
 
     }
 }

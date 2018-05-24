@@ -500,6 +500,10 @@ namespace seozillabackend.Controllers
                         //return PartialView("_citationdetailstable");
                         case "zillablog":
                             return PartialView("_zillablogdetailstable", order);
+
+                        case "zillaonpage":
+                            return PartialView("_zillaonpagedetailstable", order);
+
                         default:
                             return Content("Incorrect ID");
 

@@ -5,6 +5,166 @@
     Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
 }
 
+<div class="content-page">
+
+    <div class="content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="card-box">
+
+                        <div class="title"><h4>Update Zilla On-Page Details</h4></div>
+                    </div>
+
+
+                    <div class="update_row">
+                        <div class="card-box">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(model => model.ID)
+
+
+                                    <div class="form-group hidden">
+
+                                        @Html.LabelFor(model => model.plan, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.HiddenFor(model => model.plan, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.plan)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.pageurl, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.pageurl, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.pageurl)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.primekeyword, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.primekeyword, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.primekeyword)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.secondarykeyword, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.secondarykeyword, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.secondarykeyword)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.targetlocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.targetlocation, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.targetlocation)
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                              <div class="form-group hidden">
+                                  @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
+                               <div class="input-group">
+                                   <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                        @*@Html.DropDownList("orderID", null, new { @class = "form-control" })*@
+                                         @Html.HiddenFor(model => model.orderID, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.orderID)
+                                       </div>
+                                      </div>
+
+                                <div class="modal-footer"><a href="~/orders" class="back_to_list">Back to List</a><button type="submit" id="btn-update-order-row" class="btn btn-primary">Update</button></div>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model seozillabackend.Models.zillaonpage
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
@@ -67,4 +227,4 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

@@ -219,6 +219,25 @@
                             $("#zilla_blog_words").attr("name", "[" + i + "].words");
 
 
+                        if ($("#page-url").attr("name") == undefined)
+                            $("#page-url").attr("name", "[" + i + "].pageurl");
+
+
+                        if ($("#prime-keyword").attr("name") == undefined)
+                            $("#prime-keyword").attr("name", "[" + i + "].primekeyword");
+
+
+                        if ($("#secondary-keyword").attr("name") == undefined)
+                            $("#secondary-keyword").attr("name", "[" + i + "].secondarykeyword");
+
+
+                        if ($("#target-location").attr("name") == undefined)
+                            $("#target-location").attr("name", "[" + i + "].targetlocation");
+
+
+                        if ($("#onpage-plan").attr("name") == undefined)
+                            $("#onpage-plan").attr("name", "[" + i + "].plan");
+
 
 
 
@@ -323,19 +342,37 @@
                         if (id == 3 && value == 4) {
                             $("#zilla_blog_words").attr("value", "4 x 2000 Words Article");
                         }
-                        if (id == 8 && value == 1) {
+                        if (id == 4 && value == 1) {
                             $("#zilla_blog_words").attr("value", "8 x 500 Words Article");
                         }
-                        if (id == 8 && value == 2) {
+                        if (id == 4 && value == 2) {
                             $("#zilla_blog_words").attr("value", "8 x 1000 Words Article");
                         }
-                        if (id == 8 && value == 3) {
+                        if (id == 4 && value == 3) {
                             $("#zilla_blog_words").attr("value", "8 x 1500 Words Article");
                         }
-                        if (id == 8 && value == 4) {
+                        if (id == 4 && value == 4) {
                             $("#zilla_blog_words").attr("value", "8 x 2000 Words Article");
                         }
 
+                        if ($("#onpage-plan").attr("value") == undefined)
+                            if (id1 == 0) {
+
+                                $("#onpage-plan").attr("value", "2–4 Pages");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#onpage-plan").attr("value", "5–9 Pages");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#onpage-plan").attr("value", "10–19 Pages");
+                            }
+                            else if (id1 == 3) {
+
+                                $("#onpage-plan").attr("value", "20–30 Pages");
+                            }
+                       
                     }
                 }
                 
@@ -430,7 +467,77 @@
 
                     }
                 }
-               
+                if (document.getElementById("zilla-blog")) {
+
+                    if (id == 1 && value == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "30");
+                    }
+                    if (id == 1 && value == 2) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "55");
+                    }
+                    if (id == 1 && value == 3) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "100");
+                    }
+                    if (id == 1 && value == 4) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "70");
+                    }
+
+                    if (id == 2 && value == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "50");
+                    }
+                    if (id == 2 && value == 2) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "100");
+                    }
+                    if (id == 2 && value == 3) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "255");
+                    }
+                    if (id == 2 && value == 4) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "360");
+                    }
+
+                    if (id == 3 && value == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "90");
+                    }
+                    if (id == 3 && value == 2) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "100");
+                    }
+                    if (id == 3 && value == 3) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "255");
+                    }
+                    if (id == 3 && value == 4) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "360");
+                    }
+
+                    if (id == 4 && value == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "180");
+                    }
+                    if (id == 4 && value == 2) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "360");
+                    }
+                    if (id == 4 && value == 3) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "480");
+                    }
+                    if (id == 4 && value == 4) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "720");
+                    }
+
+                }
                
                         var amount_add = $("#amount").val();
 

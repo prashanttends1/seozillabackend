@@ -1,4 +1,323 @@
 ﻿@model seozillabackend.Models.zillaonpage
+@{
+    ViewBag.Title = "Create Zilla Onpage";
+    Layout = "~/Views/Shared/_layout_without_sidebar.cshtml";
+}
+
+
+
+<div class="content-page content-page-new" id="zilla-on-page">
+    <div class="content">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <ol class="breadcrumb breadcrumb2">
+                        <li><a href="~/orders/Add_new">Services</a></li>
+                        <li class="active">Zilla ON-Page</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="pannel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="place-order" style="margin-bottom:50px;">
+
+                                    <span class="badge step-indicator">2</span> Zilla On-Page
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Sub Total:</strong>  <span>GBP <i class="fa fa-gbp"></i><span class="totalcost">0.00</span> </span>/<span> Approx USD <strong>$</strong><span class="totalcost_usd">0</span></span><br>
+                                <span>Estimated Completion:</span><span class="approx_days"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Choose your quantity (Press Enter)</label><br /><br />
+                                <div class="form-group">
+
+                                    <div id="package-quantity-1" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="1" checked />
+                                            <label for="radio03">On-Page 2-4 Pages</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select1" data-package-id="1" name="packages[1]" class=" form-control package-qty">
+                                            <option value="0"></option>
+                                            <option value="2">2 Pages</option>
+                                            <option value="3">3 Pages</option>
+                                            <option value="4">4 Pages</option>                                      
+                                        </select>
+
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-1"><i class="fa fa-gbp"></i>30</span>
+                                            <span class="hide" id="newCost-1">0</span>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b> 1 Blog Post Per Month costs</b> <br />
+                                                    1 x 500 Words Article £30 per month <br />
+                                                    1 x 1000 Words Article £55 per month  <br />
+                                                    1 x 2000 Words Article £100 per month <br />
+                                                    1 x 1500 Words Article £70 per month
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-2" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="2" />
+                                            <label for="radio03">On-Page 5-9 Pages</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select2" data-package-id="2" name="packages[2]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="5">5 Pages</option>
+                                            <option value="6">6 Pages</option>
+                                            <option value="7">7 Pages</option>
+                                            <option value="8">8 Pages</option>
+                                            <option value="9">9 Pages</option>
+
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-2"><i class="fa fa-gbp"></i>50</span>
+                                            <span class="hide" id="newCost-2">0</span>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b>  2 Blogs Post Per Month costs </b><br />
+                                                    2 x 500 Words Article £50 per month <br />
+                                                    2 x 1000 Words Article £100 per month  <br />
+                                                    2 x 2000 Words Article £255 per month <br />
+                                                    2 x 1500 Words Article £360 per month
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-3" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="3" />
+                                            <label for="radio03">On-Page 10-19 Pages</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select3" data-package-id="3" name="packages[3]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="10">10 Pages</option>
+                                            <option value="11">11 Pages</option>
+                                            <option value="12">12 Pages</option>
+                                            <option value="13">13 Pages</option>
+                                            <option value="14">14 Pages</option>
+                                            <option value="15">15 Pages</option>
+                                            <option value="16">16 Pages</option>
+                                            <option value="17">17 Pages</option>
+                                            <option value="18">18 Pages</option>
+                                            <option value="19">19 Pages</option>
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-3"><i class="fa fa-gbp"></i>90</span>
+                                            <span class="hide" id="newCost-3">0</span>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b> 4 Blogs Post Per Month costs</b> <br />
+                                                    4 x 500 Words Article £90 per month <br />
+                                                    4 x 1000 Words Article £180 per month  <br />
+                                                    4 x 2000 Words Article £255 per month <br />
+                                                    4 x 1500 Words Article £360 per month
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-4" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="4" />
+                                            <label for="radio03">On-Page 20-30 Pages</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select4" data-package-id="4" name="packages[4]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="20">20 Pages</option>
+                                            <option value="21">21 Pages</option>
+                                            <option value="22">22 Pages</option>
+                                            <option value="23">23 Pages</option>
+                                            <option value="24">24 Pages</option>
+                                            <option value="25">25 Pages</option>
+                                            <option value="26">26 Pages</option>
+                                            <option value="27">27 Pages</option>
+                                            <option value="28">28 Pages</option>
+                                            <option value="29">29 Pages</option>
+                                            <option value="30">29 Pages</option>
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-4"><i class="fa fa-gbp"></i>180</span>
+                                            <span class="hide" id="newCost-4">0</span>
+                                            each &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b> 8 Blogs Post Per Month costs</b> <br />
+                                                    8 x 500 Words Article £180 per month <br />
+                                                    8 x 1000 Words Article £360 per month  <br />
+                                                    8 x 2000 Words Article £480 per month <br />
+                                                    8 x 1500 Words Article £720 per month
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <!--<div class="btn">
+                                    <span><button class="btn btn-link">Larger order? Try the spreadsheet view:</button> </span><button class="btn btn-icon waves-effect btn-default m-b-5"> <i class="fa fa-table"></i> </button>
+                                </div>-->
+                                <br /><br /><br />
+                                <div class="box">
+                                    <ul>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>Request revision for up to 10 days after completed project</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>Content is original and passes Copyscape duplication</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>All content is written by our UK and US writers</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>For best results provide clear project briefs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-------package data ---->
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div id="package-data">
+                                <div id="package-data-1" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class=" panel-title panel-title2">On-Page 2-4 Pages</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-2" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title panel-title2">On-Page 5-9 Pages</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-3" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title panel-title2">On-Page 10-19 Pages</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-4" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title panel-title2">On-Page 20-30 Pages</h4>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        <!------------------------>
+                            <div class="row hidden">
+                                <div class="pannel-body">
+                                    <div class="col-md-12">
+                                        <label>Optional Order Comments (Please note: special order requests are not guaranteed)</label><br />
+                                        <textarea maxlength="500" name="notes[20]" rows="3" id="notes" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div><br /><br />
+
+                            <input type="hidden" id="url" name="url" />
+
+
+                            <input type="hidden" id="amount" name="amount" />
+
+
+
+                            <div class="row">
+
+
+                                <div class="col-xs-6">
+                                    <a href="~/orders/Add_new" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="margin-top:25px">Back</a>
+
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="submit" value="Create" class="btn btn-primary waves-effect w-md waves-light m-b-5 next_btn" style="margin-top:25px">Next</button>
+
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- container -->
+</div>
+<script>
+    var pack = '<div class="form-group-row"><hr class="hr-new" /><input class="hidden" id="onpage-plan" type="text" /><div class="col-md-4"><label class="label-field">Page URL</label><div class="input-group"><input  id="page-url" type="url" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please provide us a page url">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Prime Keyword</label><div class="input-group"><input  id="prime-keyword" type="text" data-field-type="text" class="form-control" data-field="2" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please tell us the website or target audience this project is for.">Tip</a></div></div></div><div class="col-md-4"><label class="label-field"> Secondary Keyword</label><div class="input-group"><input  id="secondary-keyword" type="text" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please provide us a page url">Tip</a></div></div></div> <div class="col-md-12"><label class="label-field">Target Location</label><div class="input-group"><input  id="target-location" type="text" class="form-control" value="" required="true"></input><div class="input-group-addon"><a class="label label-primary" title="Please include tone of voice, style of writing and any specific information you would like this project to include.">Tip</a></div></div></div></div> ';
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model seozillabackend.Models.zillaonpage
 
 @{
     ViewBag.Title = "Create";
@@ -65,4 +384,4 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

@@ -1,0 +1,94 @@
+﻿@model seozillabackend.Models.zillax
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>zillax</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword1)
+                @Html.ValidationMessageFor(model => model.keyword1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword2)
+                @Html.ValidationMessageFor(model => model.keyword2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword3)
+                @Html.ValidationMessageFor(model => model.keyword3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.competitor1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.competitor1)
+                @Html.ValidationMessageFor(model => model.competitor1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.competitor2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.competitor2)
+                @Html.ValidationMessageFor(model => model.competitor2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.competitor3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.competitor3)
+                @Html.ValidationMessageFor(model => model.competitor3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.targetlocation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.targetlocation)
+                @Html.ValidationMessageFor(model => model.targetlocation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.otherinfo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.otherinfo)
+                @Html.ValidationMessageFor(model => model.otherinfo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

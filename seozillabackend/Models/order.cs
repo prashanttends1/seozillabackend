@@ -21,6 +21,10 @@ namespace seozillabackend.Models
         task_completed,
         [Description("Cancelled")]
         cancelled,
+        [Description("Cancelled*")]
+        cancelled_after_payment,
+        [Description("Refund Initiated")]
+        refund_initiated,
         [Description("Archived")]
         archived
     }
@@ -50,5 +54,9 @@ namespace seozillabackend.Models
 
         public virtual ICollection<zillablog> zillablogs { get; set; }
 
+        public virtual ICollection<zillalinkbuilding> zillalinkbuildings { get; set; }
+        public virtual ICollection<zillaonpage> zillaonpages { get; set; }
+        public virtual ICollection<zillax> zillax{get; set;}
+        
     }
 }

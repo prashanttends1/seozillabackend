@@ -1,0 +1,76 @@
+﻿@model IEnumerable<seozillabackend.Models.zillax>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.keyword1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.keyword2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.keyword3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.competitor1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.competitor2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.competitor3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.targetlocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.otherinfo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.keyword1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keyword2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keyword3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.competitor1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.competitor2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.competitor3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.targetlocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.otherinfo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

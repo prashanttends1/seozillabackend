@@ -1,0 +1,110 @@
+﻿@model seozillabackend.Models.zillalinkbuilding
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>zillalinkbuilding</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url1)
+                @Html.ValidationMessageFor(model => model.url1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url2)
+                @Html.ValidationMessageFor(model => model.url2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url3)
+                @Html.ValidationMessageFor(model => model.url3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword1a, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword1a)
+                @Html.ValidationMessageFor(model => model.keyword1a)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword1b, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword1b)
+                @Html.ValidationMessageFor(model => model.keyword1b)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword2a, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword2a)
+                @Html.ValidationMessageFor(model => model.keyword2a)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword2b, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword2b)
+                @Html.ValidationMessageFor(model => model.keyword2b)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword3a, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword3a)
+                @Html.ValidationMessageFor(model => model.keyword3a)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.keyword3b, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.keyword3b)
+                @Html.ValidationMessageFor(model => model.keyword3b)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cloudurl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cloudurl)
+                @Html.ValidationMessageFor(model => model.cloudurl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

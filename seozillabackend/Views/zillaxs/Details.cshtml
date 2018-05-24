@@ -1,0 +1,83 @@
+﻿@model seozillabackend.Models.zillax
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>zillax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.keyword1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keyword1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.keyword2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keyword2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.keyword3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keyword3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.competitor1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.competitor1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.competitor2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.competitor2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.competitor3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.competitor3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.targetlocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.targetlocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.otherinfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.otherinfo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

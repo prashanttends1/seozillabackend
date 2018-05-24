@@ -24,6 +24,10 @@ namespace seozillabackend.DAL
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
+        public System.Data.Entity.DbSet<seozillabackend.Models.zillalinkbuilding> zillalinkbuildings { get; set; }
+
+        public System.Data.Entity.DbSet<seozillabackend.Models.zillax> zillaxes { get; set; }
+
         
 
     }

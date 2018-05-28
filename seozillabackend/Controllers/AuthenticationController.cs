@@ -51,6 +51,10 @@ namespace seozillabackend.Controllers
             }
             
         }
+        public ActionResult Forget_Password()
+        {
+            return View();
+        }
         
         public ActionResult LogOff()
         {

@@ -22,7 +22,10 @@ File: Core
 /* =============
    Common
 ============= */
-
+.forget
+{
+    font-weight:bold;
+}
 .label-field
 {
     margin-top:15px !important;
@@ -701,8 +704,8 @@ a:focus {
   color: #ff5b5b !important;
 }
 .text-muted {
-  color: #98a6ad !important;
-}
+    color: #676565 !important;
+   }
 .text-primary {
   color: #188ae2 !important;
 }

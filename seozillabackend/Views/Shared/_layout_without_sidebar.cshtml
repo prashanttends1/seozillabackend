@@ -645,7 +645,39 @@
                     }
 
                 }
-               
+                if (document.getElementById("zilla-link")) {
+
+                    if (id == 1 && quantity == 5) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "350");
+                    }
+                    if (id == 1 && quantity == 10) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "650");
+                    }
+
+
+                    if (id == 2 && quantity == 5) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "150");
+                    }
+                    if (id == 2 && quantity == 10) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "260");
+                    }
+
+
+                    if (id == 3 && quantity == 5) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "200");
+                    }
+                    if (id == 3 && quantity == 10) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "375");
+                    }
+
+                }
+
                         var amount_add = $("#amount").val();
 
                         var Cost = $("#oldCost-" + id).text();

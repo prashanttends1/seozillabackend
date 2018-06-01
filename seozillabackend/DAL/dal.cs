@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +17,21 @@ namespace seozillabackend.DAL
                 return db.users.Where(u => u.email.ToLower() == email.ToLower() && u.password == pass).FirstOrDefault();
             else
                 return db.users.Where(u => u.email.ToLower() == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+        }
+        public string userexist(string email)
+        {
+            user user= new user();
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                user = db.users.Where(u => u.email.ToLower() == email.ToLower()).FirstOrDefault();
+                return user.email;
+            }
+
+            else
+            {
+                user = db.users.Where(u => u.email.ToLower() == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+                return user.email;
+            }
         }
 
     }

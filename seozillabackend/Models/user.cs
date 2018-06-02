@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,8 +29,7 @@ namespace seozillabackend.Models
         public string password { get; set; }
         [Required]
         public string Roles { get; set; }
-        public string token { get; set; }
-        public bool reset { get; set; }
+        public string token { get; set; }        
         public DateTime? timeforreset { get; set; }
 
 

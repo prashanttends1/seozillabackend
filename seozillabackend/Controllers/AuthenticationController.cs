@@ -116,7 +116,7 @@ namespace seozillabackend.Controllers
                         emailmanager.SendEmail(UserID, subject, body, To, UserID, Password, SMTPPort, Host);  
                     }
                 }
-            return View();
+            return RedirectToAction("forget_password_message" , "Authentication");
         }
 
         public ActionResult resetpassword(string token, string email)
@@ -154,6 +154,11 @@ namespace seozillabackend.Controllers
 
             }
             return View(model);
+        }
+
+        public ActionResult forget_password_message()
+        {
+            return View();
         }
         
         public ActionResult LogOff()

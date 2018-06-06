@@ -103,7 +103,7 @@ namespace seozillabackend.Controllers
 
                         string subject = "Your changed password";
 
-                        string body = "<b>We have received a request to change your password.</b><br/>" + "</br>" + lnkHref + "<br/>" + "<p>If you did not make this request then you can simply ignore this email.</p><br/><p>Thanks,<br/><br/><b>Seozilla Support</b></p>" + "<hr>" + "<img src='http://www.seozilla.co.uk/wp-content/uploads/2017/11/cropped-logo-home.png'/>" + "<br/>" + "<b>Telephone:</b> 020 3808 7777 <p><b>Website: </b>http://seozilla.co.uk/</p>" + "<br/>" + "<p style='font-size: 10px;'><b>Registered Address:</b>86-90 Paul Street,London,EC2A 4NE</p></br><p style='font-size: 10px;'><b>Disclaimer:</b> This message (and any attachments) is private and confidential and may contain personal data or personal views which are not the views of Fat Joe unless specifically stated. If you have received this message in error, please notify us and remove it from your system. Do not use, copy or disclose the information in any way.</p>";
+                        string body = "<b>We have received a request to change your password.</b><br/>" + "</br>" + lnkHref + "<br/>" + "<p>If you did not make this request then you can simply ignore this email.</p><br/><p>Thanks,<br/><br/><b>Seozilla Support</b></p>" + "<hr>" + "<img src='http://www.seozilla.co.uk/wp-content/uploads/2017/11/cropped-logo-home.png'/>" + "<br/>" + "<b>Telephone:</b> 020 3808 7777 <p><b>Website: </b>http://seozilla.co.uk/</p>" + "<br/>" + "<p style='font-size: 10px;'><b>Registered Address:</b>86-90 Paul Street,London,EC2A 4NE</p></br><p style='font-size: 10px;'><b>Disclaimer:</b> This message (and any attachments) is private and confidential and may contain personal data or personal views which are not the views of Seozilla unless specifically stated. If you have received this message in error, please notify us and remove it from your system. Do not use, copy or disclose the information in any way.</p>";
 
 
                         //Get and set the AppSettings using configuration manager.  
@@ -155,10 +155,7 @@ namespace seozillabackend.Controllers
                     ModelState.AddModelError("message", "Please Enter Email Again");
                     return RedirectToAction("resetpassword", "Authentication");
                 }
-                else
-                {
-                    return RedirectToAction("Index");
-                }
+              
             }        
             return View(model);
         }

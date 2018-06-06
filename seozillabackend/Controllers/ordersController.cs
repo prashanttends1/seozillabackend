@@ -604,6 +604,14 @@ namespace seozillabackend.Controllers
 
             ViewBag.countcitation = order.citations.Count();
 
+            ViewBag.countzillablog = order.zillablogs.Count();
+
+            ViewBag.countzillax = order.zillax.Count();
+
+            ViewBag.countzillaonpage = order.zillaonpages.Count();
+
+            ViewBag.countzillalinkbuilding = order.zillalinkbuildings.Count();
+
            
 
             switch (service)
@@ -614,7 +622,20 @@ namespace seozillabackend.Controllers
                
                 case "citation":
                     return PartialView("_citationinvoice", order);
-               
+
+                //case "zillablog":
+                //    return PartialView("_zillabloginvoice", order);
+
+                //case "zillaonpage":
+                //    return PartialView("_zillaonpageinvoice", order);
+
+                //case "zillax":
+
+                //    return PartialView("_zillaxinvoice", order);
+
+                //case "zillalinkbuilding":
+                //    return PartialView("_zillalinkbuildinginvoice", order);
+
                 default:
                     return Content("Incorrect ID");
 

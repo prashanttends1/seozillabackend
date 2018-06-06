@@ -1,0 +1,38 @@
+﻿@model seozillabackend.Models.order
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Details</th>
+                    <th>Unit Cost</th>
+                    <th>Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var itemzillax in Model.zillax.Take(1))
+                {
+
+                    <tr>
+                        <td class="count">@ViewBag.countzillax</td>
+                        <td class="details"> @itemzillax.plan @ViewBag.service</td>
+
+                        <td>£<span class="unit-cost"></span></td>
+                        <td>£<span class="total-cost"></span></td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+

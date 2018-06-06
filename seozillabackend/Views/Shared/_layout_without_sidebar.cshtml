@@ -123,13 +123,13 @@
                 
                 $quantity = $(this);
 
-                id = $quantity.data("package-id");
+                id = $quantity.data("package-id"); //select box id
 
-                quantity = parseInt($quantity.val());
+                quantity = parseInt($quantity.val()); //selected option value
 
-                id1 = $("#package-data-" + id).index();
+                id1 = $("#package-data-" + id).index(); // select box index
 
-                var value = $('option:selected', this).index();
+                var value = $('option:selected', this).index(); // selected option index
 
                 if (isNaN(quantity) || quantity < 0 || quantity == 0)
                 {
@@ -156,7 +156,7 @@
                     {
 
 
-                        $("#package-data-" + id + " .panel-sub-heading").after(pack);
+                        $("#package-data-" + id + " .panel-sub-heading").after(pack);  // Form Fields add
 
                         if ($("#blog_order").attr("name") == undefined)
                             $("#blog_order").attr("name", "[" + i + "].daordered");
@@ -485,7 +485,8 @@
                 
                
 
-                        
+                // Amount and payment url for zilla guest post/blog
+
                 if (document.getElementById("blog")) { 
 
                     if (id == 1 && quantity == 1) {
@@ -551,6 +552,9 @@
                     }
 
                 }
+
+                // Amount and payment url for zilla local seo/citation
+
                 if (document.getElementById("citation")) {
 
                     if (id == 1 && quantity == 1 || quantity == 2 || quantity == 3 ) {
@@ -574,6 +578,9 @@
 
                     }
                 }
+
+                // Amount and payment url for zilla blogs
+
                 if (document.getElementById("zilla-blog")) {
 
                     if (id == 1 && value == 1) {
@@ -645,6 +652,9 @@
                     }
 
                 }
+
+                // Amount and payment url for zilla link
+
                 if (document.getElementById("zilla-link")) {
 
                     if (id == 1 && quantity == 5) {
@@ -678,6 +688,145 @@
 
                 }
 
+                // Amount and payment url for zilla x
+
+                if (document.getElementById("zillax"))
+                {
+                    if (id == 1 && quantity == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "750");
+                    }
+                    if (id == 2 && quantity == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1500");
+                    }
+                    if (id == 3 && quantity == 1) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "3000");
+                    }
+                }
+
+                // Amount and payment url for zilla on page
+
+                if (document.getElementById("zilla-on-page")) {
+                    if (id == 1 && quantity == 2) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "160");
+                    }
+                    if (id == 1 && quantity == 3) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "240");
+                    }
+                    if (id == 1 && quantity == 4) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "320");
+                    }
+                    if (id == 2 && quantity == 5) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "375");
+                    }
+                    if (id == 2 && quantity == 6) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "450");
+                    }
+                    if (id == 2 && quantity == 7) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "525");
+                    }
+                    if (id == 2 && quantity == 8) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "600");
+                    }
+                    if (id == 2 && quantity == 9) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "675");
+                    }
+                    if (id == 3 && quantity == 10) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "700");
+                    }
+                    if (id == 3 && quantity == 11) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "770");
+                    }
+                    if (id == 3 && quantity == 12) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "840");
+                    }
+                    if (id == 3 && quantity == 13) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "910");
+                    }
+                    if (id == 3 && quantity == 14) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "980");
+                    }
+                    if (id == 3 && quantity == 15) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1050");
+                    }
+                    if (id == 3 && quantity == 16) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1120");
+                    }
+                    if (id == 3 && quantity == 17) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1190");
+                    }
+                    if (id == 3 && quantity == 18) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1260");
+                    }
+                    if (id == 3 && quantity == 19) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1330");
+                    }
+                    if (id == 4 && quantity == 20) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1300");
+                    }
+                    if (id == 4 && quantity == 21) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1365");
+                    }
+                    if (id == 4 && quantity == 22) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1430");
+                    }
+                    if (id == 4 && quantity == 23) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1495");
+                    }
+                    if (id == 4 && quantity == 24) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1560");
+                    }
+                    if (id == 4 && quantity == 25) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1625");
+                    }
+                    if (id == 4 && quantity == 26) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1690");
+                    }
+                    if (id == 4 && quantity == 27) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1755");
+                    }
+                    if (id == 4 && quantity == 28) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1820");
+                    }
+                    if (id == 4 && quantity == 29) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1885");
+                    }
+                    if (id == 4 && quantity == 30) {
+                        $("#url").attr("value", "");
+                        $("#amount").attr("value", "1950");
+                    }
+                }
+                
                         var amount_add = $("#amount").val();
 
                         var Cost = $("#oldCost-" + id).text();

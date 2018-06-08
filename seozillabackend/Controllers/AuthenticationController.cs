@@ -152,8 +152,8 @@ namespace seozillabackend.Controllers
                 }
                 else if (user.token!= token || user.timeforreset<DateTime.Now)
                 {
-                    ModelState.AddModelError("message", "Please Enter Email Again");
-                    return RedirectToAction("resetpassword", "Authentication");
+                    //ModelState.AddModelError("message", "Please Enter Email Again");
+                    return RedirectToAction("Forget_Password", "Authentication");
                 }
               
             }        

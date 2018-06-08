@@ -34,7 +34,7 @@ namespace seozillabackend.Models
         public int ID { get; set; }
         [Display(Name = "Order No")]
         public string orderno { get; set; }
-        [Display(Name = "Service")]
+        [Display(Name = "Product")]
         public string service { get; set; }
           [Display(Name = "Order Date")]
           [DataType(DataType.Date)]

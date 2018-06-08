@@ -623,20 +623,20 @@ namespace seozillabackend.Controllers
                 case "citation":
                     return PartialView("_citationinvoice", order);
 
-                //case "zillablog":
-                //    return PartialView("_zillabloginvoice", order);
+                case "zillablog":
+                    return PartialView("_zillabloginvoice", order);
 
-                //case "zillaonpage":
-                //    return PartialView("_zillaonpageinvoice", order);
+                case "zillaonpage":
+                    return PartialView("_zillaonpageinvoice", order);
 
-                //case "zillax":
+                case "zillax":
 
-                //    return PartialView("_zillaxinvoice", order);
+                   return PartialView("_zillaxinvoice", order);
 
-                //case "zillalinkbuilding":
-                //    return PartialView("_zillalinkbuildinginvoice", order);
+                case "zillalinkbuilding":
+                 return PartialView("_zillalinkbuildinginvoice", order);
 
-                default:
+                 default:
                     return Content("Incorrect ID");
 
             }

@@ -129,9 +129,55 @@ namespace seozillabackend.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                dal dl= new dal();
+                if (dl.getuser(user.email, user.password).password==user.password)
+                {
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("Incorrect Password", "Incorrect Password");
+                    return View(user);
+                }
+            }
+            return View(user);
+        }
+
+        public ActionResult changepassword(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            user user = db.users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult changepassword([Bind(Include = "ID,firstname,lastname,email,country,password,Roles")] user user, string newpassword, string confirmpassword)
+        {
+            if (ModelState.IsValid)
+            {
+                dal dl = new dal();
+                if (dl.getuser(user.email, user.password).password == user.password)
+                {
+                    user.password = newpassword;
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("Incorrect Password", "Incorrect Password");
+                    return View(user);
+                }
             }
             return View(user);
         }

@@ -28,7 +28,22 @@ namespace seozillabackend.Models
         [Required]
         public string password { get; set; }
         [Required]
-        public string Roles { get; set; }        
+        public string Roles { get; set; }
+        [Display(Name="Telephone Number")]
+        public string telephone { get; set; }
+        [Display(Name="Company Name")]
+        public string company { get; set; }
+
+        [Display(Name="Building Name/Number")]
+        public string building { get; set; }
+        [Display(Name="Address Line 1")]
+        public string addressline1 { get; set; }
+        [Display(Name="Address Line 2")]
+        public string addressline2 { get; set; }
+        [Display(Name="City")]
+        public string city { get; set; }
+        [Display(Name="Postcode/Zipcode")]
+        public string postcode { get; set; }        
         public string token { get; set; }        
         public DateTime? timeforreset { get; set; }
 

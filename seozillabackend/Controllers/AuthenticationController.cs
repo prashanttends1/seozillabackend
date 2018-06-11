@@ -21,6 +21,7 @@ namespace seozillabackend.Controllers
             {
                 return RedirectToAction("Index", "orders");
             }
+            
             return View();
         }
         [HttpPost]
@@ -120,20 +121,31 @@ namespace seozillabackend.Controllers
 
         public ActionResult resetpassword(string token, string email)
         {
-            user model = new user();
-            model.email = email;
-            model.token = token;
-            return View(model);
+             user user = db.users.Where(u => u.email == email && u.token == token && u.timeforreset>DateTime.Now).FirstOrDefault();
+             if (user == null)
+                 return RedirectToAction("Forget_Password");
+             else
+             {
+                 user model = new user();
+                 model.email = email;
+                 model.token = token;
+                 return View(model);
+             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult resetpassword(string password, string email, string token)
+        public ActionResult resetpassword(string password, string email, string token, string confirmpassword)
         {
             user model = new user();
             model.email = email;
             model.token = token;
             model.password = password;
-            if(password!=null)
+            if(password != confirmpassword)
+            {
+                ModelState.AddModelError("password not matching", "New Password and Confirm Password field do not match");
+                return View(model);
+            }
+            else if(password!=null && password == confirmpassword)
             if(ModelState.IsValid)
             {
                 user user = db.users.Where(u => u.email == email && u.token == token && u.timeforreset>DateTime.Now).FirstOrDefault();
@@ -141,16 +153,18 @@ namespace seozillabackend.Controllers
                 {
                     user.password = password;
                     user.token = null;
-                    user.timeforreset = null;                    
+                    user.timeforreset =  null;                    
                     db.users.Attach(user);
                     db.Entry(user).Property("password").IsModified = true;
                     db.Entry(user).Property("token").IsModified = true;
                     db.Entry(user).Property("timeforreset").IsModified = true;
-                    db.SaveChanges();               
+                    db.SaveChanges();
+                    //TempData["successmessage"] = "Password Changed Successfully!";
+                    TempData.Add("successmessage", "Password Changed Successfully!");
                     return RedirectToAction("Index");
 
                 }
-                else if (user.token!= token || user.timeforreset<DateTime.Now)
+                else //if (user.token!= token || user.timeforreset<DateTime.Now)
                 {
                     //ModelState.AddModelError("message", "Please Enter Email Again");
                     return RedirectToAction("Forget_Password", "Authentication");

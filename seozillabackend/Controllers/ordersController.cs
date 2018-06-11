@@ -350,7 +350,363 @@ namespace seozillabackend.Controllers
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-large");
                     }
                 }
+                if (service == "zillax")
+                {
+                    string plan = order.zillax.FirstOrDefault().plan;
+                   
+                    if (plan == "Zilla X 750")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 750;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-x-750-words");
+                    }
+                    if (plan == "Zilla X 1500")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1500;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-x-1500-words");
+                    }
+                    if (plan == "Zilla X 3000")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 3000;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-x-3000-words");
+                    }
+                }
+                if (service == "zillalinkbuilding")
+                {
+                    string plan = order.zillalinkbuildings.FirstOrDefault().plan;
+                    int count = order.zillalinkbuildings.Count;
 
+                    if (plan == "Bronze" && count == 5)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 350;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-bronze-5-pack");
+                    }
+                    if (plan == "Bronze" && count == 10)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 650;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-bronze-10-packs");
+                    }
+
+                    if (plan == "Silver" && count == 5)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 150;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-silver-5-packs");
+                    }
+                    if (plan == "Silver" && count == 10)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 260;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-silver-10-packs");
+                    }
+
+                    if (plan == "Gold" && count == 5)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 200;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-gold-5-packs");
+                    }
+                    if (plan == "Gold" && count == 10)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 375;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-gold-10-packs");
+                    }
+                }
+
+                if (service == "zillablog")
+                {
+                    string words = order.zillablogs.FirstOrDefault().words;
+
+
+                    if (words == "1 x 500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 30;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-1-x-500-word-article");
+                    }
+                    if (words == "1 x 1000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 55;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-1-x-1000-word-article");
+                    }
+
+                    if (words == "1 x 1500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 70;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-1-x-1500-word-article");
+                    }
+                    if (words == "1 x 2000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 100;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-1-x-2000-word-article");
+                    }
+
+                    if (words == "2 x 500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 50;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-2-x-500-word-article");
+                    }
+                    if (words == "2 x 1000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 100;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-2-x-1000-word-article");
+                    }
+                    if (words == "2 x 1500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 360;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-2-x-1500-word-article");
+                    }
+                    if (words == "2 x 2000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 255;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-2-x-2000-word-article");
+                    }
+
+
+                    if (words == "4 x 500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 90;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-4-x-500-word-article");
+                    }
+                    if (words == "4 x 1000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 180;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-4-x-1000-word-article");
+                    }
+
+                    if (words == "4 x 1500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 360;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-4-x-1500-word-article");
+                    }
+                    if (words == "4 x 2000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 255;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-4-x-2000-word-article");
+                    }
+
+                    if (words == "8 x 500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 180;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-8-x-500-word-article");
+                    }
+                    if (words == "8 x 1000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 360;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-8-x-1000-word-article");
+                    }
+                    if (words == "8 x 1500 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 720;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-8-x-1500-word-article");
+                    }
+                    if (words == "8 x 2000 Words Article")
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 480;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-8-x-2000-word-article");
+                    }
+
+                }
+                if (service == "zillaonpage")
+               {
+                   string plan = order.zillaonpages.FirstOrDefault().plan;
+                   int count = order.zillaonpages.Count;
+                   if (plan == "2–4 Pages" && count == 2)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 160;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-2-pages");
+                   }
+                   if (plan == "2–4 Pages" && count == 3)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 240;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-3-pages");
+                   }
+                   if (plan == "2–4 Pages" && count == 4)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 320;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-4-pages");
+                   }
+                   if (plan == "5–9 Pages" && count == 5)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 375;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-5-pages");
+                   }
+                    if (plan == "5–9 Pages" && count == 6)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 450;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-6-pages");
+                   }
+                    if (plan == "5–9 Pages" && count == 7)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 525;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-7-pages");
+                   }
+                    if (plan == "5–9 Pages" && count == 8)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 600;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-8-pages");
+                   }
+                    if (plan == "5–9 Pages" && count == 9)
+                   {
+                       Session["orderID"] = id;
+                       Session["amount"] = 675;
+                       return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-9-pages");
+                   }
+                    if (plan == "10–19 Pages" && count == 10)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 700;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-10-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 11)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 770;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-11-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 12)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 840;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-12-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 13)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 910;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-13-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 14)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 980;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-14-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 15)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1050;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-15-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 16)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1120;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-16-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 17)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1190;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-17-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 18)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1260;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-18-pages");
+                    }
+                    if (plan == "10–19 Pages" && count == 19)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1330;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-19-pages");
+                    }
+
+                    if (plan == "20–30 Pages" && count == 20)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1300;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-20-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 21)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1365;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-21-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 22)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1430;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-22-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 23)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1495;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-23-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 24)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1560;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-24-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 25)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1625;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-25-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 26)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1690;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-26-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 27)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1755;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-27-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 28)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1820;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-28-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 29)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1885;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-29-pages");
+                    }
+                    if (plan == "20–30 Pages" && count == 30)
+                    {
+                        Session["orderID"] = id;
+                        Session["amount"] = 1950;
+                        return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-on-page-30-pages");
+                    }
+               }
 
                 if (service == "blog")
                 {

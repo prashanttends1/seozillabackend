@@ -94,8 +94,8 @@ namespace seozillabackend.Controllers
                     }
                     db.SaveChanges();
                     //return RedirectToAction("Index", "orders");
-                    return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
-                    //return Redirect(url);
+                    //return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/test_plan");
+                    return Redirect(url);
                 }
             }
 

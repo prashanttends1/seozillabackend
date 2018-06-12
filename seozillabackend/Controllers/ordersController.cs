@@ -321,7 +321,7 @@ namespace seozillabackend.Controllers
                     return HttpNotFound();
                 }
                 string service = order.service;
-                if (service == "citation")
+                if (service == "Zilla Local SEO")
                 {
                     //int count = order.citations.Count;
                     String plan = order.citations.FirstOrDefault().plan;
@@ -350,7 +350,7 @@ namespace seozillabackend.Controllers
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-large");
                     }
                 }
-                if (service == "zillax")
+                if (service == "Zilla X")
                 {
                     string plan = order.zillax.FirstOrDefault().plan;
                    
@@ -373,7 +373,7 @@ namespace seozillabackend.Controllers
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-x-3000-words");
                     }
                 }
-                if (service == "zillalinkbuilding")
+                if (service == "Zilla Link Building")
                 {
                     string plan = order.zillalinkbuildings.FirstOrDefault().plan;
                     int count = order.zillalinkbuildings.Count;
@@ -418,7 +418,7 @@ namespace seozillabackend.Controllers
                     }
                 }
 
-                if (service == "zillablog")
+                if (service == "Zilla Blog")
                 {
                     string words = order.zillablogs.FirstOrDefault().words;
 
@@ -527,7 +527,7 @@ namespace seozillabackend.Controllers
                     }
 
                 }
-                if (service == "zillaonpage")
+                if (service == "Zilla On Page")
                {
                    string plan = order.zillaonpages.FirstOrDefault().plan;
                    int count = order.zillaonpages.Count;
@@ -708,7 +708,7 @@ namespace seozillabackend.Controllers
                     }
                }
 
-                if (service == "blog")
+                if (service == "Zilla Guest Post")
                 {
                     daordered daordered = order.blogs.FirstOrDefault().daordered;
                     int count = order.blogs.Count;
@@ -848,22 +848,22 @@ namespace seozillabackend.Controllers
 
                     switch (service)
                     {
-                        case "blog":
+                        case "Zilla Guest Post":
                             return PartialView("_blogdetailstable", order);
                         //return PartialView("_blogdetailstable");
-                        case "citation":
+                        case "Zilla Local SEO":
                             return PartialView("_citationdetailstable", order);
                         //return PartialView("_citationdetailstable");
-                        case "zillablog":
+                        case "Zilla Blog":
                             return PartialView("_zillablogdetailstable", order);
 
-                        case "zillaonpage":
+                        case "Zilla On Page":
                             return PartialView("_zillaonpagedetailstable", order);
 
-                        case "zillax":
+                        case "Zilla X":
                             return PartialView("_zillaxdetailstable", order);
 
-                        case "zillalinkbuilding":
+                        case "Zilla Link Building":
                              return PartialView("_zillalinkbuildingdetailstable", order);
                         default:
                             return Content("Incorrect ID");
@@ -875,10 +875,10 @@ namespace seozillabackend.Controllers
 
                //     switch (service)
                //     {
-               //         case "blog":
+               //         case "Zilla Guest Post":
                //             return PartialView("_blogdetailstable", order);
                //         //return PartialView("_blogdetailstable");
-               //         case "citation":
+               //         case Zilla Local SEO:
                //             return PartialView("_citationdetailstable", order);
                //         //return PartialView("_citationdetailstable");
                //         default:
@@ -972,24 +972,24 @@ namespace seozillabackend.Controllers
 
             switch (service)
             {
-                case "blog":
+                case "Zilla Guest Post":
                   
                     return PartialView("_bloginvoice", order);
                
-                case "citation":
+                case "Zilla Local SEO":
                     return PartialView("_citationinvoice", order);
 
-                case "zillablog":
+                case "Zilla Blog":
                     return PartialView("_zillabloginvoice", order);
 
-                case "zillaonpage":
+                case "Zilla On Page":
                     return PartialView("_zillaonpageinvoice", order);
 
-                case "zillax":
+                case "Zilla X":
 
                    return PartialView("_zillaxinvoice", order);
 
-                case "zillalinkbuilding":
+                case "Zilla Link Building":
                  return PartialView("_zillalinkbuildinginvoice", order);
 
                  default:

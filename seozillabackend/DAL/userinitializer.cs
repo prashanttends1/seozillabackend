@@ -26,8 +26,8 @@ namespace seozillabackend.DAL
 
             var orderss = new List<order> 
             { 
-                new order{orderno="SZ111",service="blog", orderdate=DateTime.Parse("2017-11-01"), status=status.awaiting_payment, userID=1},
-                new order{orderno="SZ112",service="citation", orderdate=DateTime.Parse("2017-11-02"), status=status.awaiting_payment, userID=2}
+                new order{orderno="SZ111",service="Zilla Guest Post", orderdate=DateTime.Parse("2017-11-01"), status=status.awaiting_payment, userID=1},
+                new order{orderno="SZ112",service="Zilla Local SEO", orderdate=DateTime.Parse("2017-11-02"), status=status.awaiting_payment, userID=2}
             };
             orderss.ForEach(o => context.orders.Add(o));
             context.SaveChanges();

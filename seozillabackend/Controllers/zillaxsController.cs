@@ -61,7 +61,7 @@ namespace seozillabackend.Controllers
                 int last = findlast() + 111;
                 order.orderno = "SZ" + last;
                 order.orderdate = DateTime.Now;
-                order.service = "zillax";
+                order.service = "Zilla X";
                 order.status = status.awaiting_payment;
                 order.userID = db.users.Where(u => u.email == User.Identity.Name).FirstOrDefault().ID;
                 db.orders.Add(order);

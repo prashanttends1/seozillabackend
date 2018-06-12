@@ -142,7 +142,7 @@ namespace seozillabackend.Controllers
             model.password = password;
             if(password != confirmpassword)
             {
-                ModelState.AddModelError("password not matching", "New Password and Confirm Password field do not match");
+                ModelState.AddModelError("password not matching", "The Confirm Password field does not match the Password field.");
                 return View(model);
             }
             else if(password!=null && password == confirmpassword)

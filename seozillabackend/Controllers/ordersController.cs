@@ -25,13 +25,13 @@ namespace seozillabackend.Controllers
 
             if (User.IsInRole("User"))
             {
-                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled && o.status != status.archived).Where(o => o.user.email == User.Identity.Name);
+                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled && o.status != status.archived && o.status != status.cancelled_after_payment).Where(o => o.user.email == User.Identity.Name);
 
                 return View(orders.ToList());
             }
             else
             {
-                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled).Where(o => o.status != status.archived);
+                var orders = db.orders.Include(o => o.user).Where(o => o.status != status.cancelled && o.status != status.archived && o.status != status.cancelled_after_payment).Where(o => o.status != status.archived);
 
                 return View(orders.ToList());
             }
@@ -43,13 +43,13 @@ namespace seozillabackend.Controllers
         {
             if (User.IsInRole("User"))
             {
-                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled).Where(o => o.user.email == User.Identity.Name); 
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled || o.status == status.cancelled_after_payment).Where(o => o.user.email == User.Identity.Name); 
 
                 return View(orders.ToList());
             }
             else
             {
-                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled) ;
+                var orders = db.orders.Include(o => o.user).Where(o => o.status == status.cancelled || o.status == status.cancelled_after_payment);
                 return View(orders.ToList());
             }
         }

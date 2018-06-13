@@ -670,7 +670,7 @@
 
                 @*window.location.href = '@Url.Action("makepayment", "orders")'*@
 
-                if (contant != ' Payment Done' && contant !=' Archived')
+                if (contant != ' Payment Done' && contant != ' Archived' && contant != ' Payment Done' && contant != ' Task Completed')
                 {
                     window.location.href = '/orders/makepayment/' + id;
                 }

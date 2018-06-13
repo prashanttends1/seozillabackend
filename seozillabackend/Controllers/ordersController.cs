@@ -237,7 +237,10 @@ namespace seozillabackend.Controllers
         public ActionResult CancelConfirmed(int id)
         {
             order order = db.orders.Find(id);
-            order.status = status.cancelled;
+            if (order.status == status.awaiting_payment)
+                order.status = status.cancelled;
+            else
+                order.status = status.cancelled_after_payment;
             db.orders.AddOrUpdate(o=>o.ID, order);
             db.SaveChanges();
             return RedirectToAction("Cancelled");
@@ -381,13 +384,13 @@ namespace seozillabackend.Controllers
                     if (plan == "Bronze" && count == 5)
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 350;
+                        Session["amount"] = 50;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-bronze-5-pack");
                     }
                     if (plan == "Bronze" && count == 10)
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 650;
+                        Session["amount"] = 75;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-link-bronze-10-packs");
                     }
 
@@ -464,13 +467,13 @@ namespace seozillabackend.Controllers
                     if (words == "2 x 1500 Words Article")
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 360;
+                        Session["amount"] = 135;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-2-x-1500-word-article");
                     }
                     if (words == "2 x 2000 Words Article")
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 255;
+                        Session["amount"] = 190;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-2-x-2000-word-article");
                     }
 
@@ -491,13 +494,13 @@ namespace seozillabackend.Controllers
                     if (words == "4 x 1500 Words Article")
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 360;
+                        Session["amount"] = 255;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-4-x-1500-word-article");
                     }
                     if (words == "4 x 2000 Words Article")
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 255;
+                        Session["amount"] = 360;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-4-x-2000-word-article");
                     }
 
@@ -516,13 +519,13 @@ namespace seozillabackend.Controllers
                     if (words == "8 x 1500 Words Article")
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 720;
+                        Session["amount"] = 480;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-8-x-1500-word-article");
                     }
                     if (words == "8 x 2000 Words Article")
                     {
                         Session["orderID"] = id;
-                        Session["amount"] = 480;
+                        Session["amount"] = 720;
                         return Redirect("https://amit-test.chargebee.com/hosted_pages/plans/zilla-blogs-8-x-2000-word-article");
                     }
 
@@ -904,7 +907,7 @@ namespace seozillabackend.Controllers
         public ActionResult Invoice()
         {
 
-            daordered daordered = db.blogs.FirstOrDefault().daordered;
+           // daordered daordered = db.blogs.FirstOrDefault().daordered;
 
             if (User.IsInRole("User"))
             {

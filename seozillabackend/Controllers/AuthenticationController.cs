@@ -37,10 +37,10 @@ namespace seozillabackend.Controllers
             if (user != null && !User.Identity.IsAuthenticated)
             {
                 FormsAuthentication.SetAuthCookie(user.email, rememberme);
-                //var authTicket = new FormsAuthenticationTicket(1, user.email, DateTime.Now, DateTime.Now.AddMinutes(20), true, user.Roles);
-                //string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-                //var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                //HttpContext.Response.Cookies.Add(authCookie); 
+                var authTicket = new FormsAuthenticationTicket(1, user.email, DateTime.Now, DateTime.Now.AddMinutes(20), rememberme, user.Roles);
+                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                HttpContext.Response.Cookies.Add(authCookie); 
                 //if (rememberme)
                 //{
                 //    //int timeout = rememberme ? 525600 : 5; // Timeout in minutes, 525600 = 365 days.

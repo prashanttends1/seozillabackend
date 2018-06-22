@@ -7,7 +7,7 @@ using seozillabackend.Models;
 
 namespace seozillabackend.DAL
 {
-    public class userinitializer: DropCreateDatabaseIfModelChanges<usercontext>
+    public class userinitializer : DropCreateDatabaseIfModelChanges<usercontext>
     {
         protected override void Seed(usercontext context)
         {
@@ -35,7 +35,7 @@ namespace seozillabackend.DAL
             var blogss = new List<blog> 
             {
                 new blog{ daordered=daordered.ten_plus, wordcount=wordcount.fivehundredplus, anchortext="clickhere", targeturl="abc.com", orderID=1 },
-                 new blog{ daordered=daordered.ten_plus, wordcount=wordcount.fivehundredplus, anchortext="clickhere", targeturl="xyz.com", orderID=1 }
+                 
 
             };
             blogss.ForEach(b => context.blogs.Add(b));
@@ -43,7 +43,7 @@ namespace seozillabackend.DAL
 
             var citationss = new List<citation> 
             {
-                new citation{ country="India", businessname="WrongX", websiteurl="wrongx.com", businessdescription="A fashion clothing brand", keywords="lastest shirts, trendy t-shirts", founder="V Malhotra", address="Delhi, India", phone="+91-9897508181", email="info@wrongx.com", orderID=2  }
+                new citation{ plan="Zilla Local Starter", country="India", businessname="WrongX", websiteurl="wrongx.com", businessdescription="A fashion clothing brand", keywords="lastest shirts, trendy t-shirts", founder="V Malhotra", address="Delhi, India", phone="+91-9897508181", email="info@wrongx.com", orderID=2  }
             };
 
             citationss.ForEach(c => context.citations.Add(c));

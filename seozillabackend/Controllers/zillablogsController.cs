@@ -133,7 +133,7 @@ namespace seozillabackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,words,quantity,title,website,brief,orderID")] zillablog zillablog)
+        public ActionResult Edit([Bind(Include = "ID,words,quantity,title,website,brief,orderID, document_url")] zillablog zillablog)
         {
             int orderid = zillablog.orderID;
 

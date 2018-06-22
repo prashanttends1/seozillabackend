@@ -99,9 +99,9 @@ namespace seozillabackend.Controllers
             {
                 return HttpNotFound();
             }
-             List<SelectListItem> countries = new List<SelectListItem>() { 
-                new SelectListItem(){ Text="Afghanistan", Value="Afghanistan"},
-                new SelectListItem(){ Text="India", Value="India"},};
+             //List<SelectListItem> countries = new List<SelectListItem>() { 
+             //   new SelectListItem(){ Text="Afghanistan", Value="Afghanistan"},
+             //   new SelectListItem(){ Text="India", Value="India"},};
 //                "Afghanistan", "Albania", 
 
 //"Algeria", "American Samoa","Andorra","Angola" 
@@ -125,13 +125,64 @@ namespace seozillabackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,firstname,lastname,email,country,password,Roles")] user user)
+        public ActionResult Edit([Bind(Include = "ID,firstname,lastname,email,country,password,Roles, telephone, company, building, addressline1, addressline2, city, postcode")] user user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                dal dl= new dal();
+                if (dl.getuser(user.email, user.password).password==user.password)
+                {
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("Incorrect Password", "Incorrect Password");
+                    return View(user);
+                }
+            }
+            return View(user);
+        }
+
+        public ActionResult changepassword(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            user user = db.users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult changepassword([Bind(Include = "ID,firstname,lastname,email,country,password,Roles")] user user, string newpassword, string confirmpassword)
+        {
+            if (ModelState.IsValid)
+            {
+                dal dl = new dal();
+                if (dl.getuser(user.email, user.password).password == user.password)
+                {
+                    if(newpassword!= confirmpassword)
+                {
+                    ModelState.AddModelError("password not matching","Confirm Password Field do not match with New Password");
+                    return View(user);
+                }
+                    user.password = newpassword;
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Edit", new { id = user.ID });
+                }                
+                else
+                {
+                    ModelState.AddModelError("Incorrect Password", "Incorrect Password");
+                    return View(user);
+                }
             }
             return View(user);
         }

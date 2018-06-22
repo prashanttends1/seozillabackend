@@ -21,6 +21,10 @@ namespace seozillabackend.Models
         task_completed,
         [Description("Cancelled")]
         cancelled,
+        [Description("Cancelled*")]
+        cancelled_after_payment,
+        [Description("Refund Initiated")]
+        refund_initiated,
         [Description("Archived")]
         archived
     }
@@ -30,7 +34,7 @@ namespace seozillabackend.Models
         public int ID { get; set; }
         [Display(Name = "Order No")]
         public string orderno { get; set; }
-        [Display(Name = "Service")]
+        [Display(Name = "Product")]
         public string service { get; set; }
           [Display(Name = "Order Date")]
           [DataType(DataType.Date)]
@@ -48,5 +52,11 @@ namespace seozillabackend.Models
         public virtual ICollection<blog> blogs { get; set; }        
         public virtual ICollection<citation> citations { get; set; }
 
+        public virtual ICollection<zillablog> zillablogs { get; set; }
+
+        public virtual ICollection<zillalinkbuilding> zillalinkbuildings { get; set; }
+        public virtual ICollection<zillaonpage> zillaonpages { get; set; }
+        public virtual ICollection<zillax> zillax{get; set;}
+        
     }
 }

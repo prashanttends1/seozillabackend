@@ -13,17 +13,21 @@ namespace seozillabackend.DAL
         {
             var userss = new List<user>
             {
-                new user{firstname="Hitesh", lastname="Patel", email="hitesh@inteventure.com", country="United Kingdom", password="123", Roles="Admin", reset=false, token=null, timeforreset=null},
-                new user{firstname="Ajit2", lastname="Prakash", email="ajit2@gmail.com", country="India", password="123", Roles="User", reset=false, token=null, timeforreset=null},
-                new user {firstname="Nikhil", lastname="Verma", email="nikhil@gmail.com", country="India", password="123", Roles="User", reset=false, token=null, timeforreset=null}
+
+                new user{firstname="Hitesh", lastname="Patel", email="hitesh@inteventure.com", country="United Kingdom", password="123", Roles="Admin",  token=null, timeforreset=null},
+                new user{firstname="Ajit2", lastname="Prakash", email="ajit2@gmail.com", country="India", password="123", Roles="User",  token=null, timeforreset=null},
+                new user {firstname="Nikhil", lastname="Verma", email="nikhil@gmail.com", country="India", password="123", Roles="User",  token=null, timeforreset=null}
+
+                
+
             };
             userss.ForEach(u => context.users.Add(u));
             context.SaveChanges();
 
             var orderss = new List<order> 
             { 
-                new order{orderno="SZ111",service="blog", orderdate=DateTime.Parse("2017-11-01"), status=status.awaiting_payment, userID=1},
-                new order{orderno="SZ112",service="citation", orderdate=DateTime.Parse("2017-11-02"), status=status.awaiting_payment, userID=2}
+                new order{orderno="SZ111",service="Zilla Guest Post", orderdate=DateTime.Parse("2017-11-01"), status=status.awaiting_payment, userID=1},
+                new order{orderno="SZ112",service="Zilla Local SEO", orderdate=DateTime.Parse("2017-11-02"), status=status.awaiting_payment, userID=2}
             };
             orderss.ForEach(o => context.orders.Add(o));
             context.SaveChanges();

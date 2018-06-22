@@ -42,10 +42,12 @@
                                     @Html.ValidationMessageFor(model => model.lastname)
                                 </div>
                             </div>
-                            @*<div class="form-group">
-                                <label for="phone">Telephone Number</label>
-                                <input id="phone" type="number" placeholder="Telephone Number" required="" class="form-control" data-parsley-id="8">
-                            </div>*@
+                           <div class="form-group">
+                               @Html.LabelFor(model => model.telephone)
+
+                            @Html.TextBoxFor(model => model.telephone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.telephone)
+                            </div>
                             <div class="form-group">
                                 <div class="form-group ">
                                     @Html.LabelFor(model => model.email)
@@ -56,14 +58,21 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <div class="form-group ">
                                     @Html.LabelFor(model => model.password)
 
                                     @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Enter your password" })
                                     @Html.ValidationMessageFor(model => model.password)
+                                    @Html.ValidationMessage("Incorrect Password")
                                 </div>
                             </div>
+
+                        <div class="form-group ">
+                            <div class="form-group ">
+                                @Html.ActionLink("Change Password", "changepassword", new { id=@Model.ID}, new { @class = "btn btn-primary" })
+                            </div>
+                        </div>
 
                        
                             @*<div >
@@ -81,30 +90,42 @@
                     <div class="card-box">
                         <h4>Billing Information (Displayed on Invoices)</h4>
 
-                        @*<div class="form-group">
-                            <label for="companyName">Company Name <span class="required-field">*</span></label>
-                            <input id="companyName" type="text" class="form-control" name="company" placeholder="Company Name" required="">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.company)
+
+                            @Html.TextBoxFor(model => model.company, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.company)
                         </div>
                         <div class="form-group">
-                            <label for="BuildingName">Building Name or Number</label>
-                            <input id="BuildingName" type="text" class="form-control" name="building" value="" placeholder="Building Name or Number">
+                            @Html.LabelFor(model => model.building)
+
+                            @Html.TextBoxFor(model => model.building, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.building)
                         </div>
                         <div class="form-group">
-                            <label for="Address1">Address Line 1 <span class="required-field">*</span></label>
-                            <input id="Address1" type="text" class="form-control" name="address_line_1" value="" placeholder="Address Line 1" required="">
+                            @Html.LabelFor(model => model.addressline1)
+
+                            @Html.TextBoxFor(model => model.addressline1, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.addressline1)
                         </div>
                         <div class="form-group">
-                            <label for="Address2">Address Line 2</label>
-                            <input id="Address2" type="text" class="form-control" name="address_line_2" placeholder="Address Line 2" value="">
+                            @Html.LabelFor(model => model.addressline2)
+
+                            @Html.TextBoxFor(model => model.addressline2, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.addressline2)
                         </div>
                         <div class="form-group">
-                            <label for="city">City / State <span class="required-field">*</span></label>
-                            <input id="city" type="text" class="form-control" name="city" value="" placeholder="City / State " required="">
+                            @Html.LabelFor(model => model.city)
+
+                            @Html.TextBoxFor(model => model.city, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.city)
                         </div>
                         <div class="form-group">
-                            <label for="postcode">Postcode / Zipcode <span class="required-field">*</span></label>
-                            <input id="postcode" type="text" class="form-control" name="postcode" value="" placeholder="Postcode / Zipcode" required="">
-                        </div>*@
+                            @Html.LabelFor(model => model.postcode)
+
+                            @Html.TextBoxFor(model => model.postcode, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.postcode)
+                        </div>
                         <div class="form-group">
                             <label for="country">Country <span class="required-field">*</span></label>
                             @Html.DropDownListFor(model => model.country, new SelectList(listof.countries, "Value", "Text", Model.country), new { @class = "form-control" })
@@ -356,7 +377,7 @@
                         @Html.HiddenFor(model=>model.Roles)
                         <div class="text-right">
 
-                            <button  value="save" type="submit" class="btn btn-primary">Update</button>
+                            <button  value="save" type="submit" class="btn btn-primary">Update Profile</button>
 
 
 

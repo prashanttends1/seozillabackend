@@ -58,6 +58,14 @@
                                                         <td class="daordered hidden">@Html.DisplayFor(modelItem => item.blogs.FirstOrDefault().daordered)</td>
                                                         <td class="blogscount hidden">@Html.DisplayFor(modelItem => item.blogs.Count)</td>  
                                                         <td class="plan hidden">@Html.DisplayFor(modelItem => item.citations.FirstOrDefault().plan)</td>  
+                                                        <td class="zilaxplan hidden">@Html.DisplayFor(modelItem => item.zillax.FirstOrDefault().plan)</td>
+                                                        <td class="zillablog hidden">@Html.DisplayFor(modelItem => item.zillablogs.FirstOrDefault().words)</td>
+                                                        <td class="zillalink hidden">@Html.DisplayFor(modelItem => item.zillalinkbuildings.FirstOrDefault().plan)</td>
+                                                        <td class="zillalinkcount hidden">@Html.DisplayFor(modelItem => item.zillalinkbuildings.Count)</td>
+                                                        <td class="zillaonpage hidden">@Html.DisplayFor(modelItem => item.zillaonpages.FirstOrDefault().plan)</td>
+                                                        <td class="zillaonpagecount hidden">@Html.DisplayFor(modelItem => item.zillaonpages.Count)</td>
+                                                        
+
                                                         <td >
                                                             @Html.DisplayFor(modelItem => item.orderno)
                                                         </td>
@@ -83,7 +91,7 @@
                                                         var rows = document.getElementById("table").getElementsByTagName("tr");
                                                         var lastrow = rows[rows.length - 1];
                                                         //alert(lastrow.getElementsByClassName("service")[0].innerHTML);
-                                                        if (lastrow.getElementsByClassName("service")[0].innerHTML == "blog")
+                                                        if (lastrow.getElementsByClassName("service")[0].innerHTML == "Zilla Guest Post")
                                                         {
                                                             //if (lastrow.getElementsByClassName("daordered")[0].innerHTML == "ten_plus")
                                                             //    alert("blog1");
@@ -117,7 +125,7 @@
                                                                 lastrow.getElementsByClassName("total")[0].innerHTML = "";
                                                             
                                                             }
-                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "citation") {
+                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "Zilla Local SEO") {
                                                                
                                                             if(lastrow.getElementsByClassName("plan")[0].innerHTML == "Zilla Local Starter")
                                                                 lastrow.getElementsByClassName("total")[0].innerHTML = "£125.00";
@@ -130,6 +138,180 @@
                                                             else
                                                                 lastrow.getElementsByClassName("total")[0].innerHTML = "";
                                                         }
+
+
+                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "Zilla X") {
+
+                                                            if (lastrow.getElementsByClassName("zilaxplan")[0].innerHTML == "Zilla X 750")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£750.00";
+                                                            else if (lastrow.getElementsByClassName("zilaxplan")[0].innerHTML == "Zilla X 1500")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1500.00";
+                                                            else if (lastrow.getElementsByClassName("zilaxplan")[0].innerHTML == "Zilla X 3000")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£3000.00";
+                                                           
+                                                            else
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "";
+                                                        }
+
+
+                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "Zilla Blog") {
+
+                                                            if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "1 x 500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£30.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "1 x 1000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£55.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "1 x 1500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£70.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "1 x 2000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£100.00";
+
+
+                                                          else  if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "2 x 500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£50.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "2 x 1000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£100.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "2 x 1500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£135.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "2 x 2000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£190.00";
+
+
+                                                          else  if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "4 x 500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£90.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "4 x 1000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£180.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "4 x 1500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£255.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "4 x 2000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£360.00";
+
+
+                                                          else  if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "8 x 500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£180.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "8 x 1000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£360.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "8 x 1500 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£480.00";
+                                                            else if (lastrow.getElementsByClassName("zillablog")[0].innerHTML == "8 x 2000 Words Article")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£720.00";
+
+                                                            else
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "";
+                                                        }
+
+
+
+                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "Zilla Link Building") {
+
+                                                            if (lastrow.getElementsByClassName("zillalink")[0].innerHTML == "Bronze" && lastrow.getElementsByClassName("zillalinkcount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£50.00";
+                                                            else if (lastrow.getElementsByClassName("zillalink")[0].innerHTML == "Bronze" && lastrow.getElementsByClassName("zillalinkcount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£75.00";
+                                                            else if (lastrow.getElementsByClassName("zillalink")[0].innerHTML == "Silver" && lastrow.getElementsByClassName("zillalinkcount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£150.00";
+                                                            else if (lastrow.getElementsByClassName("zillalink")[0].innerHTML == "Silver" && lastrow.getElementsByClassName("zillalinkcount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£260.00";
+                                                            else if (lastrow.getElementsByClassName("zillalink")[0].innerHTML == "Gold" && lastrow.getElementsByClassName("zillalinkcount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£200.00";
+                                                            else if (lastrow.getElementsByClassName("zillalink")[0].innerHTML == "Gold" && lastrow.getElementsByClassName("zillalinkcount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£375.00";
+
+                                                            else
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "";
+                                                        }
+                                                           
+
+
+                                                        else if (lastrow.getElementsByClassName("service")[0].innerHTML == "Zilla On Page") {
+
+                                                            if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "2–4 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "2")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£160.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "2–4 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "3")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£240.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "2–4 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "4")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£320.00";
+                                                        
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "5–9 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "5")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£375.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "5–9 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "6")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£450.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "5–9 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "7")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£525.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "5–9 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "8")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£600.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "5–9 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "8")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£675.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "10")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£700.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "11")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£770.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "12")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£840.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "13")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£910.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "14")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£980.00";
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "15")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1050.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "16")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1120.00";
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "17")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1190.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "18")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1260.00";
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "10–19 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "19")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1330.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "20")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1300.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "21")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1365.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "22")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1430.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "23")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1495.00";
+
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "24")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1560.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "25")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1625.00";
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "26")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1690.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "27")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1755.00";
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "28")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1820.00";
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "29")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1885.00";
+
+                                                            else if (lastrow.getElementsByClassName("zillaonpage")[0].innerHTML == "20–30 Pages" && lastrow.getElementsByClassName("zillaonpagecount")[0].innerHTML == "30")
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "£1950.00";
+
+
+
+                                                            else
+                                                                lastrow.getElementsByClassName("total")[0].innerHTML = "";
+                                                        }
+
+
                                                         else
                                                             lastrow.getElementsByClassName("total")[0].innerHTML = "";
 

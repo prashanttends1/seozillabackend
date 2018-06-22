@@ -1,0 +1,39 @@
+﻿
+@model seozillabackend.Models.order
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Page Url</th>
+                    <th>Prime Keyword</th>
+                    <th>Secondary Keyword</th>
+                    <th>Target Location</th>
+                  <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var itemzillaonpage in Model.zillaonpages)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelitem => itemzillaonpage.plan)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillaonpage.pageurl)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillaonpage.primekeyword)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillaonpage.secondarykeyword)</td>
+                        <td>@Html.DisplayFor(modelitem => itemzillaonpage.targetlocation)</td>
+                       
+                        <td class="fixwidth">
+                            <a href="~/orders/makepayment/@itemzillaonpage.orderID" class="label label-danger" title="This order will not be processed until payment has been made. Should payment not be made within 32 days your order will be cancelled automatically."> @Model.status.DisplayName()</a>
+                        </td>
+                        <td>@Html.ActionLink("Edit", "Edit", "zillaonpages", new { id = itemzillaonpage.ID }, null)</td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

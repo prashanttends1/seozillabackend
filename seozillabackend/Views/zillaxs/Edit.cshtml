@@ -1,0 +1,260 @@
+﻿@model seozillabackend.Models.zillax
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_layout_with_sidebar.cshtml";
+}
+
+<div class="content-page">
+
+    <div class="content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="card-box">
+
+                        <div class="title"><h4>Update Zilla On-Page Details</h4></div>
+                    </div>
+
+
+                    <div class="update_row">
+                        <div class="card-box">
+
+                            @using (Html.BeginForm())
+                               {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(model => model.ID)
+
+                                    <div class="form-group hidden">
+
+                                        @Html.LabelFor(model => model.plan, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.HiddenFor(model => model.plan, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.plan)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.keyword1, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword1, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword1)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.keyword2, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword2, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword2)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.keyword3, htmlAttributes: new { @class = "control-label col-md-2 " })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.keyword3, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.keyword3)
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.competitor1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.competitor1, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.competitor1)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.competitor2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.competitor2, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.competitor2)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.competitor3, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.competitor3, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.competitor3)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.targetlocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.targetlocation, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.targetlocation)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.otherinfo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.TextBoxFor(model => model.otherinfo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.otherinfo)
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="form-group hidden">
+                                        @Html.LabelFor(model => model.orderID, "orderID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+                                            @Html.HiddenFor(model => model.orderID, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.orderID)
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer"><a href="~/orders" class="back_to_list">Back to List</a><button type="submit" id="btn-update-order-row" class="btn btn-primary">Update</button></div>
+
+                                    }
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+           
+                                </div>
+                                @section Scripts {
+                                    @Scripts.Render("~/bundles/jqueryval")
+                                }
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            @*<h2>Edit</h2>
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        <h4>zillax</h4>
+                                        <hr />
+                                        @Html.ValidationSummary(true)
+                                        @Html.HiddenFor(model => model.ID)
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.keyword1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.keyword1)
+                                                @Html.ValidationMessageFor(model => model.keyword1)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.keyword2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.keyword2)
+                                                @Html.ValidationMessageFor(model => model.keyword2)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.keyword3, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.keyword3)
+                                                @Html.ValidationMessageFor(model => model.keyword3)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.competitor1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.competitor1)
+                                                @Html.ValidationMessageFor(model => model.competitor1)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.competitor2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.competitor2)
+                                                @Html.ValidationMessageFor(model => model.competitor2)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.competitor3, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.competitor3)
+                                                @Html.ValidationMessageFor(model => model.competitor3)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.targetlocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.targetlocation)
+                                                @Html.ValidationMessageFor(model => model.targetlocation)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.otherinfo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.otherinfo)
+                                                @Html.ValidationMessageFor(model => model.otherinfo)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Save" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div>
+                                    @Html.ActionLink("Back to List", "Index")
+                                </div>*@

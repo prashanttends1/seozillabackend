@@ -25,7 +25,7 @@
     <link href="~/assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
     <script src="~/assets/js/modernizr.min.js"></script>
-
+    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="seozilla"></script>
 </head>
 
 
@@ -41,7 +41,7 @@
                 <div class="container">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a href="" class="logo"><img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" /></a>
+                            <a href="http://www.seozilla.co.uk/" class="logo"><img class="zmdi zmdi-layers" src="~/assets/images/logo-home.png" /></a>
                                 @*<a href="" class="logo"><span>SEO<span>ZILLA</span></span><i class="zmdi zmdi-layers"></i></a>*@
 </li>
                     </ul>
@@ -123,13 +123,13 @@
                 
                 $quantity = $(this);
 
-                id = $quantity.data("package-id");
+                id = $quantity.data("package-id"); //select box id
 
-                quantity = parseInt($quantity.val());
+                quantity = parseInt($quantity.val()); //selected option value
 
-                id1 = $("#package-data-" + id).index();
+                id1 = $("#package-data-" + id).index(); // select box index
 
-
+                var value = $('option:selected', this).index(); // selected option index
 
                 if (isNaN(quantity) || quantity < 0 || quantity == 0)
                 {
@@ -156,7 +156,7 @@
                     {
 
 
-                        $("#package-data-" + id + " .panel-sub-heading").after(pack);
+                        $("#package-data-" + id + " .panel-sub-heading").after(pack);  // Form Fields add
 
                         if ($("#blog_order").attr("name") == undefined)
                             $("#blog_order").attr("name", "[" + i + "].daordered");
@@ -203,6 +203,122 @@
                         if ($("#citation_order").attr("name") == undefined)
                             $("#citation_order").attr("name", "[" + i + "].plan");
 
+                        if ($("#title").attr("name") == undefined)
+                            $("#title").attr("name", "[" + i + "].title");
+
+                        if ($("#website").attr("name") == undefined)
+                            $("#website").attr("name", "[" + i + "].website");
+
+                        if ($("#brief").attr("name") == undefined)
+                            $("#brief").attr("name", "[" + i + "].brief");
+
+                        if ($("#zilla_blog_quantity").attr("name") == undefined)
+                            $("#zilla_blog_quantity").attr("name", "[" + i + "].quantity");
+
+                        if ($("#zilla_blog_words").attr("name") == undefined)
+                            $("#zilla_blog_words").attr("name", "[" + i + "].words");
+
+
+                        if ($("#page-url").attr("name") == undefined)
+                            $("#page-url").attr("name", "[" + i + "].pageurl");
+
+
+                        if ($("#prime-keyword").attr("name") == undefined)
+                            $("#prime-keyword").attr("name", "[" + i + "].primekeyword");
+
+
+                        if ($("#secondary-keyword").attr("name") == undefined)
+                            $("#secondary-keyword").attr("name", "[" + i + "].secondarykeyword");
+
+
+                        if ($("#target-location").attr("name") == undefined)
+                            $("#target-location").attr("name", "[" + i + "].targetlocation");
+
+
+                        if ($("#onpage-plan").attr("name") == undefined)
+                            $("#onpage-plan").attr("name", "[" + i + "].plan");
+
+
+
+
+                        if ($("#keyword1").attr("name") == undefined)
+                            $("#keyword1").attr("name", "[" + i + "].keyword1");
+
+
+                        if ($("#keyword2").attr("name") == undefined)
+                            $("#keyword2").attr("name", "[" + i + "].keyword2");
+
+
+                        if ($("#keyword3").attr("name") == undefined)
+                            $("#keyword3").attr("name", "[" + i + "].keyword3");
+
+
+                        if ($("#competitor1").attr("name") == undefined)
+                            $("#competitor1").attr("name", "[" + i + "].competitor1");
+
+
+                        if ($("#competitor2").attr("name") == undefined)
+                            $("#competitor2").attr("name", "[" + i + "].competitor2");
+
+                        if ($("#competitor3").attr("name") == undefined)
+                            $("#competitor3").attr("name", "[" + i + "].competitor3");
+
+
+                        if ($("#targetlocation").attr("name") == undefined)
+                            $("#targetlocation").attr("name", "[" + i + "].targetlocation");
+
+                        if ($("#otherinfo").attr("name") == undefined)
+                            $("#otherinfo").attr("name", "[" + i + "].otherinfo");
+
+                        if ($("#type").attr("name") == undefined)
+                            $("#type").attr("name", "[" + i + "].plan");
+
+
+
+
+
+                        if ($("#url1").attr("name") == undefined)
+                            $("#url1").attr("name", "[" + i + "].url1");
+
+
+                        if ($("#url2").attr("name") == undefined)
+                            $("#url2").attr("name", "[" + i + "].url2");
+
+
+                        if ($("#url3").attr("name") == undefined)
+                            $("#url3").attr("name", "[" + i + "].url3");
+
+                        if ($("#keyword1a").attr("name") == undefined)
+                            $("#keyword1a").attr("name", "[" + i + "].keyword1a");
+
+
+                        if ($("#keyword1b").attr("name") == undefined)
+                            $("#keyword1b").attr("name", "[" + i + "].keyword1b");
+
+                        if ($("#keyword2a").attr("name") == undefined)
+                            $("#keyword2a").attr("name", "[" + i + "].keyword2a");
+
+                        if ($("#keyword2b").attr("name") == undefined)
+                            $("#keyword2b").attr("name", "[" + i + "].keyword2b");
+
+                        if ($("#keyword3a").attr("name") == undefined)
+                            $("#keyword3a").attr("name", "[" + i + "].keyword3a");
+
+                        if ($("#keyword3b").attr("name") == undefined)
+                            $("#keyword3b").attr("name", "[" + i + "].keyword3b");
+
+                        if ($("#cloud-url").attr("name") == undefined)
+                            $("#cloud-url").attr("name", "[" + i + "].cloudurl");
+
+                        if ($("#link-plan").attr("name") == undefined)
+                            $("#link-plan").attr("name", "[" + i + "].plan");
+
+
+
+
+
+
+
                         if ($("#blog_order").attr("value") == undefined)
 
                             if (id1 == 0)
@@ -248,104 +364,471 @@
 
                                 $("#citation_order").attr("value", "Zilla Local Large");
                             }
-                           
-                      
+                        if ($("#zilla_blog_quantity").attr("value") == undefined)
+                            if (id1 == 0) {
+
+                                $("#zilla_blog_quantity").attr("value", "1");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#zilla_blog_quantity").attr("value", "2");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#zilla_blog_quantity").attr("value", "4");
+                            }
+                            else if (id1 == 3) {
+
+                                $("#zilla_blog_quantity").attr("value", "8");
+                            }
+                        if ($("#zilla_blog_words").attr("value") == undefined)
+                            if (id == 1 && value == 1) {
+                                $("#zilla_blog_words").attr("value", "1 x 500 Words Article");
+                            }
+                        if (id == 1 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "1 x 1000 Words Article");
+                        }
+                        if (id == 1 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "1 x 1500 Words Article");
+                        }
+                        if (id == 1 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "1 x 2000 Words Article");
+                        }
+                        if (id == 2 && value == 1) {
+                            $("#zilla_blog_words").attr("value", "2 x 500 Words Article");
+                        }
+                        if (id == 2 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "2 x 1000 Words Article");
+                        }
+                        if (id == 2 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "2 x 1500 Words Article");
+                        }
+                        if (id == 2 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "2 x 2000 Words Article");
+                        }
+                        if (id == 3 && value == 1) {
+                            $("#zilla_blog_words").attr("value", "4 x 500 Words Article");
+                        }
+                        if (id == 3 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "4 x 1000 Words Article");
+                        }
+                        if (id == 3 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "4 x 1500 Words Article");
+                        }
+                        if (id == 3 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "4 x 2000 Words Article");
+                        }
+                        if (id == 4 && value == 1) {
+                            $("#zilla_blog_words").attr("value", "8 x 500 Words Article");
+                        }
+                        if (id == 4 && value == 2) {
+                            $("#zilla_blog_words").attr("value", "8 x 1000 Words Article");
+                        }
+                        if (id == 4 && value == 3) {
+                            $("#zilla_blog_words").attr("value", "8 x 1500 Words Article");
+                        }
+                        if (id == 4 && value == 4) {
+                            $("#zilla_blog_words").attr("value", "8 x 2000 Words Article");
+                        }
+
+                        if ($("#onpage-plan").attr("value") == undefined)
+                            if (id1 == 0) {
+
+                                $("#onpage-plan").attr("value", "2–4 Pages");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#onpage-plan").attr("value", "5–9 Pages");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#onpage-plan").attr("value", "10–19 Pages");
+                            }
+                            else if (id1 == 3) {
+
+                                $("#onpage-plan").attr("value", "20–30 Pages");
+                            }
+                       
+                        if ($("#type").attr("value") == undefined)
+
+                            if (id1 == 0) {
+
+                                $("#type").attr("value", "Zilla X 750");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#type").attr("value", "Zilla X 1500");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#type").attr("value", "Zilla X 3000");
+                            }
+
+                        if ($("#link-plan").attr("value") == undefined)
+
+                            if (id1 == 0) {
+
+                                $("#link-plan").attr("value", "Bronze");
+                            }
+                            else if (id1 == 1) {
+
+                                $("#link-plan").attr("value", "Silver");
+                            }
+                            else if (id1 == 2) {
+
+                                $("#link-plan").attr("value", "Gold");
+                            }
+                       
 
                     }
                 }
                 
+
+
                
 
-                        
-                if (document.getElementById("blog")) { 
+                // Amount and payment url for zilla guest post/blog
+
+                if (document.getElementById("Zilla Guest Post")) { 
 
                     if (id == 1 && quantity == 1) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-1pack");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da10+-1pack");
                         $("#amount").attr("value", "75");
 
                     }
                     if (id == 1 && quantity == 5) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-5packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da10+-5pack");
                         $("#amount").attr("value", "350");
 
                     }
                     if (id == 1 && quantity == 10) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da10%2B-10packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da10+-10pack");
                         $("#amount").attr("value", "650");
 
                     }
                     if (id == 2 && quantity == 1) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-1pack");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da20+-1pack");
                         $("#amount").attr("value", "110");
 
                     }
                     if (id == 2 && quantity == 5) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-5packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da20+-5pack");
                         $("#amount").attr("value", "500");
 
                     }
                     if (id == 2 && quantity == 10) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-20%2B-10packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da20+-10pack");
                         $("#amount").attr("value", "980");
 
                     }
 
                     if (id == 3 && quantity == 1) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-1packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da30+-1pack");
                         $("#amount").attr("value", "150");
 
                     }
                     if (id == 3 && quantity == 5) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/-blogs-da30%2B5packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da30+-5pack");
                         $("#amount").attr("value", "670");
 
                     }
                     if (id == 3 && quantity == 10) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da30%2B-10packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da30+-10pack");
                         $("#amount").attr("value", "1300");
 
                     }
                     if (id == 4 && quantity == 1) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-1pack");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da40+-1pack");
                         $("#amount").attr("value", "300");
 
                     }
                     if (id == 4 && quantity == 5) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-5packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da40+-5pack");
                         $("#amount").attr("value", "1350");
 
                     }
                     if (id == 4 && quantity == 10) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/blogs-da40%2B-10packs");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-guest-post-da40+-10pack");
                         $("#amount").attr("value", "2600");
 
                     }
 
                 }
-                if (document.getElementById("citation")) {
+
+                // Amount and payment url for Zilla Local SEO/citation
+
+                if (document.getElementById("Zilla Local SEO")) {
 
                     if (id == 1 && quantity == 1 || quantity == 2 || quantity == 3 ) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-starter");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-local-starter");
                         $("#amount").attr("value", "125");
 
                     }
                     if (id == 2 && quantity == 1 || quantity == 2 || quantity == 3) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-small");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-local-small");
                         $("#amount").attr("value", "150");
 
                     }
                     if (id == 3 && quantity == 1 || quantity == 2 || quantity == 3) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-medium");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-local-medium");
                         $("#amount").attr("value", "260");
 
                     }
                     if (id == 4 && quantity == 1 || quantity == 2 || quantity == 3) {
-                        $("#url").attr("value", "https://amit-test.chargebee.com/hosted_pages/plans/zilla-local-large");
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-local-large");
                         $("#amount").attr("value", "400");
 
                     }
                 }
-                    
+
+                // Amount and payment url for zilla blogs
+
+                if (document.getElementById("zilla-blog")) {
+
+                    if (id == 1 && value == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-blogs-1-x-500-word-article");
+                        $("#amount").attr("value", "30");
+                    }
+                    if (id == 1 && value == 2) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-blogs-1-x-1000-word-article");
+                        $("#amount").attr("value", "55");
+                    }
+                    if (id == 1 && value == 3) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-1-x-1500-word-article");
+                        $("#amount").attr("value", "70");
+                    }
+                    if (id == 1 && value == 4) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-1-x-2000-word-article");
+                        $("#amount").attr("value", "100");
+                    }
+
+                    if (id == 2 && value == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-2-x-500-word-article");
+                        $("#amount").attr("value", "50");
+                    }
+                    if (id == 2 && value == 2) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-2-x-1000-word-article");
+                        $("#amount").attr("value", "100");
+                    }
+                    if (id == 2 && value == 3) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-2-x-1500-word-article");
+                        $("#amount").attr("value", "135");
+                    }
+                    if (id == 2 && value == 4) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-2-x-2000-word-article");
+                        $("#amount").attr("value", "190");
+                    }
+
+                    if (id == 3 && value == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-4-x-500-word-article");
+                        $("#amount").attr("value", "90");
+                    }
+                    if (id == 3 && value == 2) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-4-x-1000-word-article");
+                        $("#amount").attr("value", "180");
+                    }
+                    if (id == 3 && value == 3) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-4-x-1500-word-article");
+                        $("#amount").attr("value", "255");
+                    }
+                    if (id == 3 && value == 4) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-4-x-2000-word-article");
+                        $("#amount").attr("value", "360");
+                    }
+
+                    if (id == 4 && value == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-8-x-500-word-article");
+                        $("#amount").attr("value", "180");
+                    }
+                    if (id == 4 && value == 2) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-8-x-1000-word-article");
+                        $("#amount").attr("value", "360");
+                    }
+                    if (id == 4 && value == 3) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-8-x-1500-word-article");
+                        $("#amount").attr("value", "480");
+                    }
+                    if (id == 4 && value == 4) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-blogs-8-x-2000-word-article");
+                        $("#amount").attr("value", "720");
+                    }
+
+                }
+
+                // Amount and payment url for zilla link building
+
+                if (document.getElementById("zilla-link")) {
+
+                    if (id == 1 && quantity == 5) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-link-building-bronze-5pack");
+                        $("#amount").attr("value", "50");
+                    }
+                    if (id == 1 && quantity == 10) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-link-building-bronze-10pack");
+                        $("#amount").attr("value", "75");
+                    }
+
+
+                    if (id == 2 && quantity == 5) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-link-building-silver-5pack");
+                        $("#amount").attr("value", "150");
+                    }
+                    if (id == 2 && quantity == 10) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-link-building-silver-10pack");
+                        $("#amount").attr("value", "260");
+                    }
+
+
+                    if (id == 3 && quantity == 5) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-link-building-gold-5pack");
+                        $("#amount").attr("value", "200");
+                    }
+                    if (id == 3 && quantity == 10) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/-zilla-link-building-gold-10pack");
+                        $("#amount").attr("value", "375");
+                    }
+
+                }
+
+                // Amount and payment url for zilla x
+
+                if (document.getElementById("Zilla X"))
+                {
+                    if (id == 1 && quantity == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-x-750");
+                        $("#amount").attr("value", "750");
+                    }
+                    if (id == 2 && quantity == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-x-1500");
+                        $("#amount").attr("value", "1500");
+                    }
+                    if (id == 3 && quantity == 1) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-x-3000");
+                        $("#amount").attr("value", "3000");
+                    }
+                }
+
+                // Amount and payment url for zilla on page
+
+                if (document.getElementById("zilla-on-page")) {
+                    if (id == 1 && quantity == 2) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-2-pages");
+                        $("#amount").attr("value", "160");
+                    }
+                    if (id == 1 && quantity == 3) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-3-pages");
+                        $("#amount").attr("value", "240");
+                    }
+                    if (id == 1 && quantity == 4) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-4-pages");
+                        $("#amount").attr("value", "320");
+                    }
+                    if (id == 2 && quantity == 5) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-5-pages");
+                        $("#amount").attr("value", "375");
+                    }
+                    if (id == 2 && quantity == 6) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-6-pages");
+                        $("#amount").attr("value", "450");
+                    }
+                    if (id == 2 && quantity == 7) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-7-pages");
+                        $("#amount").attr("value", "525");
+                    }
+                    if (id == 2 && quantity == 8) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-8-pages");
+                        $("#amount").attr("value", "600");
+                    }
+                    if (id == 2 && quantity == 9) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-9-pages");
+                        $("#amount").attr("value", "675");
+                    }
+                    if (id == 3 && quantity == 10) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-10-pages");
+                        $("#amount").attr("value", "700");
+                    }
+                    if (id == 3 && quantity == 11) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-11-pages");
+                        $("#amount").attr("value", "770");
+                    }
+                    if (id == 3 && quantity == 12) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-12-pages");
+                        $("#amount").attr("value", "840");
+                    }
+                    if (id == 3 && quantity == 13) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-13-pages");
+                        $("#amount").attr("value", "910");
+                    }
+                    if (id == 3 && quantity == 14) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-14-pages");
+                        $("#amount").attr("value", "980");
+                    }
+                    if (id == 3 && quantity == 15) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-15-pages");
+                        $("#amount").attr("value", "1050");
+                    }
+                    if (id == 3 && quantity == 16) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-16-pages");
+                        $("#amount").attr("value", "1120");
+                    }
+                    if (id == 3 && quantity == 17) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-17-pages");
+                        $("#amount").attr("value", "1190");
+                    }
+                    if (id == 3 && quantity == 18) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-18-pages");
+                        $("#amount").attr("value", "1260");
+                    }
+                    if (id == 3 && quantity == 19) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-19-pages");
+                        $("#amount").attr("value", "1330");
+                    }
+                    if (id == 4 && quantity == 20) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-20-pages");
+                        $("#amount").attr("value", "1300");
+                    }
+                    if (id == 4 && quantity == 21) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-21-pages");
+                        $("#amount").attr("value", "1365");
+                    }
+                    if (id == 4 && quantity == 22) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-22-pages");
+                        $("#amount").attr("value", "1430");
+                    }
+                    if (id == 4 && quantity == 23) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-23-pages");
+                        $("#amount").attr("value", "1495");
+                    }
+                    if (id == 4 && quantity == 24) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-24-pages");
+                        $("#amount").attr("value", "1560");
+                    }
+                    if (id == 4 && quantity == 25) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-25-pages");
+                        $("#amount").attr("value", "1625");
+                    }
+                    if (id == 4 && quantity == 26) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-26-pages");
+                        $("#amount").attr("value", "1690");
+                    }
+                    if (id == 4 && quantity == 27) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-27-pages");
+                        $("#amount").attr("value", "1755");
+                    }
+                    if (id == 4 && quantity == 28) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-28-pages");
+                        $("#amount").attr("value", "1820");
+                    }
+                    if (id == 4 && quantity == 29) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-29-pages");
+                        $("#amount").attr("value", "1885");
+                    }
+                    if (id == 4 && quantity == 30) {
+                        $("#url").attr("value", "https://seozilla.chargebee.com/hosted_pages/plans/zilla-on-page-30-pages");
+                        $("#amount").attr("value", "1950");
+                    }
+                }
+                
                         var amount_add = $("#amount").val();
 
                         var Cost = $("#oldCost-" + id).text();

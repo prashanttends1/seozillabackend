@@ -1,0 +1,366 @@
+﻿@model seozillabackend.Models.zillalinkbuilding
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_layout_without_sidebar.cshtml";
+}
+
+<div class="content-page content-page-new" id="zilla-link">
+    <div class="content">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <ol class="breadcrumb breadcrumb2">
+                        <li><a href="~/orders/Add_new">Services</a></li>
+                        <li class="active">Zilla Link Building</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="pannel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="place-order" style="margin-bottom:50px;">
+
+                                    <span class="badge step-indicator">2</span> Zilla Link Building
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Sub Total:</strong>  <span>GBP <i class="fa fa-gbp"></i><span class="totalcost">0.00</span> </span>/<span> Approx USD <strong>$</strong><span class="totalcost_usd">0</span></span><br>
+                                <span>Estimated Completion:</span><span class="approx_days"></span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Choose your quantity (Press Enter)</label><br /><br />
+                                <div class="form-group">
+
+                                    <div id="package-quantity-1" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="1" checked />
+                                            <label for="radio03">Bronze</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select1" data-package-id="1" name="packages[1]" class=" form-control package-qty">
+                                            <option value="0"></option>
+                                            <option value="5">5 Pack</option>
+                                            <option value="10">10 Pack</option>
+                                     </select>
+
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-1"><i class="fa fa-gbp"></i>50</span>
+                                            <span class="hide" id="newCost-1">0</span>
+                                            starting &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b>Bronze</b> <br />
+                                                    5 Pack £50 <br />
+                                                    5 Pack £75 <br />
+                                                    
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-2" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="2" />
+                                            <label for="radio03">Silver</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select2" data-package-id="2" name="packages[2]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="5">5 Pack</option>
+                                            <option value="10">10 Pack</option>
+                                            
+
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-2"><i class="fa fa-gbp"></i>150</span>
+                                            <span class="hide" id="newCost-2">0</span>
+                                            starting &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b>Silver</b><br />
+                                                    5 Pack £150 <br />
+                                                    10 Pack £260 <br />
+                                                  
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div id="package-quantity-3" class="form-group">
+                                        <div class="radio radio-custom">
+                                            <input type="radio" name="radio-button" value="3" />
+                                            <label for="radio03">Gold</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="input-group m-t-10">
+                                        <select id="select3" data-package-id="3" name="packages[3]" class=" form-control package-qty" disabled>
+                                            <option value="0"></option>
+                                            <option value="5">5 Pack</option>
+                                            <option value="10">10 Pack</option>
+                                           
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span id="oldCost-3"><i class="fa fa-gbp"></i>200</span>
+                                            <span class="hide" id="newCost-3">0</span>
+                                            starting &nbsp;
+                                            <i class="fa fa-question-circle tooltip">
+                                                <span class="tooltiptext">
+                                                    <b>Gold</b> <br />
+                                                    5 Pack £200<br />
+                                                    10 Pack £375<br />
+                                                  
+                                                </span>
+                                            </i>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                        
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <!--<div class="btn">
+                                    <span><button class="btn btn-link">Larger order? Try the spreadsheet view:</button> </span><button class="btn btn-icon waves-effect btn-default m-b-5"> <i class="fa fa-table"></i> </button>
+                                </div>-->
+                                <br /><br /><br />
+                                <div class="box">
+                                    <ul>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>Request revision for up to 10 days after completed project</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>Content is original and passes Copyscape duplication</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>All content is written by our UK and US writers</li>
+                                        <li class="style"><i class="fa fa-check" aria-hidden="true"></i>For best results provide clear project briefs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-------package data ---->
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div id="package-data">
+                                <div id="package-data-1" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class=" panel-title panel-title2">Bronze</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-2" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title panel-title2">Silver</h4>
+                                    </div>
+
+                                </div>
+                                <div id="package-data-3" class="hidden package-container">
+                                    <div class="panel-sub-heading">
+                                        <h4 class="panel-title panel-title2">Gold</h4>
+                                    </div>
+
+                                </div>
+                           
+                            </div>
+
+                        <!------------------------>
+                            <div class="row hidden">
+                                <div class="pannel-body">
+                                    <div class="col-md-12">
+                                        <label>Optional Order Comments (Please note: special order requests are not guaranteed)</label><br />
+                                        <textarea maxlength="500" name="notes[20]" rows="3" id="notes" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div><br /><br />
+
+                            <input type="hidden" id="url" name="url" />
+
+
+                            <input type="hidden" id="amount" name="amount" />
+
+
+
+                            <div class="row">
+
+
+                                <div class="col-xs-6">
+                                    <a href="~/orders/Add_new" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="margin-top:25px">Back</a>
+
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="submit" value="Create" class="btn btn-primary waves-effect w-md waves-light m-b-5 next_btn" style="margin-top:25px">Next</button>
+
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- container -->
+</div>
+<script>
+    var pack = '<div class="form-group-row"><div class="col-md-12"><hr class="hr-new"></div><input class="hidden" id="link-plan" type="text" /><div class="col-md-4"><label class="label-field">URL 1</label><div class="input-group"><input  id="url1" type="url" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please provide us first page url">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">URL 2</label><div class="input-group"><input  id="url2" type="url" data-field-type="text" class="form-control" data-field="2" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please provide us second page url">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">URL 3</label><div class="input-group"><input  id="url3" type="url" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please provide us third page url">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keyword 1</label><div class="input-group"><input  id="keyword1a" type="text" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please enter first keyword">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keyword 2</label><div class="input-group"><input  id="keyword1b" type="text" data-field-type="text" class="form-control" data-field="2" data-row="0" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please enter second keyword">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keyword 3</label><div class="input-group"><input  id="keyword2a" type="text" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please enter third keyword">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keyword 4</label><div class="input-group"><input  id="keyword2b" type="text" data-field-type="text" class="form-control"  value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please enter foruth keyword">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keyword 5</label><div class="input-group"><input  id="keyword3a" type="text" class="form-control" value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please enter fifth keyword">Tip</a></div></div></div><div class="col-md-4"><label class="label-field">Keyword 6</label><div class="input-group"><input  id="keyword3b" type="text" data-field-type="text" class="form-control"  value="" required="true"><div class="input-group-addon"><a class="label label-primary" title="Please enter fifth keyword">Tip</a></div></div></div>   <div class="col-md-12"><label class="label-field">Cloud URL</label><div class="input-group"><input  id="cloud-url" type="url" class="form-control" value="" required="true"></input><div class="input-group-addon"><a class="label label-primary" title="Please provide us the cloud url">Tip</a></div></div></div></div> ';
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>zillalinkbuilding</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.url1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url1)
+                @Html.ValidationMessageFor(model => model.url1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url2)
+                @Html.ValidationMessageFor(model => model.url2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url3)
+                @Html.ValidationMessageFor(model => model.url3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword1a, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword1a)
+                @Html.ValidationMessageFor(model => model.Keyword1a)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword1b, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword1b)
+                @Html.ValidationMessageFor(model => model.Keyword1b)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword2a, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword2a)
+                @Html.ValidationMessageFor(model => model.Keyword2a)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword2b, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword2b)
+                @Html.ValidationMessageFor(model => model.Keyword2b)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword3a, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword3a)
+                @Html.ValidationMessageFor(model => model.Keyword3a)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword3b, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword3b)
+                @Html.ValidationMessageFor(model => model.Keyword3b)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cloudurl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cloudurl)
+                @Html.ValidationMessageFor(model => model.cloudurl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

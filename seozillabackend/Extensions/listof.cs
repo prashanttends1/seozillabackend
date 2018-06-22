@@ -305,6 +305,8 @@ namespace seozillabackend.Extensions
                 new SelectListItem(){ Text="Task In Progress", Value="task_in_progress"},
                 new SelectListItem(){ Text="Task Completed", Value="task_completed"},
                 new SelectListItem(){ Text="Cancelled", Value="cancelled"},
+                new SelectListItem(){ Text="Cancelled*", Value="cancelled_after_payment"},
+                new SelectListItem(){ Text="Refund Initiated", Value="refund_initiated"},
                 new SelectListItem(){ Text="Archived", Value="archived"}
         };
 

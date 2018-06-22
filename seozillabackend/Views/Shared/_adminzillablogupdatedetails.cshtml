@@ -1,0 +1,22 @@
+﻿@model seozillabackend.Models.zillablog
+
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.document_url, htmlAttributes: new { @class = "control-label col-md-2 " })
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
+            @Html.TextBoxFor(model => model.document_url, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.document_url)
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

@@ -39,7 +39,7 @@
                                             @Html.LabelFor(model => model.daordered, htmlAttributes: new { @class = "control-label col-md-2 " })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.TextBoxFor(model => model.daordered, new { @class="form-control" })
+                                                @Html.HiddenFor(model => model.daordered, new { @class="form-control" })
                                                 @Html.ValidationMessageFor(model => model.daordered)
                                             </div>
                                         </div>
@@ -50,7 +50,7 @@
                                             @Html.LabelFor(model => model.wordcount, htmlAttributes: new { @class = "control-label col-md-2 " })
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-briefcase"></i></div>
-                                                @Html.TextBoxFor(model => model.wordcount, new { @class="form-control"})
+                                                @Html.HiddenFor(model => model.wordcount, new { @class="form-control"})
                                                 @Html.ValidationMessageFor(model => model.wordcount)
                                             </div>
                                         </div>
